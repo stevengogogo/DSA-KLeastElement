@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extm_1',['extm',['../structextm.html',1,'']]]
+  ['k_2dleast_20element_1',['K-least element',['../index.html',1,'']]]
 ];

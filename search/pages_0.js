@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cprojecttemplate_7',['CProjectTemplate',['../index.html',1,'']]]
+  ['k_2dleast_20element_7',['K-least element',['../index.html',1,'']]]
 ];

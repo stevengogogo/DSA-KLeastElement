@@ -65,14 +65,91 @@ $(function() {
 <div class="title">K-least element </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Iinked Array</h1>
+<p><img src="img/linkedarray.png" alt="" class="inline"/></p>
+<ul>
+<li>分為<ol type="1">
+<li>排好先後的數列 (indexed)</li>
+<li>sorted 的數列 (ordered)</li>
+</ol>
+</li>
+<li>每個 <a href="https://en.wikipedia.org/wiki/Unrolled_linked_list">Unrolled linked list</a> 的參數<ul>
+<li><code>flag</code>:<ul>
+<li><code>0</code>: 從 <code>0 -&gt; N-1</code></li>
+<li><code>1</code>: 從 <code>N-1 -&gt; 0</code></li>
+</ul>
+</li>
+<li><code>length</code>:<ul>
+<li>array 中的資料量 (&lt;<code>subN</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Insert</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Insertion with unordered / sufficient space</h2>
+<p><img src="img/insert.png" alt="" class="inline"/></p>
+<ul>
+<li>Procedures<ul>
+<li>Find subarray</li>
+<li>Find the i th element</li>
+<li>Insert value into indexed array</li>
+<li>Append value into unsorted array</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Insertion with Ordered / sufficient space</h2>
+<p><img src="img/insert_ordered_sufficient_space.png" alt="" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Insertion with Orderd / insufficient space</h2>
+<p><img src="img/insert_ordered_insufficient_space.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Deletion</h1>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Deletion with remaining data</h1>
+<p><img src="img/deletion.png" alt="" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Deletion with garbage collection</h2>
+<p><img src="img/deletion_gc.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Reverse</h1>
+<p><img src="img/Reverse.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Query</h1>
+<p><img src="img/query.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Binary Search Algorithm</h1>
+<div class="fragment"><div class="line">function binary_search(A, n, T) is</div>
+<div class="line">    L := 0</div>
+<div class="line">    R := n − 1</div>
+<div class="line">    while L ≤ R do</div>
+<div class="line">        m := floor((L + R) / 2)</div>
+<div class="line">        if A[m] &lt; T then</div>
+<div class="line">            L := m + 1</div>
+<div class="line">        else if A[m] &gt; T then</div>
+<div class="line">            R := m − 1</div>
+<div class="line">        else:</div>
+<div class="line">            return m</div>
+<div class="line">    return unsuccessful</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
+Query</h1>
+<h1><a class="anchor" id="autotoc_md13"></a>
+Copy an array</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> *memcpy(<span class="keywordtype">void</span> *dest, <span class="keyword">const</span> <span class="keywordtype">void</span> *src, <span class="keywordtype">size_t</span> n);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
+Find i th element</h1>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Unrolled linked list</h2>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Skip List</h2>
 <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Skip-List-1.jpg" alt="skip list" class="inline"/></p>
 <p>Ref: <a href="https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/">GreekforGeek</a></p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Reverse Linked list</h1>
 <ul>
 <li>Ref<ul>
@@ -81,11 +158,11 @@ Reverse Linked list</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Binary search algorithm when finding the k-least element</h1>
 <p><a href="https://www.geeksforgeeks.org/kth-smallest-element-in-a-subarray/">https://www.geeksforgeeks.org/kth-smallest-element-in-a-subarray/</a></p>
 <hr  />
- <h1><a class="anchor" id="autotoc_md6"></a>
+ <h1><a class="anchor" id="autotoc_md20"></a>
 References</h1>
 <ol type="1">
 <li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/">https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/</a> <img src="https://leetcode.com/problems/kth-smallest-element-in-a-bst/Figures/230/bfs_dfs.png" alt="" class="inline"/> </li>

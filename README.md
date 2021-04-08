@@ -1,5 +1,99 @@
 # K-least element
 
+
+## Iinked Array
+
+![](img/linkedarray.png)
+
+- 分為
+  1. 排好先後的數列 (indexed) 
+  2. sorted 的數列 (ordered)
+- 每個 [Unrolled linked list](https://en.wikipedia.org/wiki/Unrolled_linked_list) 的參數
+  - `flag`: 
+    - `0`: 從 `0 -> N-1`
+    - `1`: 從 `N-1 -> 0`
+  - `length`:
+    - array 中的資料量 (<`subN`)
+
+
+## Insert
+
+### Insertion with unordered / sufficient space
+
+![](img/insert.png)
+
+
+
+- Procedures
+  - Find subarray
+  - Find the i th element
+  - Insert value into indexed array
+  - Append value into unsorted array
+
+
+
+### Insertion with Ordered / sufficient space
+
+![](img/insert_ordered_sufficient_space.png)
+
+
+### Insertion with Orderd / insufficient space
+
+
+![](img/insert_ordered_insufficient_space.png)
+
+
+## Deletion
+
+## Deletion with remaining data
+
+![](img/deletion.png)
+
+
+### Deletion with garbage collection
+
+![](img/deletion_gc.png)
+
+
+## Reverse
+
+![](img/Reverse.png)
+
+
+## Query
+
+![](img/query.png)
+
+## Binary Search Algorithm
+```julia
+function binary_search(A, n, T) is
+    L := 0
+    R := n − 1
+    while L ≤ R do
+        m := floor((L + R) / 2)
+        if A[m] < T then
+            L := m + 1
+        else if A[m] > T then
+            R := m − 1
+        else:
+            return m
+    return unsuccessful
+```
+
+## Query
+
+## Copy an array
+
+
+```c
+void *memcpy(void *dest, const void *src, size_t n);
+```
+
+
+## Find i th element
+
+
+
 ### Unrolled linked list
 
 

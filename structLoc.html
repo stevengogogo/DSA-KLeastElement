@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project Template: loc Struct Reference</title>
+<title>C Project Template: Loc Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,34 +63,53 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structloc-members.html">List of all members</a>  </div>
+<a href="structLoc-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">loc Struct Reference</div>  </div>
+<div class="title">Loc Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Position in linked array.  
+ <a href="structLoc.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="linkedarray_8h_source.html">linkedarray.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for loc:</div>
+Collaboration diagram for Loc:</div>
 <div class="dyncontent">
-<div class="center"><img src="structloc__coll__graph.png" border="0" usemap="#aloc_coll__map" alt="Collaboration graph"/></div>
-<map name="aloc_coll__map" id="aloc_coll__map">
-<area shape="rect" title=" " alt="" coords="11,95,50,121"/>
+<div class="center"><img src="structLoc__coll__graph.png" border="0" usemap="#aLoc_coll__map" alt="Collaboration graph"/></div>
+<map name="aLoc_coll__map" id="aLoc_coll__map">
+<area shape="rect" title="Position in linked array." alt="" coords="9,95,53,121"/>
 <area shape="rect" href="structnode.html" title=" " alt="" coords="5,5,56,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae95ae3e216c430895c39da74107dd832"><td class="memItemLeft" align="right" valign="top"><a id="ae95ae3e216c430895c39da74107dd832"></a>
+<tr class="memitem:abe0888c8f503dc360fe67b1fd1e49237"><td class="memItemLeft" align="right" valign="top"><a id="abe0888c8f503dc360fe67b1fd1e49237"></a>
 <a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>node</b></td></tr>
-<tr class="separator:ae95ae3e216c430895c39da74107dd832"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8620d79aa0bbdef2be027a1463842dd0"><td class="memItemLeft" align="right" valign="top"><a id="a8620d79aa0bbdef2be027a1463842dd0"></a>
+<tr class="separator:abe0888c8f503dc360fe67b1fd1e49237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73f076d34a414eaefd8113fa9c883604"><td class="memItemLeft" align="right" valign="top"><a id="a73f076d34a414eaefd8113fa9c883604"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>i</b></td></tr>
-<tr class="separator:a8620d79aa0bbdef2be027a1463842dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9205114a1caa90510946a472751e00d3"><td class="memItemLeft" align="right" valign="top"><a id="a9205114a1caa90510946a472751e00d3"></a>
+<tr class="separator:a73f076d34a414eaefd8113fa9c883604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcc5217c218592f7fdb157b36670565"><td class="memItemLeft" align="right" valign="top"><a id="aadcc5217c218592f7fdb157b36670565"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>isEnd</b></td></tr>
-<tr class="separator:a9205114a1caa90510946a472751e00d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aadcc5217c218592f7fdb157b36670565"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Position in linked array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>the array contains the ith member </td></tr>
+    <tr><td class="paramname">i</td><td>index in node.array[i] </td></tr>
+    <tr><td class="paramname">isEnd</td><td>is i-1 the end of the sequence?<ul>
+<li>0 means node.array[i] is the ith position</li>
+<li>1 means node.array[i] is the (i-1)th position </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="linkedarray_8h_source.html">linkedarray.h</a></li>
 </ul>
 </div><!-- contents -->

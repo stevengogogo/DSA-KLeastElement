@@ -79,16 +79,18 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for linkedarray.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="linkedarray_8h__incl.png" border="0" usemap="#asrc_2linkedarray_8h" alt=""/></div>
 <map name="asrc_2linkedarray_8h" id="asrc_2linkedarray_8h">
-<area shape="rect" title="Unrolled linked list for finding K&#45;least element." alt="" coords="63,5,179,32"/>
+<area shape="rect" title="Unrolled linked list for finding K&#45;least element." alt="" coords="107,5,223,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,65,107"/>
 <area shape="rect" title=" " alt="" coords="89,80,152,107"/>
-<area shape="rect" href="utils_8h.html" title="General Utilities for C language." alt="" coords="177,80,233,107"/>
+<area shape="rect" title=" " alt="" coords="176,80,244,107"/>
+<area shape="rect" href="utils_8h.html" title="General Utilities for C language." alt="" coords="269,80,325,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -107,7 +109,8 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html">node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structloc.html">loc</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLoc.html">Loc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position in linked array.  <a href="structLoc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -130,9 +133,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kill_list</b> (<a cla
 <tr class="separator:ae870640189abbac3319e1a5b480137db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad28f54d3afb32efa9887077f3f10bec1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *, int i, int x)</td></tr>
 <tr class="separator:ad28f54d3afb32efa9887077f3f10bec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb462ad1b5028b0325f1a7061b83e81"><td class="memItemLeft" align="right" valign="top"><a id="acbb462ad1b5028b0325f1a7061b83e81"></a>
-<a class="el" href="structloc.html">loc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>find_ith</b> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int i)</td></tr>
-<tr class="separator:acbb462ad1b5028b0325f1a7061b83e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494820db8b541be04d62af798381a183"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a494820db8b541be04d62af798381a183">find_ith</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int i)</td></tr>
+<tr class="separator:a494820db8b541be04d62af798381a183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unrolled linked list for finding K-least element. </p>
@@ -170,6 +172,37 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kill_list</b> (<a cla
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a494820db8b541be04d62af798381a183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494820db8b541be04d62af798381a183">&#9670;&nbsp;</a></span>find_ith()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLoc.html">Loc</a> find_ith </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Find the position in linked array </li>
+</ul>
+
+</div>
+</div>
 <a id="aa109308c19d3c05dae128de66c21affc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa109308c19d3c05dae128de66c21affc">&#9670;&nbsp;</a></span>init_list_empty()</h2>
 

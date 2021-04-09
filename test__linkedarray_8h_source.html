@@ -98,13 +98,13 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//Find</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="structLoc.html">Loc</a> loc;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1; i&lt;=len;i++){</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        loc = <a class="code" href="linkedarray_8h.html#a494820db8b541be04d62af798381a183">find_ith</a>(list,i);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        loc = <a class="code" href="linkedarray_8h.html#a0b1aaa8815d1669a626d45981c948756">find_LnkArr_ith</a>(list,i);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        TEST_ASSERT((loc.i+1) == i);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        TEST_ASSERT((loc.isEnd) == 0);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// New site</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    loc = <a class="code" href="linkedarray_8h.html#a494820db8b541be04d62af798381a183">find_ith</a>(list, len+1);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    loc = <a class="code" href="linkedarray_8h.html#a0b1aaa8815d1669a626d45981c948756">find_LnkArr_ith</a>(list, len+1);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    TEST_ASSERT((loc.i) == len);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    TEST_ASSERT(loc.isEnd == 1);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
@@ -112,7 +112,7 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
-<div class="ttc" id="alinkedarray_8h_html_a494820db8b541be04d62af798381a183"><div class="ttname"><a href="linkedarray_8h.html#a494820db8b541be04d62af798381a183">find_ith</a></div><div class="ttdeci">Loc find_ith(LnkArr *list, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:33</div></div>
+<div class="ttc" id="alinkedarray_8h_html_a0b1aaa8815d1669a626d45981c948756"><div class="ttname"><a href="linkedarray_8h.html#a0b1aaa8815d1669a626d45981c948756">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *list, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:44</div></div>
 <div class="ttc" id="alinkedarray_8h_html_aa109308c19d3c05dae128de66c21affc"><div class="ttname"><a href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a></div><div class="ttdeci">LnkArr * init_list_empty(void)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:5</div></div>
 <div class="ttc" id="astructLoc_html"><div class="ttname"><a href="structLoc.html">Loc</a></div><div class="ttdoc">Position in linked array.</div><div class="ttdef"><b>Definition:</b> linkedarray.h:48</div></div>
 <div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> linkedarray.h:31</div></div>

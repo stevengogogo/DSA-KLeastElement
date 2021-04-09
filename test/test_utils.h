@@ -6,12 +6,16 @@
 
 void test_utils(void)
 {
-    int a, b;
-    a = 1; b= 2;
-    extm m = max(&a,&b);
-    extm MIN = min(&a, &b);
-    TEST_CHECK(m.extreme  == b );
-    TEST_CHECK(MIN.extreme == a);
+    int arr[] = {1,3,61,-232,23,1,0};
+    int arr_sorted[] = {-232,0,1,1,3,23,61};
+    int len = 7;
+
+    quicksort(arr, 0, len-1);
+    
+    
+    for(int i=0;i<len;i++){
+        TEST_ASSERT(arr[i] == arr_sorted[i] );
+    }
 }
 
 

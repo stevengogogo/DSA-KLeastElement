@@ -120,6 +120,13 @@ Ref: [GreekforGeek](https://www.geeksforgeeks.org/skip-list-set-3-searching-dele
 https://www.geeksforgeeks.org/kth-smallest-element-in-a-subarray/
 
 
+## Quick Sort 
+
+
+
+Ref: Quick sort in C. [[link](https://openhome.cc/Gossip/AlgorithmGossip/QuickSort3.htm)]
+
+
 ---
 ## References
 1. https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/

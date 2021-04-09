@@ -1,49 +1,31 @@
 #include "utils.h"
 
-//Choose the bigger one
-extm max(int* a, int* b)
-{
-    int big, arg;
-    if (*a > *b)
-    {
-        big = *a; arg=0;
-    }
-    else if (*a<*b)
-    {
-         big = *b; arg=1;
-    }
-    else 
-    {
-        big = *a; arg=0;
-    }
 
-    extm val = {big, arg};
-
-    return val;
+void quicksort(int arr[], int left, int right){
+    if (left< right){
+        int q = partition(arr, left, right);
+        quicksort(arr, left, q-1);
+        quicksort(arr, q+1, right);
+    }
 }
 
-extm min(int* a, int* b)
-{
-    extm val_max = max(a, b);
-
-    int extreme;
-    int arg;
-    if (val_max.arg == 0) {
-        extreme = *b;
-        arg = 1;
+int partition(int arr[], int left, int right){
+    int i = left-1;
+    int j;
+    for(j=left; j < right; j++){
+        if(arr[j] <= arr[right]){
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
     }
-    else {
-        extreme = *a;
-        arg = 0;
-    }
- 
 
-    extm val_min = {
-       extreme,
-       arg
-    };
+    swap(&arr[i+1], &arr[right]);
 
-
-    return val_min;
+    return i+1;
 }
 
+void swap(int* x, int* y){
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}

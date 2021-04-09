@@ -27,10 +27,21 @@ int insert(LnkArr* list, int i, int x){
     int num_st=0; // Start i at arr[0]
     LnkArr* curNode = list;
 
-    Loc node = find_ith(list, i);
+    Loc iloc = find_LnkArr_ith(list, i);
+
+    if (iloc.node->len < subN){ // Sufficient space for insertion
+        insert_array(iloc, x);
+    }
+
+    // ToDo: insufficient space / sorting
 }
 
-Loc find_ith(LnkArr* list, int i){
+void insert_array(Loc iloc, int x){
+    int flag = iloc.node->flag;
+    int arr = iloc.node->arrInx;
+}
+
+Loc find_LnkArr_ith(LnkArr* list, int i){
     int num_st = 0;
     Loc posI;
     // Location Info

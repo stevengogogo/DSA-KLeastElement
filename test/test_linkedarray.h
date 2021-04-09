@@ -27,13 +27,13 @@ void test_find(void){
     //Find
     Loc loc;
     for(int i=1; i<=len;i++){
-        loc = find_ith(list,i);
+        loc = find_LnkArr_ith(list,i);
         TEST_ASSERT((loc.i+1) == i);
         TEST_ASSERT((loc.isEnd) == 0);
     }
 
     // New site
-    loc = find_ith(list, len+1);
+    loc = find_LnkArr_ith(list, len+1);
     TEST_ASSERT((loc.i) == len);
     TEST_ASSERT(loc.isEnd == 1);
 }

@@ -12,8 +12,8 @@
 #ifndef LINKEDARRAY_H
 #define LINKEDARRAY_H
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "utils.h"
 
 #define subN 100

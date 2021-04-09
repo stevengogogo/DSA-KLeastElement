@@ -36,6 +36,7 @@ int insert(LnkArr* list, int i, int x){
 void insert_array(Loc iloc, int x){
     int flag = iloc.node->flag;
     int arr = iloc.node->arrInx;
+    //ToDo
 }
 
 Loc find_LnkArr_ith(LnkArr* list, int i){

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_10',['node',['../structnode.html',1,'']]]
+  ['loc_11',['loc',['../structloc.html',1,'']]]
 ];

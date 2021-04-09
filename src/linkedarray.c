@@ -23,9 +23,6 @@ void kill_list(LnkArr* list){
 }
 
 int insert(LnkArr* list, int i, int x){
-    int i_arr;
-    int num_st=0; // Start i at arr[0]
-    LnkArr* curNode = list;
 
     Loc iloc = find_LnkArr_ith(list, i);
 

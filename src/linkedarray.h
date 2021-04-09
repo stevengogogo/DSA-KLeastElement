@@ -36,6 +36,12 @@ typedef struct node{
     struct node* nextNode;
 } LnkArr;
 
+typedef struct {
+    LnkArr* node;
+    int i;
+    int isEnd;
+} loc;
+
 
 /** * Initiate empty linked array */
 LnkArr* init_list_empty(void);
@@ -46,6 +52,6 @@ void kill_list(LnkArr*);
 */
 int insert(LnkArr*, int i, int x);
 
-
+loc find_ith(LnkArr* list, int i);
 
 #endif

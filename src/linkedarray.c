@@ -27,10 +27,11 @@ int insert(LnkArr* list, int i, int x){
     int num_st=0; // Start i at arr[0]
     LnkArr* curNode = list;
 
-    //Find Node 
+    //Find the location of ith
     while(curNode->nextNode != NULL){
         
-        if ((num_st + curNode->len) > i){
+        if ((num_st + curNode->len) >= i){ //find the ith locates in curNode
+            i_arr = i - num_st - 1; // index in curNode.array
             break;
         }
 

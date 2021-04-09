@@ -1,24 +1,30 @@
 var indexSectionsWithContent =
 {
-  0: "kpqsu",
-  1: "u",
-  2: "pqs",
-  3: "k"
+  0: "iklnpqsu",
+  1: "n",
+  2: "lu",
+  3: "ipqs",
+  4: "l",
+  5: "k"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "pages"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "typedefs",
+  5: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Files",
-  2: "Functions",
-  3: "Pages"
+  1: "Classes",
+  2: "Files",
+  3: "Functions",
+  4: "Typedefs",
+  5: "Pages"
 };
 

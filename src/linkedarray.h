@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "utils.h"
 
 #define subN 100
@@ -36,11 +37,19 @@ typedef struct node{
     struct node* nextNode;
 } LnkArr;
 
+/**
+ * @brief Position in linked array
+ * @param node the array contains the ith member
+ * @param i index in node.array[i]
+ * @param isEnd is i-1 the end of the sequence? 
+ *              - 0 means node.array[i] is the ith position
+ *              - 1 means node.array[i] is the (i-1)th position
+ */
 typedef struct {
     LnkArr* node;
     int i;
     int isEnd;
-} loc;
+} Loc;
 
 
 /** * Initiate empty linked array */
@@ -52,6 +61,8 @@ void kill_list(LnkArr*);
 */
 int insert(LnkArr*, int i, int x);
 
-loc find_ith(LnkArr* list, int i);
+/** * Find the position in linked array
+ */
+Loc find_ith(LnkArr* list, int i);
 
 #endif

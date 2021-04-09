@@ -27,21 +27,45 @@ int insert(LnkArr* list, int i, int x){
     int num_st=0; // Start i at arr[0]
     LnkArr* curNode = list;
 
-    //Find the location of ith
-    while(curNode->nextNode != NULL){
-        
-        if ((num_st + curNode->len) >= i){ //find the ith locates in curNode
-            i_arr = i - num_st - 1; // index in curNode.array
+    Loc node = find_ith(list, i);
+}
+
+Loc find_ith(LnkArr* list, int i){
+    int num_st = 0;
+    Loc posI;
+    // Location Info
+    int i_arr; 
+    int isEnd;
+    LnkArr* node = list;
+
+    if (i==1){  
+        posI.node = node;
+        posI.i = 0;
+        posI.isEnd = 0; // there is no i-1 for i=1
+        return posI;
+    }
+
+    while (1){
+        if ((num_st + node->len) >= i){ // find ith location
+            i_arr = i - num_st - 1;
+            isEnd = 0;
             break;
         }
-
         else{
-            num_st += curNode->len;
-            curNode = curNode->nextNode;
+            if (node->nextNode == NULL){ // end of list
+                i_arr = node->len; // last element. 
+                assert( (node->len + num_st) == (i - 1)); // i is at end
+                isEnd = 1; // (i-1) th element
+                break;
+            }
+            num_st += node->len;
+            node = node->nextNode;
         }
     }
 
-     
-    curNode->nextNode == NULL;
-    //ToDo
+    posI.node=node;
+    posI.i = i_arr;
+    posI.isEnd = isEnd;
+
+    return posI;
 }

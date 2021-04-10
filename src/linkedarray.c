@@ -22,6 +22,21 @@ void kill_list(LnkArr* list){
     }
 }
 
+int delete(LnkArr* list, int i){
+    Loc iloc = find_LnkArr_ith(list, i);
+    int isRemoved = 0;
+    assert(iloc.isEnd == 0);
+    
+    if(iloc.node->len > 1){
+        
+    }
+    else{
+        
+        ++isRemoved;
+    }
+    return isRemoved;
+}
+
 int insert(LnkArr* list, int i, int x){
     int isSplit = 0;
     Loc iloc = find_LnkArr_ith(list, i);

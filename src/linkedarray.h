@@ -60,11 +60,11 @@ typedef struct {
 LnkArr* init_list_empty(void);
 void kill_list(LnkArr*);
 
+
 /** * Insert x at ith position. i starts at 1
  * @return 1 create new node, 0
 */
 int insert(LnkArr*, int i, int x);
-
 
 void insertLArray(Loc nodeLoc, int x);
 

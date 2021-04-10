@@ -48,6 +48,12 @@ void append_arr(int arr[], int x, int length){
     insert_arr(arr, length-1, x, length);
 }
 
+void remove_arr(int arr[], int i, int length){
+    for(int j=i; j<length-1;j++){
+        arr[j] = arr[j+1];
+    }
+}
+
 int compare_array(int A[], int B[], int length){
     for (int i=0;i<length;i++){
         if(A[i] != B[i])

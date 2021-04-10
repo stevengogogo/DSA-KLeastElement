@@ -111,4 +111,22 @@ void test_binary_search2(void){
     }
 }
 
+void test_remove_arr(void){
+    int arr[]={-100,-100,-12,0,1,1,2,2,3,3,3,3,4,5,6,7,7,8,12,11};
+    int len = sizeof(arr)/sizeof(arr[0]);
+
+    remove_arr(arr, 0, len);
+    --len;
+    remove_arr(arr, 0, len);
+    --len;
+    remove_arr(arr, len-1, len);
+    --len;
+
+    TEST_CHECK(arr[0] == -12);
+    TEST_MSG("Got: %d", arr[0]);
+
+    TEST_CHECK(arr[len-1] == 12);
+    TEST_MSG("Got: %d", arr[len-1]);
+}
+
 #endif

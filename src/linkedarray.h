@@ -47,6 +47,8 @@ typedef struct node{
  */
 typedef struct {
     LnkArr* node;
+    LnkArr* nodePrev;
+    LnkArr* nodeNext;
     int i;
     int isEnd;
 } Loc;

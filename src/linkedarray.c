@@ -35,7 +35,7 @@ int insert(LnkArr* list, int i, int x){
 
 void insert_array(Loc iloc, int x){
     int flag = iloc.node->flag;
-    int arr = iloc.node->arrInx;
+    int* arr = iloc.node->arrInx;
     //ToDo
 }
 
@@ -47,8 +47,11 @@ Loc find_LnkArr_ith(LnkArr* list, int i){
     int isEnd;
     LnkArr* node = list;
 
+    posI.nodePrev = NULL; // No previous array at start
+
     if (i==1){  
         posI.node = node;
+        posI.nodeNext = node->nextNode;
         posI.i = 0;
         posI.isEnd = 0; // there is no i-1 for i=1
         return posI;
@@ -68,11 +71,15 @@ Loc find_LnkArr_ith(LnkArr* list, int i){
                 break;
             }
             num_st += node->len;
+
+            // Move to next node
+            posI.nodePrev = node;
             node = node->nextNode;
         }
     }
 
     posI.node=node;
+    posI.nodeNext = node->nextNode;
     posI.i = i_arr;
     posI.isEnd = isEnd;
 

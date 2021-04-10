@@ -138,23 +138,24 @@ void remove_LArray(Loc nodeLoc){
     int i_ = get_i2read(nodeLoc.i, flag, node->len);
     int i_sorted;
     int varMov = node->arrInx[i_]; 
+    int* arrSort = node->arrSort;
 
     //Remove indexed array
     remove_arr(node->arrInx, i_, node->len);
 
     //Remove sorted array
     if (node->isSorted){
-        i_sorted = BinarySearch_MinBigger(node->arrSort, node->len, varMov);
+        i_sorted = BinarySearch_MinBigger(arrSort, node->len, varMov);
 
-        if (node->arrSort[i_sorted] != varMov)
+        if (arrSort[i_sorted] != varMov)
             --i_sorted;
 
-        assert(node->arrSort[i_sorted] == varMov);
+        assert(arrSort[i_sorted] == varMov);
 
-        remove_arr(node->arrSort, i_sorted, node->len);
+        remove_arr(arrSort, i_sorted, node->len);
     }
     else{
-        remove_arr(node->arrSort, i_, node->len); //same operation with indexed array
+        remove_arr(arrSort, i_, node->len); //same operation with indexed array
     }
 
     --(node->len); // update length by -1

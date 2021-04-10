@@ -26,11 +26,16 @@ int insert(LnkArr* list, int i, int x){
 
     Loc iloc = find_LnkArr_ith(list, i);
 
-    if (iloc.node->len < subN){ // Sufficient space for insertion
-        insertLArray(iloc, x);
+    assert(iloc.node->len <= subN);
+    if(iloc.node->len == subN){ // insufficient space 
+        splitNode(iloc);
+        iloc = find_LnkArr_ith_bounded(iloc.nodePrev, 
+                                iloc.node, 
+                                iloc.numCum ,
+                                i);
     }
 
-    // ToDo: insufficient space / sorting
+    insertLArray(iloc, x);
 }
 
 void insertLArray(Loc nodeLoc, int x){
@@ -39,7 +44,7 @@ void insertLArray(Loc nodeLoc, int x){
     int* arr = nodeLoc.node->arrInx;
     int* arrS = nodeLoc.node->arrSort;
     int i = nodeLoc.i + nodeLoc.isEnd; //ith position
-    int i_ = (flag==1) ? (len - 1) - i + 1 : i; // convert to array position 
+    int i_ = (flag==1) ? (len - 1) - i + 1 : i; // convert to array position. +1 for flag = 1
 
     ++(nodeLoc.node->len); //expand array length
     insert_arr(arr, i_, x, nodeLoc.node->len);
@@ -51,6 +56,67 @@ void insertLArray(Loc nodeLoc, int x){
     else{
         append_arr(arrS, x, nodeLoc.node->len); // add to the end [Unordered]
     }
+}
+
+void splitNode(Loc nodeLoc){
+    //Create new node
+    LnkArr* nodeNew = init_list_empty();
+    LnkArr* nodeFirst = nodeLoc.node;
+    int i_read;
+    int flag = nodeFirst->flag;
+    int len = nodeFirst->len;
+
+    // Rewiring the pointers
+    nodeNew->nextNode = nodeLoc.nodeNext;
+    nodeLoc.nodeNext = nodeNew;
+
+    nodeNew->flag = 0;
+    nodeNew->isSorted = nodeLoc.node->isSorted;
+    nodeNew->len = 0;
+
+    assert(len == subN);
+
+    // move data
+    for(int i= (subN/2); i < subN ;i++){
+        i_read = get_i2read(i, nodeFirst->flag, nodeFirst->len);
+
+        ++(nodeNew->len); //Expand array
+        append_arr(nodeNew->arrInx, 
+                   nodeFirst->arrInx[i_read], 
+                   nodeNew->len);
+    }
+
+    //Shift data to left
+    if (flag==1){
+        int d = subN/2 + 1;
+
+        for(int i=d; i < (subN); i++)
+            nodeFirst->arrInx[i - d] = nodeFirst->arrInx[i];
+
+        nodeFirst->len = nodeFirst->len - d;
+    }
+    else{
+        nodeFirst->len = subN/2 ;
+    }
+
+    // Reorder
+    if (nodeFirst->isSorted == 1){
+        update_orderArr(nodeFirst);
+        update_orderArr(nodeNew);
+    }
+
+
+    // Sum of separated lengths should equal to the original.
+    assert(len == (nodeFirst->len + nodeNew->len) );
+
+
+}
+
+void update_orderArr(LnkArr* node){
+    memcpy(node->arrSort, 
+           node->arrInx, 
+           sizeof(int)*node->len);
+    quicksort(node->arrSort, 0, node->len-1);
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){
@@ -102,6 +168,12 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     posI.nodeNext = node->nextNode;
     posI.i = i_arr;
     posI.isEnd = isEnd;
+    posI.numCum = num_st;
 
     return posI;
+}
+
+int get_i2read(int i, int flag, int length){
+    int i_ = (flag==0) ? i : length - 1 - i ;
+    return i_;
 }

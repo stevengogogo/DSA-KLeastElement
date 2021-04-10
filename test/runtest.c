@@ -15,5 +15,6 @@ TEST_LIST = {
     {"Utils: Binary Search Screen", test_binary_search2},
     {"LnkArr Initiation", test_init},    
     {"find", test_find},
+    {"Insert", test_insert_LArray},
     {NULL, NULL} // Terminate the test
 };

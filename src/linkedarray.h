@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 #include "utils.h"
 
 #define subN 100
@@ -51,6 +52,7 @@ typedef struct {
     LnkArr* nodeNext;
     int i;
     int isEnd;
+    int numCum;
 } Loc;
 
 
@@ -65,10 +67,22 @@ int insert(LnkArr*, int i, int x);
 
 void insertLArray(Loc nodeLoc, int x);
 
+/**
+ * @brief Split the node to extend. The splited node is wired to the next node
+ * 
+ * @param nodeLoc 
+ * @return Loc Location of first node.
+ */
+void splitNode(Loc nodeLoc);
+
 /** * Find the position in linked array */
 Loc find_LnkArr_ith(LnkArr* headList, int i);
 
 /** * Find ith begin with a start node and sum of previous length */
 Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
+
+int get_i2read(int i, int flag, int length);
+
+void update_orderArr(LnkArr* node);
 
 #endif

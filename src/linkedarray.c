@@ -179,7 +179,18 @@ void kill_LArray(Loc nodeLoc){
 
 
 int reverse(LnkArr* list, int str, int end){
-    //TODO
+    Loc nodeStr = find_LnkArr_ith(list, str);
+    LnkArr* node = nodeStr.node;
+    int numCum = nodeStr.numCum; //cumulated items
+    //Revere start node
+    int i_ = get_i2read(nodeStr.i, node->flag, node->len);
+
+    if (  )
+    int i_last = get_i2read(subN, node->flag, node->len);
+
+    reverse_arr(node->arrInx, i_, i_last)
+
+
 }
 
 

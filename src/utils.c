@@ -55,7 +55,13 @@ void remove_arr(int arr[], int i, int length){
 }
 
 void reverse_arr(int arr[], int str, int end){
-    // To Do
+    assert(str<=end);
+    while (str < end)
+    {
+        swap(&arr[str], &arr[end]);
+        str++;
+        end--;
+    }  
 }
 
 int compare_array(int A[], int B[], int length){

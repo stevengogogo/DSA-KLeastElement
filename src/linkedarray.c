@@ -178,6 +178,11 @@ void kill_LArray(Loc nodeLoc){
 }
 
 
+int reverse(LnkArr* list, int str, int end){
+    //TODO
+}
+
+
 void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 

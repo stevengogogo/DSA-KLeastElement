@@ -83,6 +83,8 @@ void remove_LArray(Loc nodeLoc);
 /** * Free the node*/
 void kill_LArray(Loc nodeLoc);
 
+/** * Reverse */
+int reverse(LnkArr* list, int str, int end);
 
 /** * Find the position in linked array */
 Loc find_LnkArr_ith(LnkArr* headList, int i);

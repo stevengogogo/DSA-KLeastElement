@@ -1,3 +1,14 @@
+/**
+ * @file test_utils.h
+ * @author Steven Chiu
+ * @brief Test utility functions
+ * @version 0.1
+ * @date 2021-04-10
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #ifndef TEST_UTILS_H
 #define TEST_UTILS_H
 
@@ -6,16 +17,13 @@
 
 void test_utils(void)
 {
-    int arr[] = {1,3,61,-232,23,1,0};
-    int arr_sorted[] = {-232,0,1,1,3,23,61};
-    int len = 7;
+    int arr[] = {-100,2,3,3,1000,1,3,61,-232,23,1,0,3,4,5,6,2,4,4};
+    int len = sizeof(arr)/sizeof(arr[0]);
 
     quicksort(arr, 0, len-1);
     
-    
-    for(int i=0;i<len;i++){
-        TEST_ASSERT(arr[i] == arr_sorted[i] );
-    }
+    for(int i=0;i<len-1;i++)
+        TEST_CHECK(arr[i] <= arr[i+1]); // Monotonous
 }
 
 void test_swap(void){
@@ -55,7 +63,7 @@ void test_array_insert(void){
 
 void test_binary_search(void){
     int arr[]={-12,0,1,1,2,3,4,5,6,7,8,11,11};
-    int aLen = 13;
+    int aLen = sizeof(arr)/sizeof(arr[0]);
 
     TEST_CHECK(BinarySearch_MinBigger(arr, aLen, -13) == 0);
     TEST_CHECK(BinarySearch_MinBigger(arr, aLen, -12) == 1);
@@ -78,10 +86,10 @@ void test_binary_search(void){
 
 
 void test_binary_search2(void){
-    int arr[]={-12,0,1,1,2,3,4,5,6,7,8,11,11};
-    int aLen = 13;
-    int Max = 100;
-    int Min = -100;
+    int arr[]={-100,-100,-12,0,1,1,2,2,3,3,3,3,4,5,6,7,7,8,11,11};
+    int aLen = sizeof(arr)/ sizeof(arr[0]);
+    int Max = 102;
+    int Min = -Max;
     int i_; // result of Binary search
 
     for(int key=Min; key<Max; key++){

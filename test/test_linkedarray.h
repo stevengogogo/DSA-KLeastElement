@@ -79,10 +79,7 @@ void test_delete(void){
 
     for (int i=1; i<= MaxInitLen; i++){
         numArr += insert(list, i, i);
-
         varI = get_ith_var(list, i);
-        TEST_CHECK(varI == i);
-        TEST_MSG("Expected: %d, but got %d", i, varI);
     }
 
     for (int i= MaxInitLen; i>=1; i--){
@@ -93,6 +90,23 @@ void test_delete(void){
     TEST_MSG("got %d", list->len);
     TEST_CHECK(numArr == 1);
     TEST_MSG("got %d", numArr);
+
+    kill_list(list);
+}
+
+void test_reverseLA(void){
+    LnkArr* list = init_list_empty();
+    int varI;
+    int numArr = 1; //number of linked arrays
+
+    for (int i=1; i<= MaxInitLen; i++){
+        numArr += insert(list, i, i);
+        varI = get_ith_var(list, i);
+    }
+
+    reverse(list, 1,1);
+    reverse(list,1,100);
+    //reverse(list,1, MaxInitLen);
 
     kill_list(list);
 }

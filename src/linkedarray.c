@@ -180,17 +180,35 @@ void kill_LArray(Loc nodeLoc){
 
 int reverse(LnkArr* list, int str, int end){
     Loc nodeStr = find_LnkArr_ith(list, str);
-    LnkArr* node = nodeStr.node;
-    int numCum = nodeStr.numCum; //cumulated items
-    //Revere start node
-    int i_ = get_i2read(nodeStr.i, node->flag, node->len);
+    Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
+    int isCrossArr=0;
 
-    if (  )
-    int i_last = get_i2read(subN, node->flag, node->len);
+    int i_str = get_i2read(nodeStr.i, nodeStr.node->flag, 
+                               nodeStr.node->len);
+    int i_end = get_i2read(nodeEnd.i, nodeEnd.node->flag, 
+                               nodeEnd.node->len);
+    
+    if (nodeStr.node == nodeEnd.node){ // Same array
+        reverse_arr(nodeStr.node->arrInx, i_str, i_end);
+    }
+    else{ // Cross arrays
+        int strLast = get_i2read(subN, nodeStr.node->flag, 
+                               nodeStr.node->len);
+        int endFirst = get_i2read(0, nodeStr.node->flag, 
+                               nodeStr.node->len);
+        LnkArr* node;
+        //Reverse start node
+        reverse_arr(nodeStr.node->arrInx, i_str, strLast);
 
-    reverse_arr(node->arrInx, i_, i_last)
-
-
+        //Move to next node
+        node = nodeStr.node;
+        while( node != nodeEnd.node ){
+            node->flag ^=1; //reverse
+        }
+        reverse_arr(node->arrInx, endFirst, i_end);
+        isCrossArr=1;
+    }
+    return isCrossArr;
 }
 
 

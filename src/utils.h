@@ -38,7 +38,7 @@ void append_arr(int arr[], int x, int length);
 /** * Remove arr[i] and shift one step to the left [i,end]*/
 void remove_arr(int arr[], int i, int length);
 /** * Reverse array in given region [str, end]*/
-void reverse_arr(int arr[], int str, int end);
+int reverse_arr(int arr[], int str, int end);
 /** * Compare two arrays
  * @return 0: Different; 1:same in the given length
  */

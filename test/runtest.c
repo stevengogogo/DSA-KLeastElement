@@ -19,5 +19,6 @@ TEST_LIST = {
     {"find", test_find},
     {"Insert", test_insert_LArray},
     {"Delete", test_delete},
+    {"Reverse", test_reverseLA},
     {NULL, NULL} // Terminate the test
 };

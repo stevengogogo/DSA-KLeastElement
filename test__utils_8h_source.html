@@ -190,15 +190,24 @@ $(function() {
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    TEST_MSG(<span class="stringliteral">&quot;Got: %d&quot;</span>, arr[len-1]);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">void</span> test_reverse(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">int</span> arr[] = {1,2,2,3,4,5};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">int</span> arrR[] = {1,2,4,3,2,5};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">int</span> len = <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[0]);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="utils_8h.html#a524a4b4eb791ccc62dc36d27181d5461">reverse_arr</a>(arr,2, 4);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    TEST_CHECK(<a class="code" href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a>(arr, arrR, len));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div><div class="ttdoc">General Utilities for C language.</div></div>
+<div class="ttc" id="autils_8h_html_a524a4b4eb791ccc62dc36d27181d5461"><div class="ttname"><a href="utils_8h.html#a524a4b4eb791ccc62dc36d27181d5461">reverse_arr</a></div><div class="ttdeci">void reverse_arr(int arr[], int str, int end)</div><div class="ttdef"><b>Definition:</b> utils.c:57</div></div>
 <div class="ttc" id="autils_8h_html_a6062d344abd994c1d5f9735511f78112"><div class="ttname"><a href="utils_8h.html#a6062d344abd994c1d5f9735511f78112">remove_arr</a></div><div class="ttdeci">void remove_arr(int arr[], int i, int length)</div><div class="ttdef"><b>Definition:</b> utils.c:51</div></div>
 <div class="ttc" id="autils_8h_html_a7f9501e3da8bed7be1eed5abe1b2c035"><div class="ttname"><a href="utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035">quicksort</a></div><div class="ttdeci">void quicksort(int arr[], int left, int right)</div><div class="ttdef"><b>Definition:</b> utils.c:4</div></div>
-<div class="ttc" id="autils_8h_html_aa26582e44b939cc0f7f9b1e3bec5de74"><div class="ttname"><a href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a></div><div class="ttdeci">int compare_array(int A[], int B[], int length)</div><div class="ttdef"><b>Definition:</b> utils.c:61</div></div>
+<div class="ttc" id="autils_8h_html_aa26582e44b939cc0f7f9b1e3bec5de74"><div class="ttname"><a href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a></div><div class="ttdeci">int compare_array(int A[], int B[], int length)</div><div class="ttdef"><b>Definition:</b> utils.c:67</div></div>
 <div class="ttc" id="autils_8h_html_aaa4f0ee49fe00816904a50365b89a7b5"><div class="ttname"><a href="utils_8h.html#aaa4f0ee49fe00816904a50365b89a7b5">append_arr</a></div><div class="ttdeci">void append_arr(int arr[], int x, int length)</div><div class="ttdef"><b>Definition:</b> utils.c:47</div></div>
 <div class="ttc" id="autils_8h_html_acd3415eef442ced2b5e064f95f04b624"><div class="ttname"><a href="utils_8h.html#acd3415eef442ced2b5e064f95f04b624">swap</a></div><div class="ttdeci">void swap(int *x, int *y)</div><div class="ttdef"><b>Definition:</b> utils.c:27</div></div>
 <div class="ttc" id="autils_8h_html_aea0b7eaa2eccbab7c7a02af30f789fff"><div class="ttname"><a href="utils_8h.html#aea0b7eaa2eccbab7c7a02af30f789fff">insert_arr</a></div><div class="ttdeci">int insert_arr(int arr[], int i_, int x, int length)</div><div class="ttdoc">Insert a value in an array with a iven length.</div><div class="ttdef"><b>Definition:</b> utils.c:33</div></div>
-<div class="ttc" id="autils_8h_html_af2eeb464f878d97ae244a20a2ecdd415"><div class="ttname"><a href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a></div><div class="ttdeci">int BinarySearch_MinBigger(int *arr, int length, int key)</div><div class="ttdoc">Find the minimum i which fullfills arr[i] &gt; key.</div><div class="ttdef"><b>Definition:</b> utils.c:70</div></div>
+<div class="ttc" id="autils_8h_html_af2eeb464f878d97ae244a20a2ecdd415"><div class="ttname"><a href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a></div><div class="ttdeci">int BinarySearch_MinBigger(int *arr, int length, int key)</div><div class="ttdoc">Find the minimum i which fullfills arr[i] &gt; key.</div><div class="ttdef"><b>Definition:</b> utils.c:76</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

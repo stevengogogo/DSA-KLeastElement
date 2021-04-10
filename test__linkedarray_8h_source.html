@@ -119,9 +119,9 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> test_insert_LArray(<span class="keywordtype">void</span>){</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = <a class="code" href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, 1, 1);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, 2, 2);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, 1, 3);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt; 10*subN; i++){</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, i, i);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    kill_list(list);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
 <div class="ttc" id="alinkedarray_8h_html_aa109308c19d3c05dae128de66c21affc"><div class="ttname"><a href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a></div><div class="ttdeci">LnkArr * init_list_empty(void)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:5</div></div>
-<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:122</div></div>
+<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:123</div></div>
 <div class="ttc" id="alinkedarray_8h_html_ad28f54d3afb32efa9887077f3f10bec1"><div class="ttname"><a href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a></div><div class="ttdeci">int insert(LnkArr *, int i, int x)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:25</div></div>
 <div class="ttc" id="astructLoc_html"><div class="ttname"><a href="structLoc.html">Loc</a></div><div class="ttdoc">Position in linked array.</div><div class="ttdef"><b>Definition:</b> linkedarray.h:49</div></div>
 <div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> linkedarray.h:32</div></div>

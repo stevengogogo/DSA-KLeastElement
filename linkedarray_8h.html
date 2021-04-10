@@ -80,17 +80,19 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for linkedarray.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="linkedarray_8h__incl.png" border="0" usemap="#asrc_2linkedarray_8h" alt=""/></div>
 <map name="asrc_2linkedarray_8h" id="asrc_2linkedarray_8h">
-<area shape="rect" title="Unrolled linked list for finding K&#45;least element." alt="" coords="97,5,213,32"/>
+<area shape="rect" title="Unrolled linked list for finding K&#45;least element." alt="" coords="132,5,248,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,65,107"/>
 <area shape="rect" title=" " alt="" coords="89,80,152,107"/>
-<area shape="rect" title=" " alt="" coords="188,155,256,181"/>
-<area shape="rect" href="utils_8h.html" title="General Utilities for C language." alt="" coords="227,80,283,107"/>
+<area shape="rect" title=" " alt="" coords="232,155,300,181"/>
+<area shape="rect" title=" " alt="" coords="227,80,291,107"/>
+<area shape="rect" href="utils_8h.html" title="General Utilities for C language." alt="" coords="315,80,371,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -136,10 +138,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kill_list</b> (<a cla
 <tr class="memitem:a3bbe43d20e5ac18d675f5638d013d6d1"><td class="memItemLeft" align="right" valign="top"><a id="a3bbe43d20e5ac18d675f5638d013d6d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insertLArray</b> (<a class="el" href="structLoc.html">Loc</a> nodeLoc, int x)</td></tr>
 <tr class="separator:a3bbe43d20e5ac18d675f5638d013d6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204b852d3fa9bb734ff32b9070218a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">splitNode</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
+<tr class="memdesc:a204b852d3fa9bb734ff32b9070218a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the node to extend. The splited node is wired to the next node.  <a href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">More...</a><br /></td></tr>
+<tr class="separator:a204b852d3fa9bb734ff32b9070218a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headList, int i)</td></tr>
 <tr class="separator:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e4ac41ff830aab17f48f48a760cebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc">find_LnkArr_ith_bounded</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *startNode, <a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *prevNode, int sumLenPrev, int i)</td></tr>
 <tr class="separator:a22e4ac41ff830aab17f48f48a760cebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab343439c60c24a2772f36156f9e249df"><td class="memItemLeft" align="right" valign="top"><a id="ab343439c60c24a2772f36156f9e249df"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_i2read</b> (int i, int flag, int length)</td></tr>
+<tr class="separator:ab343439c60c24a2772f36156f9e249df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a503a8d9751fdaa9ddaa4e31aafe622fa"><td class="memItemLeft" align="right" valign="top"><a id="a503a8d9751fdaa9ddaa4e31aafe622fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *<a class="el" href="structnode.html">node</a>)</td></tr>
+<tr class="separator:a503a8d9751fdaa9ddaa4e31aafe622fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unrolled linked list for finding K-least element. </p>
@@ -307,6 +318,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insertLArray</b> (<a 
 <li>Insert x at ith position. i starts at 1 <dl class="section return"><dt>Returns</dt><dd>1 create new node, 0 </dd></dl>
 </li>
 </ul>
+
+</div>
+</div>
+<a id="a204b852d3fa9bb734ff32b9070218a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204b852d3fa9bb734ff32b9070218a4f">&#9670;&nbsp;</a></span>splitNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void splitNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLoc.html">Loc</a>&#160;</td>
+          <td class="paramname"><em>nodeLoc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Split the node to extend. The splited node is wired to the next node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeLoc</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structLoc.html" title="Position in linked array.">Loc</a> Location of first node. </dd></dl>
 
 </div>
 </div>

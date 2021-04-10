@@ -120,6 +120,12 @@ Ref: [GreekforGeek](https://www.geeksforgeeks.org/skip-list-set-3-searching-dele
 https://www.geeksforgeeks.org/kth-smallest-element-in-a-subarray/
 
 
+## Insert an element into sorted array
+
+
+
+- Ref: [[GreekforGeek](https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/)]
+
 ## Quick Sort 
 
 

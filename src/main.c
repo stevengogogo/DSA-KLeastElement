@@ -6,11 +6,15 @@
 int main()
 {
 
-    int arr[]={-12,0,1,1,2,3,4,5,6,7,8,11,11};
-    int aLen = 13;
+    LnkArr* list = init_list_empty();
 
-    BinarySearch_MinBigger(arr, aLen, 1);
-    
+    for (int i=1; i<= subN; i++){
+        insert(list, i, i);
+    }
+
+    insert(list, subN+1, subN+1);
+
+    kill_list(list);
 
     return 0;
 }

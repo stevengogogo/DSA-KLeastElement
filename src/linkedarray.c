@@ -29,8 +29,8 @@ int insert(LnkArr* list, int i, int x){
     assert(iloc.node->len <= subN);
     if(iloc.node->len == subN){ // insufficient space 
         splitNode(iloc);
-        iloc = find_LnkArr_ith_bounded(iloc.nodePrev, 
-                                iloc.node, 
+        iloc = find_LnkArr_ith_bounded(iloc.node, 
+                                iloc.nodePrev, 
                                 iloc.numCum ,
                                 i);
     }
@@ -68,8 +68,9 @@ void splitNode(Loc nodeLoc){
 
     // Rewiring the pointers
     nodeNew->nextNode = nodeLoc.nodeNext;
-    nodeLoc.nodeNext = nodeNew;
+    nodeLoc.node->nextNode = nodeNew;
 
+    // Properting of new node
     nodeNew->flag = 0;
     nodeNew->isSorted = nodeLoc.node->isSorted;
     nodeNew->len = 0;

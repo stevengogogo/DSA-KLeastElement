@@ -48,9 +48,9 @@ void test_find(void){
 void test_insert_LArray(void){
     LnkArr* list = init_list_empty();
 
-    insert(list, 1, 1);
-    insert(list, 2, 2);
-    insert(list, 1, 3);
+    for (int i=1; i< 10*subN; i++){
+        insert(list, i, i);
+    }
 
     kill_list(list);
 }

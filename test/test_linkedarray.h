@@ -10,7 +10,7 @@ void test_init(void){
 
 void test_find(void){
     LnkArr* list = init_list_empty();
-
+    LnkArr* list2;
     int arr[] = {1,4,2,6,2};
     int arr_sorted[] = {1,2,2,4,6};
     int len = 5;
@@ -24,18 +24,24 @@ void test_find(void){
     list->len = len;
     list->nextNode = NULL;
 
+    memcpy(list2, list, sizeof(LnkArr)); // create second array
+    list->nextNode = list2;
+
     //Find
     Loc loc;
     for(int i=1; i<=len;i++){
         loc = find_LnkArr_ith(list,i);
-        TEST_ASSERT((loc.i+1) == i);
-        TEST_ASSERT((loc.isEnd) == 0);
+        TEST_CHECK((loc.i+1) == i);
+        TEST_CHECK((loc.isEnd) == 0);
     }
 
     // New site
-    loc = find_LnkArr_ith(list, len+1);
-    TEST_ASSERT((loc.i) == len);
-    TEST_ASSERT(loc.isEnd == 1);
+    loc = find_LnkArr_ith(list, 2*len + 1);
+    TEST_CHECK((loc.i) == len-1);
+    TEST_MSG("loc.i (%d) !=  %d", loc.i, len-1);
+    TEST_CHECK(loc.isEnd == 1);
+    TEST_CHECK(loc.nodeNext == NULL);
+    TEST_CHECK(loc.nodePrev != NULL);
 }
 
 

@@ -39,17 +39,23 @@ void insert_array(Loc iloc, int x){
     //ToDo
 }
 
-Loc find_LnkArr_ith(LnkArr* list, int i){
-    int num_st = 0;
+Loc find_LnkArr_ith(LnkArr* headList, int i){
+    return find_LnkArr_ith_bounded(headList, NULL, 0, i);
+}
+
+Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i){
+    
+    int num_st = sumLenPrev; 
     Loc posI;
     // Location Info
     int i_arr; 
     int isEnd;
-    LnkArr* node = list;
+    LnkArr* node = startNode;
 
-    posI.nodePrev = NULL; // No previous array at start
+    posI.nodePrev = prevNode; // No previous array at start
 
-    if (i==1){  
+    if (i==1){ // First array  
+        assert(prevNode == NULL);
         posI.node = node;
         posI.nodeNext = node->nextNode;
         posI.i = 0;

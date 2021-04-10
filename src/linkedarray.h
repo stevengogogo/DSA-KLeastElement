@@ -65,8 +65,10 @@ int insert(LnkArr*, int i, int x);
 
 void insert_array(Loc, int);
 
-/** * Find the position in linked array
- */
-Loc find_LnkArr_ith(LnkArr* list, int i);
+/** * Find the position in linked array */
+Loc find_LnkArr_ith(LnkArr* headList, int i);
+
+/** * Find ith begin with a start node and sum of previous length */
+Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
 
 #endif

@@ -65,7 +65,7 @@ Loc find_LnkArr_ith(LnkArr* list, int i){
         }
         else{
             if (node->nextNode == NULL){ // end of list
-                i_arr = node->len; // last element. 
+                i_arr = node->len - 1; // last element. 
                 assert( (node->len + num_st) == (i - 1)); // i is at end
                 isEnd = 1; // (i-1) th element
                 break;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quicksort_14',['quicksort',['../utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035',1,'utils.c']]]
+  ['partition_14',['partition',['../utils_8h.html#a63802919fc588a396c2037346d2ea072',1,'utils.c']]]
 ];

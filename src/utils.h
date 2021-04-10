@@ -11,6 +11,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <assert.h>
 
 /** * QuickSort. Reference: This function is modified from https://openhome.cc/Gossip/AlgorithmGossip/QuickSort3.htm#C */
 void quicksort(int arr[], int left, int right);
@@ -21,5 +22,35 @@ int partition(int number[], int left, int right);
 /** * Switch the value store in `x` and `y`. */
 void swap(int* x, int* y);
 
+/** @brief Insert a value in an array with a iven length.
+ *  @warning The arr[length-1] is the place holder, and will be replaced.
+ *  @note i_ means the index starts at 0.
+ *  @param arr array to be inserted
+ *  @param i_ the position to be inserted, starts at 0 -> (length - 1)
+ *  @param x the value to be inserted.
+ *  @param length length of an array, the last element arr[length-1] is the place holder for the new value.
+ *  @return the number of relocations
+ */
+int insert_arr(int arr[], int i_, int x, int length);
+
+/** * Insert a value at the end of the array*/
+void append_arr(int arr[], int x, int length);
+
+
+/** * Compare two arrays
+ * @return 0: Different; 1:same in the given length
+ */
+int compare_array(int A[], int B[], int length);
+
+
+/**
+ * @brief Find the minimum i which fullfills arr[i] > key.
+ * @warning If all arr[i] < key. Return length-1
+ * @param arr 
+ * @param length 
+ * @param key 
+ * @return @i_. 
+ */
+int BinarySearch_MinBigger(int* arr, int length, int key);
 
 #endif

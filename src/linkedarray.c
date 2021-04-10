@@ -39,15 +39,14 @@ void insertLArray(Loc nodeLoc, int x){
     int* arr = nodeLoc.node->arrInx;
     int* arrS = nodeLoc.node->arrSort;
     int i = nodeLoc.i + nodeLoc.isEnd; //ith position
-    int i_ = (flag==1) ? len - 1 - i : i; // convert to array position
+    int i_ = (flag==1) ? (len - 1) - i + 1 : i; // convert to array position 
 
     ++(nodeLoc.node->len); //expand array length
-
     insert_arr(arr, i_, x, nodeLoc.node->len);
 
     if (nodeLoc.node->isSorted){
-        //int i_sorted = search_binary(arrS, x, nodeLoc.node->len);
-        //insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
+        int i_sorted = BinarySearch_MinBigger(arrS, len, x);
+        insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
     }
     else{
         append_arr(arrS, x, nodeLoc.node->len); // add to the end [Unordered]

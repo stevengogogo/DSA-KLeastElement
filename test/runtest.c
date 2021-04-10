@@ -9,7 +9,10 @@
 // Run TESTs 
 TEST_LIST = {
     {"Utility", test_utils},
-    {"LnkArr Initiation", test_init},
+    {"Util: Swap", test_swap},
+    {"Utils: Array Insrtion", test_array_insert},
+    {"Utils: Binary Search", test_binary_search},
+    {"LnkArr Initiation", test_init},    
     {"find", test_find},
     {NULL, NULL} // Terminate the test
 };

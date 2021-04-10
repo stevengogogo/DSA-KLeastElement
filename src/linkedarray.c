@@ -204,6 +204,7 @@ int reverse(LnkArr* list, int str, int end){
         node = nodeStr.node;
         while( node != nodeEnd.node ){
             node->flag ^=1; //reverse
+            node = node->nextNode;
         }
         reverse_arr(node->arrInx, endFirst, i_end);
         isCrossArr=1;
@@ -238,6 +239,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
         assert(prevNode == NULL);
         posI.node = node;
         posI.nodeNext = node->nextNode;
+        posI.numCum = num_st;
         posI.i = 0;
         posI.isEnd = 0; // there is no i-1 for i=1
         return posI;

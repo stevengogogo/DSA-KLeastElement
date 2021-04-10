@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5fith_5fvar_5',['get_ith_var',['../linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac',1,'linkedarray.c']]]
+  ['find_5flnkarr_5fith_4',['find_LnkArr_ith',['../linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955',1,'linkedarray.c']]],
+  ['find_5flnkarr_5fith_5fbounded_5',['find_LnkArr_ith_bounded',['../linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc',1,'linkedarray.c']]]
 ];

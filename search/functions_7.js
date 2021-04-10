@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quicksort_36',['quicksort',['../utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035',1,'utils.c']]]
+  ['kill_5flarray_39',['kill_LArray',['../linkedarray_8h.html#a17beb65448ab3f4655cac3f3e3213d5a',1,'linkedarray.c']]]
 ];

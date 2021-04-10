@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['test_5futils_2eh_19',['test_utils.h',['../test__utils_8h.html',1,'']]]
+  ['splitnode_20',['splitNode',['../linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f',1,'linkedarray.c']]],
+  ['swap_21',['swap',['../utils_8h.html#acd3415eef442ced2b5e064f95f04b624',1,'utils.c']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['splitnode_17',['splitNode',['../linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f',1,'linkedarray.c']]],
-  ['swap_18',['swap',['../utils_8h.html#acd3415eef442ced2b5e064f95f04b624',1,'utils.c']]]
+  ['remove_5farr_18',['remove_arr',['../utils_8h.html#a6062d344abd994c1d5f9735511f78112',1,'utils.c']]],
+  ['remove_5flarray_19',['remove_LArray',['../linkedarray_8h.html#a5488b8a5eb4fb9babba4e7c0b1af74ec',1,'linkedarray.c']]]
 ];

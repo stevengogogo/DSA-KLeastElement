@@ -141,6 +141,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insertLArray</b> (<a 
 <tr class="memitem:a204b852d3fa9bb734ff32b9070218a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">splitNode</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
 <tr class="memdesc:a204b852d3fa9bb734ff32b9070218a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the node to extend. The splited node is wired to the next node.  <a href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">More...</a><br /></td></tr>
 <tr class="separator:a204b852d3fa9bb734ff32b9070218a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec5eb909363db90c6b20cc58c384adb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a8ec5eb909363db90c6b20cc58c384adb">delete</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int i)</td></tr>
+<tr class="separator:a8ec5eb909363db90c6b20cc58c384adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5488b8a5eb4fb9babba4e7c0b1af74ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a5488b8a5eb4fb9babba4e7c0b1af74ec">remove_LArray</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
+<tr class="separator:a5488b8a5eb4fb9babba4e7c0b1af74ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17beb65448ab3f4655cac3f3e3213d5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a17beb65448ab3f4655cac3f3e3213d5a">kill_LArray</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
+<tr class="separator:a17beb65448ab3f4655cac3f3e3213d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headList, int i)</td></tr>
 <tr class="separator:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e4ac41ff830aab17f48f48a760cebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc">find_LnkArr_ith_bounded</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *startNode, <a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *prevNode, int sumLenPrev, int i)</td></tr>
@@ -190,6 +196,37 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a8ec5eb909363db90c6b20cc58c384adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec5eb909363db90c6b20cc58c384adb">&#9670;&nbsp;</a></span>delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Delete </li>
+</ul>
+
+</div>
+</div>
 <a id="ac4ba5a8899ce0b7f30ec4a7369961955"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4ba5a8899ce0b7f30ec4a7369961955">&#9670;&nbsp;</a></span>find_LnkArr_ith()</h2>
 
@@ -350,6 +387,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (
 <ul>
 <li>Insert x at ith position. i starts at 1 <dl class="section return"><dt>Returns</dt><dd>1 create new node, 0 </dd></dl>
 </li>
+</ul>
+
+</div>
+</div>
+<a id="a17beb65448ab3f4655cac3f3e3213d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17beb65448ab3f4655cac3f3e3213d5a">&#9670;&nbsp;</a></span>kill_LArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kill_LArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLoc.html">Loc</a>&#160;</td>
+          <td class="paramname"><em>nodeLoc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Free the node </li>
+</ul>
+
+</div>
+</div>
+<a id="a5488b8a5eb4fb9babba4e7c0b1af74ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5488b8a5eb4fb9babba4e7c0b1af74ec">&#9670;&nbsp;</a></span>remove_LArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void remove_LArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLoc.html">Loc</a>&#160;</td>
+          <td class="paramname"><em>nodeLoc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Remove an element </li>
 </ul>
 
 </div>

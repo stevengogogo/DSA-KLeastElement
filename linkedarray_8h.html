@@ -136,8 +136,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>kill_list</b> (<a cla
 <tr class="memitem:a21d115fd617d191d5af9e801464b696e"><td class="memItemLeft" align="right" valign="top"><a id="a21d115fd617d191d5af9e801464b696e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_array</b> (<a class="el" href="structLoc.html">Loc</a>, int)</td></tr>
 <tr class="separator:a21d115fd617d191d5af9e801464b696e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b1aaa8815d1669a626d45981c948756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a0b1aaa8815d1669a626d45981c948756">find_LnkArr_ith</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int i)</td></tr>
-<tr class="separator:a0b1aaa8815d1669a626d45981c948756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headList, int i)</td></tr>
+<tr class="separator:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e4ac41ff830aab17f48f48a760cebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc">find_LnkArr_ith_bounded</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *startNode, <a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *prevNode, int sumLenPrev, int i)</td></tr>
+<tr class="separator:a22e4ac41ff830aab17f48f48a760cebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unrolled linked list for finding K-least element. </p>
@@ -175,8 +177,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_array</b> (<a 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0b1aaa8815d1669a626d45981c948756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b1aaa8815d1669a626d45981c948756">&#9670;&nbsp;</a></span>find_LnkArr_ith()</h2>
+<a id="ac4ba5a8899ce0b7f30ec4a7369961955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ba5a8899ce0b7f30ec4a7369961955">&#9670;&nbsp;</a></span>find_LnkArr_ith()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +187,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_array</b> (<a 
           <td class="memname"><a class="el" href="structLoc.html">Loc</a> find_LnkArr_ith </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
+          <td class="paramname"><em>headList</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -202,6 +204,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_array</b> (<a 
 </div><div class="memdoc">
 <ul>
 <li>Find the position in linked array </li>
+</ul>
+
+</div>
+</div>
+<a id="a22e4ac41ff830aab17f48f48a760cebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e4ac41ff830aab17f48f48a760cebc">&#9670;&nbsp;</a></span>find_LnkArr_ith_bounded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLoc.html">Loc</a> find_LnkArr_ith_bounded </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramname"><em>startNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramname"><em>prevNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sumLenPrev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Find ith begin with a start node and sum of previous length </li>
 </ul>
 
 </div>

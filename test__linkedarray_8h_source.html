@@ -146,7 +146,7 @@ $(function() {
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> test_delete(<span class="keywordtype">void</span>){</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = <a class="code" href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a>();</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> varI;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> numArr = 0; <span class="comment">//number of linked arrays</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> numArr = 1; <span class="comment">//number of linked arrays</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;= MaxInitLen; i++){</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        numArr += <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, i, i);</div>
@@ -160,10 +160,15 @@ $(function() {
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        numArr -= <span class="keyword">delete</span>(list, i);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    kill_list(list);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    TEST_CHECK( list-&gt;len == 0);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    TEST_MSG(<span class="stringliteral">&quot;got %d&quot;</span>, list-&gt;len);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    TEST_CHECK(numArr == 1);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    TEST_MSG(<span class="stringliteral">&quot;got %d&quot;</span>, numArr);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    kill_list(list);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
 <div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:242</div></div>
 <div class="ttc" id="alinkedarray_8h_html_aa109308c19d3c05dae128de66c21affc"><div class="ttname"><a href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a></div><div class="ttdeci">LnkArr * init_list_empty(void)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:5</div></div>

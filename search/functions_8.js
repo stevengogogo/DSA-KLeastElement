@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['splitnode_36',['splitNode',['../linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f',1,'linkedarray.c']]],
-  ['swap_37',['swap',['../utils_8h.html#acd3415eef442ced2b5e064f95f04b624',1,'utils.c']]]
+  ['remove_5farr_37',['remove_arr',['../utils_8h.html#a6062d344abd994c1d5f9735511f78112',1,'utils.c']]]
 ];

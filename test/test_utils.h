@@ -55,20 +55,52 @@ void test_array_insert(void){
 
 void test_binary_search(void){
     int arr[]={-12,0,1,1,2,3,4,5,6,7,8,11,11};
-    int aLen = 12;
+    int aLen = 13;
 
     TEST_CHECK(BinarySearch_MinBigger(arr, aLen, -13) == 0);
-    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, -12) == 0);
+    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, -12) == 1);
+
     TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 11) == (aLen-1));
-    
+
     TEST_MSG("Expected: %d, Got %d",(aLen-1),BinarySearch_MinBigger(arr, aLen, (aLen-1)));
 
     TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 100) == (aLen-1));
     TEST_MSG("Expected: %d, Got %d",(aLen-1),BinarySearch_MinBigger(arr, aLen, (aLen-1)));
+    
+    // arr[4] == 2 is the first element bigger than 1;
+    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 1) == 4);
+    TEST_MSG("Got %d",BinarySearch_MinBigger(arr, aLen, 1));
 
-    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 1) == 3);
-    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 6) == 8);
+    // arr[9] == 8 is the first element bigger than 6
+    TEST_CHECK(BinarySearch_MinBigger(arr, aLen, 6) == 9); 
+    TEST_MSG("Got %d",BinarySearch_MinBigger(arr, aLen, 6));
 }
 
+
+void test_binary_search2(void){
+    int arr[]={-12,0,1,1,2,3,4,5,6,7,8,11,11};
+    int aLen = 13;
+    int Max = 100;
+    int Min = -100;
+    int i_; // result of Binary search
+
+    for(int key=Min; key<Max; key++){
+        i_ = BinarySearch_MinBigger(arr, aLen, key);
+
+        if (i_==0){
+            TEST_CHECK(arr[i_] >= key);
+            TEST_MSG("Value at %d = %d (key=%d)", i_, arr[i_], key);
+        }
+        else if (i_ == aLen-1) {
+            TEST_CHECK( arr[i_] <= key );
+            TEST_MSG("Value at %d = %d (key=%d)", i_, arr[i_], key);
+        }
+        else {
+            TEST_CHECK( arr[i_] > key );
+            TEST_CHECK( arr[i_-1] <= key);
+            TEST_MSG("Value at (%d,%d) = (%d, %d) (key=%d)", i_ -1, i_, arr[i_ - 1],arr[i_], key);
+        }
+    }
+}
 
 #endif

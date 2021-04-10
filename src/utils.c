@@ -69,12 +69,18 @@ int BinarySearch_MinBigger(int* arr, int length, int key){
         mid = (low+high) / 2;
 
         if (arr[mid] > key ){ // search left side
-            high = mid-1;
+            if (mid == low)
+                return low;
+
+            high = mid - 1;
         }
         else{ // search right side
+            if (mid==high)
+                return high;
+
             low = mid+1;
         }
     }
 
-    return mid;
+    return low;
 }

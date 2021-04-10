@@ -120,6 +120,36 @@ Ref: [GreekforGeek](https://www.geeksforgeeks.org/skip-list-set-3-searching-dele
 https://www.geeksforgeeks.org/kth-smallest-element-in-a-subarray/
 
 
+## First strictly greater element in sorted array
+
+```c
+int next(int arr[], int target, int end)
+{
+ int start = 0;
+  
+    int ans = -1;
+    while (start <= end)
+    {
+        int mid = (start + end) / 2;
+  
+        // Move to right side if target is
+        // greater.
+        if (arr[mid] <= target)
+            start = mid + 1;
+  
+        // Move left side.
+        else
+        {
+            ans = mid;
+            end = mid - 1;
+        }
+    }
+  
+    return ans;
+```
+
+- Ref: [GreeekforGeek](https://www.geeksforgeeks.org/first-strictly-greater-element-in-a-sorted-array-in-java/)
+
 ## Insert an element into sorted array
 
 

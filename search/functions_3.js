@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quicksort_22',['quicksort',['../utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035',1,'utils.c']]]
+  ['find_5flnkarr_5fith_24',['find_LnkArr_ith',['../linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955',1,'linkedarray.c']]],
+  ['find_5flnkarr_5fith_5fbounded_25',['find_LnkArr_ith_bounded',['../linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc',1,'linkedarray.c']]]
 ];

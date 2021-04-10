@@ -73,18 +73,32 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef UTILS_H</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define UTILS_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035">quicksort</a>(<span class="keywordtype">int</span> arr[], <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#a63802919fc588a396c2037346d2ea072">partition</a>(<span class="keywordtype">int</span> number[], <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#acd3415eef442ced2b5e064f95f04b624">swap</a>(<span class="keywordtype">int</span>* x, <span class="keywordtype">int</span>* y);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035">quicksort</a>(<span class="keywordtype">int</span> arr[], <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#a63802919fc588a396c2037346d2ea072">partition</a>(<span class="keywordtype">int</span> number[], <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#acd3415eef442ced2b5e064f95f04b624">swap</a>(<span class="keywordtype">int</span>* x, <span class="keywordtype">int</span>* y);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#aea0b7eaa2eccbab7c7a02af30f789fff">insert_arr</a>(<span class="keywordtype">int</span> arr[], <span class="keywordtype">int</span> i_, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#aaa4f0ee49fe00816904a50365b89a7b5">append_arr</a>(<span class="keywordtype">int</span> arr[], <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a>(<span class="keywordtype">int</span> A[], <span class="keywordtype">int</span> B[], <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a>(<span class="keywordtype">int</span>* arr, <span class="keywordtype">int</span> length, <span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="autils_8h_html_a63802919fc588a396c2037346d2ea072"><div class="ttname"><a href="utils_8h.html#a63802919fc588a396c2037346d2ea072">partition</a></div><div class="ttdeci">int partition(int number[], int left, int right)</div><div class="ttdef"><b>Definition:</b> utils.c:12</div></div>
 <div class="ttc" id="autils_8h_html_a7f9501e3da8bed7be1eed5abe1b2c035"><div class="ttname"><a href="utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035">quicksort</a></div><div class="ttdeci">void quicksort(int arr[], int left, int right)</div><div class="ttdef"><b>Definition:</b> utils.c:4</div></div>
+<div class="ttc" id="autils_8h_html_aa26582e44b939cc0f7f9b1e3bec5de74"><div class="ttname"><a href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a></div><div class="ttdeci">int compare_array(int A[], int B[], int length)</div><div class="ttdef"><b>Definition:</b> utils.c:51</div></div>
+<div class="ttc" id="autils_8h_html_aaa4f0ee49fe00816904a50365b89a7b5"><div class="ttname"><a href="utils_8h.html#aaa4f0ee49fe00816904a50365b89a7b5">append_arr</a></div><div class="ttdeci">void append_arr(int arr[], int x, int length)</div><div class="ttdef"><b>Definition:</b> utils.c:47</div></div>
 <div class="ttc" id="autils_8h_html_acd3415eef442ced2b5e064f95f04b624"><div class="ttname"><a href="utils_8h.html#acd3415eef442ced2b5e064f95f04b624">swap</a></div><div class="ttdeci">void swap(int *x, int *y)</div><div class="ttdef"><b>Definition:</b> utils.c:27</div></div>
+<div class="ttc" id="autils_8h_html_aea0b7eaa2eccbab7c7a02af30f789fff"><div class="ttname"><a href="utils_8h.html#aea0b7eaa2eccbab7c7a02af30f789fff">insert_arr</a></div><div class="ttdeci">int insert_arr(int arr[], int i_, int x, int length)</div><div class="ttdoc">Insert a value in an array with a iven length.</div><div class="ttdef"><b>Definition:</b> utils.c:33</div></div>
+<div class="ttc" id="autils_8h_html_af2eeb464f878d97ae244a20a2ecdd415"><div class="ttname"><a href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a></div><div class="ttdeci">int BinarySearch_MinBigger(int *arr, int length, int key)</div><div class="ttdoc">Find the minimum i which fullfills arr[i] &gt; key.</div><div class="ttdef"><b>Definition:</b> utils.c:60</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

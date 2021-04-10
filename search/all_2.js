@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['k_2dleast_20element_4',['K-least element',['../index.html',1,'']]]
+  ['compare_5farray_2',['compare_array',['../utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74',1,'utils.c']]]
 ];

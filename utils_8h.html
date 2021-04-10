@@ -74,7 +74,17 @@ $(function() {
 
 <p>General Utilities for C language.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for utils.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h__incl.png" border="0" usemap="#asrc_2utils_8h" alt=""/></div>
+<map name="asrc_2utils_8h" id="asrc_2utils_8h">
+<area shape="rect" title="General Utilities for C language." alt="" coords="5,5,84,32"/>
+<area shape="rect" title=" " alt="" coords="11,80,79,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#asrc_2utils_8hdep" alt=""/></div>
@@ -96,6 +106,16 @@ Functions</h2></td></tr>
 <tr class="separator:a63802919fc588a396c2037346d2ea072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd3415eef442ced2b5e064f95f04b624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#acd3415eef442ced2b5e064f95f04b624">swap</a> (int *x, int *y)</td></tr>
 <tr class="separator:acd3415eef442ced2b5e064f95f04b624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0b7eaa2eccbab7c7a02af30f789fff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#aea0b7eaa2eccbab7c7a02af30f789fff">insert_arr</a> (int arr[], int i_, int x, int length)</td></tr>
+<tr class="memdesc:aea0b7eaa2eccbab7c7a02af30f789fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a value in an array with a iven length.  <a href="utils_8h.html#aea0b7eaa2eccbab7c7a02af30f789fff">More...</a><br /></td></tr>
+<tr class="separator:aea0b7eaa2eccbab7c7a02af30f789fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4f0ee49fe00816904a50365b89a7b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#aaa4f0ee49fe00816904a50365b89a7b5">append_arr</a> (int arr[], int x, int length)</td></tr>
+<tr class="separator:aaa4f0ee49fe00816904a50365b89a7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa26582e44b939cc0f7f9b1e3bec5de74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#aa26582e44b939cc0f7f9b1e3bec5de74">compare_array</a> (int A[], int B[], int length)</td></tr>
+<tr class="separator:aa26582e44b939cc0f7f9b1e3bec5de74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2eeb464f878d97ae244a20a2ecdd415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a> (int *arr, int length, int key)</td></tr>
+<tr class="memdesc:af2eeb464f878d97ae244a20a2ecdd415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum i which fullfills arr[i] &gt; key.  <a href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">More...</a><br /></td></tr>
+<tr class="separator:af2eeb464f878d97ae244a20a2ecdd415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General Utilities for C language. </p>
@@ -104,6 +124,181 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2021-04-10</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aaa4f0ee49fe00816904a50365b89a7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4f0ee49fe00816904a50365b89a7b5">&#9670;&nbsp;</a></span>append_arr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void append_arr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arr</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Insert a value at the end of the array </li>
+</ul>
+
+</div>
+</div>
+<a id="af2eeb464f878d97ae244a20a2ecdd415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2eeb464f878d97ae244a20a2ecdd415">&#9670;&nbsp;</a></span>BinarySearch_MinBigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BinarySearch_MinBigger </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the minimum i which fullfills arr[i] &gt; key. </p>
+<dl class="section warning"><dt>Warning</dt><dd>If all arr[i] &lt; key. Return length-1 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td></td></tr>
+    <tr><td class="paramname">length</td><td></td></tr>
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>@i_. </dd></dl>
+
+</div>
+</div>
+<a id="aa26582e44b939cc0f7f9b1e3bec5de74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa26582e44b939cc0f7f9b1e3bec5de74">&#9670;&nbsp;</a></span>compare_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compare_array </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>A</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>B</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Compare two arrays <dl class="section return"><dt>Returns</dt><dd>0: Different; 1:same in the given length </dd></dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="aea0b7eaa2eccbab7c7a02af30f789fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0b7eaa2eccbab7c7a02af30f789fff">&#9670;&nbsp;</a></span>insert_arr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int insert_arr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arr</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insert a value in an array with a iven length. </p>
+<dl class="section warning"><dt>Warning</dt><dd>The arr[length-1] is the place holder, and will be replaced. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>i_ means the index starts at 0. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>array to be inserted </td></tr>
+    <tr><td class="paramname">i_</td><td>the position to be inserted, starts at 0 -&gt; (length - 1) </td></tr>
+    <tr><td class="paramname">x</td><td>the value to be inserted. </td></tr>
+    <tr><td class="paramname">length</td><td>length of an array, the last element arr[length-1] is the place holder for the new value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of relocations </dd></dl>
+
+</div>
+</div>
 <a id="a63802919fc588a396c2037346d2ea072"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63802919fc588a396c2037346d2ea072">&#9670;&nbsp;</a></span>partition()</h2>
 

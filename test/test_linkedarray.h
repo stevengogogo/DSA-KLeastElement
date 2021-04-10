@@ -72,4 +72,24 @@ void test_insert_LArray(void){
     kill_list(list);
 }
 
+void test_delete(void){
+    LnkArr* list = init_list_empty();
+    int varI;
+    int numArr = 0; //number of linked arrays
+
+    for (int i=1; i<= MaxInitLen; i++){
+        numArr += insert(list, i, i);
+
+        varI = get_ith_var(list, i);
+        TEST_CHECK(varI == i);
+        TEST_MSG("Expected: %d, but got %d", i, varI);
+    }
+
+    for (int i= MaxInitLen; i>=1; i--){
+        numArr -= delete(list, i);
+    }
+
+    kill_list(list);
+}
+
 #endif

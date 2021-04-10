@@ -17,5 +17,6 @@ TEST_LIST = {
     {"LnkArr Initiation", test_init},    
     {"find", test_find},
     {"Insert", test_insert_LArray},
+    {"Delete", test_delete},
     {NULL, NULL} // Terminate the test
 };

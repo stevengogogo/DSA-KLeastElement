@@ -60,27 +60,21 @@ int compare_array(int A[], int B[], int length){
 int BinarySearch_MinBigger(int* arr, int length, int key){
     int low = 0;
     int high = length - 1;
-    assert(high>=low);
-    int i_;
     int mid;
+    assert(high>=low);
 
-    while(low != high){
+    int ans = length -1 ;
 
-        mid = (low+high) / 2;
-
-        if (arr[mid] > key ){ // search left side
-            if (mid == low)
-                return low;
-
-            high = mid - 1;
+    while(high >= low){
+        mid = (high+low) / 2;
+        if (key >= arr[mid]){
+            low = mid + 1;
         }
-        else{ // search right side
-            if (mid==high)
-                return high;
-
-            low = mid+1;
+        else{
+            ans = mid;
+            high = mid - 1;
         }
     }
 
-    return low;
+    return ans;
 }

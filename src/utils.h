@@ -50,6 +50,7 @@ int compare_array(int A[], int B[], int length);
  * @param length 
  * @param key 
  * @return @i_. 
+ * @note This function is inspired by [GreekforGeek](https://www.geeksforgeeks.org/first-strictly-greater-element-in-a-sorted-array-in-java/)
  */
 int BinarySearch_MinBigger(int* arr, int length, int key);
 

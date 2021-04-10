@@ -10,7 +10,7 @@ void test_init(void){
 
 void test_find(void){
     LnkArr* list = init_list_empty();
-    LnkArr* list2;
+    LnkArr* list2 = init_list_empty();
     int arr[] = {1,4,2,6,2};
     int arr_sorted[] = {1,2,2,4,6};
     int len = 5;
@@ -44,5 +44,15 @@ void test_find(void){
     TEST_CHECK(loc.nodePrev != NULL);
 }
 
+
+void test_insert_LArray(void){
+    LnkArr* list = init_list_empty();
+
+    insert(list, 1, 1);
+    insert(list, 2, 2);
+    insert(list, 1, 3);
+
+    kill_list(list);
+}
 
 #endif

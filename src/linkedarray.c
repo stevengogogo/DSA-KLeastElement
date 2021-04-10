@@ -23,12 +23,13 @@ void kill_list(LnkArr* list){
 }
 
 int insert(LnkArr* list, int i, int x){
-
+    int isSplit = 0;
     Loc iloc = find_LnkArr_ith(list, i);
 
     assert(iloc.node->len <= subN);
     if(iloc.node->len == subN){ // insufficient space 
         splitNode(iloc);
+        ++isSplit;
         iloc = find_LnkArr_ith_bounded(iloc.node, 
                                 iloc.nodePrev, 
                                 iloc.numCum ,
@@ -36,6 +37,7 @@ int insert(LnkArr* list, int i, int x){
     }
 
     insertLArray(iloc, x);
+    return isSplit;
 }
 
 void insertLArray(Loc nodeLoc, int x){

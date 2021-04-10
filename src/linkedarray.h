@@ -65,6 +65,7 @@ void kill_list(LnkArr*);
 */
 int insert(LnkArr*, int i, int x);
 
+
 void insertLArray(Loc nodeLoc, int x);
 
 /**

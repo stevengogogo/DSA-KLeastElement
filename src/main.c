@@ -19,5 +19,7 @@ int main()
 
     reverse(list,1, MaxInitLen);
 
+    
+
     return 0;
 }

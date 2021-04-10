@@ -104,10 +104,11 @@ void test_reverseLA(void){
         varI = get_ith_var(list, i);
     }
 
-    reverse(list, 1,1);
-    reverse(list,1,100);
+    //reverse(list, 1,1);
+    reverse(list,1, MaxInitLen);
     //reverse(list,1, MaxInitLen);
-
+    TEST_CHECK(get_ith_var(list, 1) == MaxInitLen);
+    TEST_MSG("got %d", get_ith_var(list, 1));
     kill_list(list);
 }
 

@@ -197,13 +197,15 @@ int reverse(LnkArr* list, int str, int end){
         int endFirst = get_i2read(0, nodeStr.node->flag, 
                                nodeStr.node->len);
         LnkArr* node;
+        LnkArr* prevN;
         //Reverse start node
         reverse_arr(nodeStr.node->arrInx, i_str, strLast);
 
         //Move to next node
-        node = nodeStr.node;
+        node = nodeStr.nodeNext;
         while( node != nodeEnd.node ){
             node->flag ^=1; //reverse
+            nTmp = node;
             node = node->nextNode;
         }
         reverse_arr(node->arrInx, endFirst, i_end);

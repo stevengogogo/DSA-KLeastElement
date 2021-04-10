@@ -66,7 +66,7 @@ void test_insert_LArray(void){
 
     time_taken = ((double)elp)/CLOCKS_PER_SEC;
 
-    printf("\n %d insertions: %f sec", MaxInitLen,time_taken);
+    printf("\n %d insertions: %f sec [Maxlength = %d]", MaxInitLen,time_taken, subN);
 
     kill_list(list);
 }

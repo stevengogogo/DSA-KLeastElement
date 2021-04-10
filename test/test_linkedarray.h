@@ -52,11 +52,12 @@ void test_insert_LArray(void){
     LnkArr* list = init_list_empty();
     int varI;
     double time_taken;
+    int numArr = 0;
     clock_t elp;
 
     elp = clock();
     for (int i=1; i<= MaxInitLen; i++){
-        insert(list, i, i);
+        numArr += insert(list, i, i);
 
         varI = get_ith_var(list, i);
         TEST_CHECK(varI == i);
@@ -66,7 +67,32 @@ void test_insert_LArray(void){
 
     time_taken = ((double)elp)/CLOCKS_PER_SEC;
 
-    printf("\n %d insertions: %f sec [MaxLen = %d]", MaxInitLen,time_taken, subN);
+    printf("\n %d insertions: %f sec [NumArr=%d/MaxLen = %d]", MaxInitLen,time_taken, numArr,subN);
+
+    kill_list(list);
+}
+
+void test_delete(void){
+    LnkArr* list = init_list_empty();
+    int varI;
+    int numArr = 1; //number of linked arrays
+
+    for (int i=1; i<= MaxInitLen; i++){
+        numArr += insert(list, i, i);
+
+        varI = get_ith_var(list, i);
+        TEST_CHECK(varI == i);
+        TEST_MSG("Expected: %d, but got %d", i, varI);
+    }
+
+    for (int i= MaxInitLen; i>=1; i--){
+        numArr -= delete(list, i);
+    }
+
+    TEST_CHECK( list->len == 0);
+    TEST_MSG("got %d", list->len);
+    TEST_CHECK(numArr == 1);
+    TEST_MSG("got %d", numArr);
 
     kill_list(list);
 }

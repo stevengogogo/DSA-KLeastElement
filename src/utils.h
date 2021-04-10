@@ -35,7 +35,8 @@ int insert_arr(int arr[], int i_, int x, int length);
 
 /** * Insert a value at the end of the array*/
 void append_arr(int arr[], int x, int length);
-
+/** * Remove arr[i] and shift one step to the left [i,end]*/
+void remove_arr(int arr[], int i, int length);
 
 /** * Compare two arrays
  * @return 0: Different; 1:same in the given length

@@ -60,6 +60,7 @@ typedef struct {
 LnkArr* init_list_empty(void);
 void kill_list(LnkArr*);
 
+
 /** * Insert x at ith position. i starts at 1
  * @return 1 create new node, 0
 */
@@ -74,6 +75,14 @@ void insertLArray(Loc nodeLoc, int x);
  * @return Loc Location of first node.
  */
 void splitNode(Loc nodeLoc);
+
+/** * Delete */
+int delete(LnkArr* list, int i);
+/** * Remove an element*/
+void remove_LArray(Loc nodeLoc);
+/** * Free the node*/
+void kill_LArray(Loc nodeLoc);
+
 
 /** * Find the position in linked array */
 Loc find_LnkArr_ith(LnkArr* headList, int i);

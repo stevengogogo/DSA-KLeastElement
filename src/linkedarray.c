@@ -125,9 +125,14 @@ int delete(LnkArr* list, int i){
     if(iloc.node->len > 1){ // more than 1 element
         remove_LArray(iloc);
     }
-    else if(iloc.nodePrev != NULL){
-        kill_LArray(iloc);
-        ++isRemoved;
+    else{
+        if (iloc.nodePrev != NULL){
+            kill_LArray(iloc);
+            ++isRemoved;
+        }
+        else{
+            remove_LArray(iloc);
+        }
     }
     return isRemoved;
 }

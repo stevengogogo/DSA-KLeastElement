@@ -22,20 +22,7 @@ void kill_list(LnkArr* list){
     }
 }
 
-int delete(LnkArr* list, int i){
-    Loc iloc = find_LnkArr_ith(list, i);
-    int isRemoved = 0;
-    assert(iloc.isEnd == 0);
-    
-    if(iloc.node->len > 1){
-        
-    }
-    else{
-        
-        ++isRemoved;
-    }
-    return isRemoved;
-}
+
 
 int insert(LnkArr* list, int i, int x){
     int isSplit = 0;
@@ -71,7 +58,7 @@ void insertLArray(Loc nodeLoc, int x){
         insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
     }
     else{
-        append_arr(arrS, x, nodeLoc.node->len); // add to the end [Unordered]
+        insert_arr(arr, i_, x, nodeLoc.node->len); // same operation with indexed array [indexed]
     }
 }
 
@@ -129,6 +116,61 @@ void splitNode(Loc nodeLoc){
 
 
 }
+
+int delete(LnkArr* list, int i){
+    Loc iloc = find_LnkArr_ith(list, i);
+    int isRemoved = 0;
+    assert(iloc.isEnd == 0);
+    
+    if(iloc.node->len > 1){ // more than 1 element
+        remove_LArray(iloc);
+    }
+    else{
+        kill_LArray(iloc);
+        ++isRemoved;
+    }
+    return isRemoved;
+}
+
+void remove_LArray(Loc nodeLoc){
+    LnkArr* node =  nodeLoc.node;
+    int flag = node->flag;
+    int i_ = get_i2read(nodeLoc.i, flag, node->len);
+    int i_sorted;
+    int varMov = node->arrInx[i_]; 
+
+    //Remove indexed array
+    remove_arr(node->arrInx, i_, node->len);
+
+    //Remove sorted array
+    if (node->isSorted){
+        i_sorted = BinarySearch_MinBigger(node->arrSort, node->len, varMov);
+
+        if (node->arrSort[i_sorted] != varMov)
+            --i_sorted;
+
+        assert(node->arrSort[i_sorted] == varMov);
+
+        remove_arr(node->arrSort, i_sorted, node->len);
+    }
+    else{
+        remove_arr(node->arrSort, i_, node->len); //same operation with indexed array
+    }
+
+    --(node->len); // update length by -1
+}
+
+
+void kill_LArray(Loc nodeLoc){
+    LnkArr* nodePrev = nodeLoc.nodePrev;
+    LnkArr* nodeNext = nodeLoc.nodeNext;
+    LnkArr* nodeCurrent = nodeLoc.node;
+    //Rewiring
+    nodePrev->nextNode = nodeNext;
+    //Release memory
+    free(nodeCurrent);
+}
+
 
 void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 

@@ -27,16 +27,31 @@ int insert(LnkArr* list, int i, int x){
     Loc iloc = find_LnkArr_ith(list, i);
 
     if (iloc.node->len < subN){ // Sufficient space for insertion
-        insert_array(iloc, x);
+        insertLArray(iloc, x);
     }
 
     // ToDo: insufficient space / sorting
 }
 
-void insert_array(Loc iloc, int x){
-    int flag = iloc.node->flag;
-    int* arr = iloc.node->arrInx;
-    //ToDo
+void insertLArray(Loc nodeLoc, int x){
+    int flag = nodeLoc.node->flag;
+    int len = nodeLoc.node->len;
+    int* arr = nodeLoc.node->arrInx;
+    int* arrS = nodeLoc.node->arrSort;
+    int i = nodeLoc.i + nodeLoc.isEnd; //ith position
+    int i_ = (flag==1) ? len - 1 - i : i; // convert to array position
+
+    ++(nodeLoc.node->len); //expand array length
+
+    insert_arr(arr, i_, x, nodeLoc.node->len);
+
+    if (nodeLoc.node->isSorted){
+        //int i_sorted = search_binary(arrS, x, nodeLoc.node->len);
+        //insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
+    }
+    else{
+        append_arr(arrS, x, nodeLoc.node->len); // add to the end [Unordered]
+    }
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){

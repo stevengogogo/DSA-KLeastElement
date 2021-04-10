@@ -63,7 +63,7 @@ void kill_list(LnkArr*);
 */
 int insert(LnkArr*, int i, int x);
 
-void insert_array(Loc, int);
+void insertLArray(Loc nodeLoc, int x);
 
 /** * Find the position in linked array */
 Loc find_LnkArr_ith(LnkArr* headList, int i);

@@ -14,9 +14,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 #include "utils.h"
 
-#define subN 100
+#define subN 2000
 
 /** * Node with arrays.
  * @param len length of stored data
@@ -36,6 +38,23 @@ typedef struct node{
     struct node* nextNode;
 } LnkArr;
 
+/**
+ * @brief Position in linked array
+ * @param node the array contains the ith member
+ * @param i index in node.array[i]
+ * @param isEnd is i-1 the end of the sequence? 
+ *              - 0 means node.array[i] is the ith position
+ *              - 1 means node.array[i] is the (i-1)th position
+ */
+typedef struct {
+    LnkArr* node;
+    LnkArr* nodePrev;
+    LnkArr* nodeNext;
+    int i;
+    int isEnd;
+    int numCum;
+} Loc;
+
 
 /** * Initiate empty linked array */
 LnkArr* init_list_empty(void);
@@ -46,6 +65,27 @@ void kill_list(LnkArr*);
 */
 int insert(LnkArr*, int i, int x);
 
+void insertLArray(Loc nodeLoc, int x);
 
+/**
+ * @brief Split the node to extend. The splited node is wired to the next node
+ * 
+ * @param nodeLoc 
+ * @return Loc Location of first node.
+ */
+void splitNode(Loc nodeLoc);
+
+/** * Find the position in linked array */
+Loc find_LnkArr_ith(LnkArr* headList, int i);
+
+/** * Find ith begin with a start node and sum of previous length */
+Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
+
+/** * Get ith variable */
+int get_ith_var(LnkArr* headList, int i);
+
+int get_i2read(int i, int flag, int length);
+
+void update_orderArr(LnkArr* node);
 
 #endif

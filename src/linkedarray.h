@@ -81,6 +81,9 @@ Loc find_LnkArr_ith(LnkArr* headList, int i);
 /** * Find ith begin with a start node and sum of previous length */
 Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
 
+/** * Get ith variable */
+int get_ith_var(LnkArr* headList, int i);
+
 int get_i2read(int i, int flag, int length);
 
 void update_orderArr(LnkArr* node);

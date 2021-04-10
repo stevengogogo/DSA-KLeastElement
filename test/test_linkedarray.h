@@ -2,6 +2,9 @@
 #define TEST_LINKEDARRAY_H
 
 #include "linkedarray.h"
+#include <time.h>
+
+#define MaxInitLen 100000
 
 void test_init(void){
     LnkArr* list = init_list_empty();
@@ -47,10 +50,23 @@ void test_find(void){
 
 void test_insert_LArray(void){
     LnkArr* list = init_list_empty();
+    int varI;
+    double time_taken;
+    clock_t elp;
 
-    for (int i=1; i< 10*subN; i++){
+    elp = clock();
+    for (int i=1; i<= MaxInitLen; i++){
         insert(list, i, i);
+
+        varI = get_ith_var(list, i);
+        TEST_CHECK(varI == i);
+        TEST_MSG("Expected: %d, but got %d", i, varI);
     }
+    elp = clock() - elp;
+
+    time_taken = ((double)elp)/CLOCKS_PER_SEC;
+
+    printf("\n %d insertions: %f sec", MaxInitLen,time_taken);
 
     kill_list(list);
 }

@@ -174,6 +174,14 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     return posI;
 }
 
+int get_ith_var(LnkArr* headList, int i){
+    Loc nodeLoc = find_LnkArr_ith(headList, i);
+    int i_ = get_i2read(nodeLoc.i, 
+                        nodeLoc.node->flag, nodeLoc.node->len);
+
+    return nodeLoc.node->arrInx[i_];
+}
+
 int get_i2read(int i, int flag, int length){
     int i_ = (flag==0) ? i : length - 1 - i ;
     return i_;

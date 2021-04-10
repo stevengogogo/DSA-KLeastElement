@@ -123,30 +123,31 @@ $(function() {
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = <a class="code" href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> varI;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">double</span> time_taken;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    clock_t elp;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    elp = clock();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;= MaxInitLen; i++){</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, i, i);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        varI = <a class="code" href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a>(list, i);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        TEST_CHECK(varI == i);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        TEST_MSG(<span class="stringliteral">&quot;Expected: %d, but got %d&quot;</span>, i, varI);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    elp = clock() - elp;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    time_taken = ((double)elp)/CLOCKS_PER_SEC;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    printf(<span class="stringliteral">&quot;\n %d insertions: %f sec [MaxLen = %d]&quot;</span>, MaxInitLen,time_taken, subN);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    kill_list(list);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> numArr = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    clock_t elp;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    elp = clock();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;= MaxInitLen; i++){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        numArr += <a class="code" href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a>(list, i, i);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        varI = <a class="code" href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a>(list, i);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        TEST_CHECK(varI == i);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        TEST_MSG(<span class="stringliteral">&quot;Expected: %d, but got %d&quot;</span>, i, varI);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    elp = clock() - elp;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    time_taken = ((double)elp)/CLOCKS_PER_SEC;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    printf(<span class="stringliteral">&quot;\n %d insertions: %f sec [NumArr=%d/MaxLen = %d]&quot;</span>, MaxInitLen,time_taken, numArr,subN);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    kill_list(list);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
-<div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:177</div></div>
+<div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:179</div></div>
 <div class="ttc" id="alinkedarray_8h_html_aa109308c19d3c05dae128de66c21affc"><div class="ttname"><a href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a></div><div class="ttdeci">LnkArr * init_list_empty(void)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:5</div></div>
-<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:123</div></div>
+<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:125</div></div>
 <div class="ttc" id="alinkedarray_8h_html_ad28f54d3afb32efa9887077f3f10bec1"><div class="ttname"><a href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a></div><div class="ttdeci">int insert(LnkArr *, int i, int x)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:25</div></div>
 <div class="ttc" id="astructLoc_html"><div class="ttname"><a href="structLoc.html">Loc</a></div><div class="ttdoc">Position in linked array.</div><div class="ttdef"><b>Definition:</b> linkedarray.h:49</div></div>
 <div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> linkedarray.h:32</div></div>

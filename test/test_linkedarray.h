@@ -75,7 +75,7 @@ void test_insert_LArray(void){
 void test_delete(void){
     LnkArr* list = init_list_empty();
     int varI;
-    int numArr = 0; //number of linked arrays
+    int numArr = 1; //number of linked arrays
 
     for (int i=1; i<= MaxInitLen; i++){
         numArr += insert(list, i, i);
@@ -88,6 +88,11 @@ void test_delete(void){
     for (int i= MaxInitLen; i>=1; i--){
         numArr -= delete(list, i);
     }
+
+    TEST_CHECK( list->len == 0);
+    TEST_MSG("got %d", list->len);
+    TEST_CHECK(numArr == 1);
+    TEST_MSG("got %d", numArr);
 
     kill_list(list);
 }

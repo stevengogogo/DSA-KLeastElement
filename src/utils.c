@@ -104,3 +104,39 @@ int BinarySearch_MinBigger(int* arr, int length, int key){
 
     return ans;
 }
+
+int BinarySearch_MaxSmaller(int* arr, int length, int key){
+    int low = 0;
+    int high = length - 1;
+    int mid;
+    assert(high>=low);
+
+    int ans = -1;
+
+    while(high >= low){
+        mid = (high+low) / 2;
+        if (key <= arr[mid]){
+            high = mid - 1;
+        }
+        else{
+            ans = mid;
+            low = mid + 1;
+        }
+    }
+
+    return ans;
+}
+
+int NumItemSmaller_Sorted(int* arrSorted, int length, int key){
+    int Isort = BinarySearch_MaxSmaller(arrSorted, length, key) + 1;
+    return Isort;
+}
+
+int NumItemSmaller_Screen(int* arr, int str, int end, int key){
+    int numSmaller = 0;
+    for (int i=str; i<=end; i++){
+        if (arr[i] < key)
+            ++numSmaller;
+    }
+    return numSmaller;
+}

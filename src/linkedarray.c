@@ -117,6 +117,39 @@ void splitNode(Loc nodeLoc){
 
 }
 
+
+int query(LnkArr* list, int l, int r, int k){
+    //Find max min between l , r
+    StrEndLoc StrEnd = find_start_end_LA(list, l, r);
+    MinMax mx = sortBetween (StrEnd.str, StrEnd.end);
+
+    //Binary search k-least member
+    int high = mx.max;
+    int low = mx.min;
+    int mid;
+    int Kleast;
+    int NumlessK = k-1;
+    int ans = low;
+    int found = 0;
+
+    while( high >= low){
+        mid = (high+low)/2;
+        Kleast = NumItemSmaller(StrEnd, mid);
+        if (k < Kleast){
+            high = mid - 1;
+        }
+        else if (k==Kleast){
+            ans = k;
+            ++found;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+    assert(found!=0);
+    return ans;
+}
+
 int delete(LnkArr* list, int i){
     Loc iloc = find_LnkArr_ith(list, i);
     int isRemoved = 0;
@@ -436,8 +469,96 @@ int getINode(Loc iloc){
     );
 }
 
+int getINodeEnd(Loc iloc){
+    return get_i2read(
+        iloc.node->len,
+        iloc.node->flag,
+        iloc.node->len
+    );
+}
+
+int getINodeStr(Loc iloc){
+    return get_i2read(
+        0,
+        iloc.node->flag,
+        iloc.node->len
+    );
+}
+
 int convert_flag(LnkArr* node){
     reverse_arr(node->arrInx, 0,node->len-1);
     node->flag ^= 1;
     return node->flag;
+}
+
+int sortNode(LnkArr* node){
+    int doSort = 0;
+    if (node->isSorted == 0){
+        quicksort(node->arrSort, 0, node->len-1);
+        ++(node->flag);
+        ++doSort;
+    }
+    return doSort;   
+}
+
+MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
+    LnkArr* node = nodeStr.node;
+    int min = node->arrSort[0];
+    int max = node->arrSort[node->len - 1];
+    MinMax mx;
+
+    while( node != nodeEnd.nodeNext ){
+        sortNode(node);
+        //get extremes
+        if (node->arrSort[0] < min)
+            min = node->arrSort[0];
+        if (node->arrSort[node->len - 1] > max )
+            max = node->arrSort[node->len - 1];
+    }
+
+    mx.max = max;
+    mx.min = min;
+
+    return mx;
+}
+
+int NumItemSmaller(StrEndLoc StrEnd, int key){
+    int numSmaller=0;
+    Loc nodeStr = StrEnd.str;
+    Loc nodeEnd = StrEnd.end;
+    int Istr, Iend;
+
+
+    if (nodeStr.node == nodeEnd.node){ // Same array; same node
+        Istr = getINode(nodeStr);
+        Iend = getINode(nodeEnd);
+        numSmaller = NumItemSmaller_Screen(nodeStr.node->arrInx,
+                              Istr, Iend, key);
+        return numSmaller;
+    }
+    
+    /*Linear search for terminals*/
+    //Start terminal [i, end]
+    Istr = getINode(nodeStr);
+    Iend = getINodeEnd(nodeStr);
+    numSmaller += NumItemSmaller_Screen(nodeStr.node->arrInx,Istr, Iend, key);
+
+    //End terminal [0, i]
+    Istr = getINodeStr(nodeEnd);
+    Iend = getINode(nodeEnd);
+
+    numSmaller += NumItemSmaller_Screen(nodeEnd.node->arrInx, Istr, Iend, key);
+
+    /*Binary search*/
+    LnkArr* node = nodeStr.nodeNext;
+
+    while(node != nodeEnd.node){
+        assert(node->isSorted == 1);
+        numSmaller+= NumItemSmaller_Sorted(node->arrSort, 
+                                           node->len, 
+                                           key) ;
+        node = node->nextNode;
+    }
+
+    return numSmaller;
 }

@@ -61,6 +61,10 @@ typedef struct {
     Loc end;
 } StrEndLoc;
 
+typedef struct {
+    int min;
+    int max;
+} MinMax;
 
 /** * Initiate empty linked array */
 LnkArr* init_list_empty(void);
@@ -81,6 +85,14 @@ void insertLArray(Loc nodeLoc, int x);
  * @return Loc Location of first node.
  */
 void splitNode(Loc nodeLoc);
+
+/** * Query
+ * @param l lower bound lth element
+ * @param r upper bound r-th element
+ * @param k k least 
+ * @return k-least element
+ */
+int query(LnkArr* list, int l, int r, int k);
 
 /** * Delete */
 int delete(LnkArr* list, int i);
@@ -127,8 +139,34 @@ int get_i2read(int i, int flag, int length);
 /** * get node.arr[i] from loc */
 int getINode(Loc);
 
+/** * get end i*/
+int getINodeEnd(Loc);
+
+/** * Get start */
+int getINodeStr(Loc);
+
+
+
 void update_orderArr(LnkArr* node);
 
 int convert_flag(LnkArr* node);
+
+
+/** * Make the node sorted. Do nothing if the array is already sorted
+ * @return 1 if sorting happened; 0 otherwise
+ */
+int sortNode(LnkArr*);
+
+/** @brief sort array between start and end node (including terminals)*/
+MinMax sortBetween(Loc nodeStr, Loc nodeEnd);
+
+/**
+ * @brief Measure how many items is smaller than `key`.
+ * @details Linear search for terminal arrays is made by \ref NumItemSmaller_Screen ; binary search for full array is done by \ref NumItemSmaller_Sorted
+ * @param StrEnd 
+ * @param key 
+ * @return int number of items smaller than key.
+ */
+int NumItemSmaller(StrEndLoc StrEnd, int key);
 
 #endif

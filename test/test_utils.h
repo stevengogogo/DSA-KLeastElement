@@ -84,6 +84,59 @@ void test_binary_search(void){
     TEST_MSG("Got %d",BinarySearch_MinBigger(arr, aLen, 6));
 }
 
+void test_binarySearch_maxSmaller(void){
+    int arr[] = {-123,2,3,4,5,6,7,7,8,8,9,9,10,11};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    int I;
+
+
+    TEST_CHECK(BinarySearch_MaxSmaller(arr, len, -123)
+               == -1);
+    TEST_MSG("Got %d", BinarySearch_MaxSmaller(arr, len, -123));
+
+    TEST_CHECK(BinarySearch_MaxSmaller(arr, len, 7)
+               == 5);
+    TEST_MSG("Got %d", BinarySearch_MaxSmaller(arr, len, 7));
+    
+    TEST_CHECK(BinarySearch_MaxSmaller(arr, len, 9)
+               == 9);
+    TEST_MSG("Got %d", BinarySearch_MaxSmaller(arr, len, 10));
+
+    TEST_CHECK(BinarySearch_MaxSmaller(arr, len, 12)
+               == 13); // the last one is smaller
+    
+    TEST_CHECK(BinarySearch_MaxSmaller(arr, len, -124)
+               == -1); // no one is smaller
+    
+    //Screening
+    int Isort, Iscreen;
+    for (int i=-200; i<200;i++){
+        //Location
+        I = BinarySearch_MaxSmaller(arr, len, i);
+        //Number of smaller items
+        Isort = NumItemSmaller_Sorted(arr, len, i);
+        Iscreen = NumItemSmaller_Screen(arr, 0, len-1, i);
+
+        TEST_CHECK(Isort==Iscreen);
+
+        if (I==-1){
+            TEST_CHECK(arr[0] >= i);
+            TEST_CHECK(Isort==0);
+            TEST_MSG("got Isort = %d; I =%d", Isort, I);
+        }
+        if (I!=-1){
+            TEST_CHECK(I == (Isort-1));
+            TEST_CHECK(i > arr[I] );
+            if (I<len-1)
+                TEST_CHECK(arr[I+1] >= i);
+                TEST_MSG("Got arr[I]=%d, arr[I+1] = %d, i=%d", arr[I], arr[I+1], i);
+        }
+    }
+
+
+   
+
+}
 
 void test_binary_search2(void){
     int arr[]={-100,-100,-12,0,1,1,2,2,3,3,3,3,4,5,6,7,7,8,11,11};

@@ -157,19 +157,26 @@ void test_reverseLA(void){
 }
 
 void randomReverse(void){
-    int Len = 10*subN;
+
+
+    int Len = 50000;
     LnkArr* list = createlistRandom(Len);
 
     int L,R;
-    for (int i=0;i<1000;i++){
+    for (int i=0;i<50000;i++){
         L = rand() % Len + 1 ;
-        R = rand() % (Len-L+1) + L;
+
+        if (L!= Len)
+            R = L + rand() % (Len-L);
+        else
+          R=L;
         TEST_CHECK(L <= R);
         TEST_CHECK(L>0);
         TEST_CHECK(R>0);
         TEST_CHECK(R<=Len);
         //printf("L:%d ; R:%d\n", L, R);
         reverse(&list, L, R);
+        get_ith_var(list, Len);
     }
 }
 

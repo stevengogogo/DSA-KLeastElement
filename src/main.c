@@ -22,13 +22,13 @@ LnkArr* createlistRandom(int Len);
 int main()
 {
    
-    int Len = 50000;
+    int Len = 1*subN;
     LnkArr* list = createlistRandom(Len);
-    LnkArr* node = list;
-
-    while(node!=NULL){
-        assert(compare_array(node->arrInx, node->arrSort, node->len)==1);
-        node = node->nextNode;
+    int lower;
+    for (int i=1; i<=Len;i++){
+       //lower = rand()%i + 1 ;
+       printf("i = %d\n", i);
+       query(list, 1, i, i);
     }
 
     return 0;

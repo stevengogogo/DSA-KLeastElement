@@ -136,17 +136,15 @@ int query(LnkArr* list, int l, int r, int k){
         if (k < Kleast){
             high = mid - 1;
         }
-        else if (k==Kleast){
-            ans = k;
-            ++found;
-            break;
+        else if (NumlessK==Kleast){
+            return mid;
         }
         else{
             low = mid + 1;
         }
     }
-    assert(found!=0);
-    return ans;
+    
+    return low;
 }
 
 int delete(LnkArr* list, int i){

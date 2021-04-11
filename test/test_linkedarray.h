@@ -228,4 +228,15 @@ void test_flipnodes(void){
     kill_list(list);
 }
 
+
+void test_query(void){
+    int Len = 1*subN;
+    LnkArr* list = createlistRandom(Len);
+    int lower;
+    for (int i=1; i<=Len;i++){
+       lower = rand()%i + 1 ;
+       query(list, 1, i, i);
+    }
+}
+
 #endif

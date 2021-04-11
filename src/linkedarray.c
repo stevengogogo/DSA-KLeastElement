@@ -58,7 +58,7 @@ void insertLArray(Loc nodeLoc, int x){
         insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
     }
     else{
-        insert_arr(arr, i_, x, nodeLoc.node->len); // same operation with indexed array [indexed]
+        insert_arr(arrS, i_, x, nodeLoc.node->len); // same operation with indexed array [indexed]
     }
 }
 
@@ -339,7 +339,7 @@ int reverseInNodes(Loc nodeStr, Loc nodeEnd){
 
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
     assert(iEnd < nodeStr.node->len);
-    assert(flip == 0); // iStr should be less than iEnd
+    //assert(flip == 0); // iStr should be less than iEnd
 }
 
 void update_orderArr(LnkArr* node){

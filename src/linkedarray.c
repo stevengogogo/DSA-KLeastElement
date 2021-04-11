@@ -105,10 +105,8 @@ void splitNode(Loc nodeLoc){
     }
 
     // Reorder
-    if (nodeFirst->isSorted == 1){
-        update_orderArr(nodeFirst);
-        update_orderArr(nodeNew);
-    }
+    update_orderArr(nodeFirst);
+    update_orderArr(nodeNew);
 
 
     // Sum of separated lengths should equal to the original.
@@ -382,8 +380,10 @@ void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 
            sizeof(int)*node->len);
-    quicksort(node->arrSort, 0, node->len-1);
-    node->isSorted = 1;
+    if (node->isSorted){
+        quicksort(node->arrSort, 0, node->len-1);
+        node->isSorted = 1;
+    }
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){

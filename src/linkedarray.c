@@ -98,10 +98,10 @@ void splitNode(Loc nodeLoc){
         for(int i=d; i < (len); i++)
             nodeFirst->arrInx[i - d] = nodeFirst->arrInx[i];
 
-        nodeFirst->len = nodeFirst->len - d;
+        nodeFirst->len = nodeFirst->len - (len-len/2);
     }
     else{
-        nodeFirst->len = len/2 ;
+        nodeFirst->len = len/2  ;//34
     }
 
     // Reorder
@@ -264,7 +264,7 @@ int reversePartLA(Loc nodeStr, Loc nodeEnd){
         strArr[i_str2] = endArr[i];
         ++i_str2;
     }
-    //update length
+    //update Str length
     nodeStr.node->len = i_str2;
     assert(i_str2 < subN);
 
@@ -277,6 +277,8 @@ int reversePartLA(Loc nodeStr, Loc nodeEnd){
         endArr[i_end] = TmpArr[i];
         ++i_end;
      }
+     //update End length
+     nodeEnd.node->len = i_end;
 
      //reorder
      update_orderArr(nodeStr.node);

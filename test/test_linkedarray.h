@@ -249,7 +249,7 @@ void test_query(void){
     int Len = 1*subN;
     LnkArr* list = createlistRandom(Len);
     int lower;
-    for (int i=1; i<=Len;i++){
+    for (int i=1; i<=2;i++){
        lower = rand()%i + 1 ;
        query(list, lower, i, i);
     }
@@ -260,7 +260,7 @@ void test_query_val(void){
     LnkArr* list = createlistSerial(Len);
     int realVal, queryVal;
     //query each element
-    for (int i=1;i<=Len;i++){
+    for (int i=1;i<=2;i++){
         realVal = get_ith_var(list, i);
         queryVal = query(list,i,i,1);
         TEST_CHECK(realVal==queryVal);

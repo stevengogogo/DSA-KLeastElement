@@ -221,44 +221,64 @@ $(function() {
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">//reverse(list,1, MaxInitLen);</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    TEST_CHECK(<a class="code" href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a>(list, 1) == MaxInitLen);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    TEST_MSG(<span class="stringliteral">&quot;got %d&quot;</span>, <a class="code" href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a>(list, 1));</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    kill_list(list);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keywordtype">void</span> test_flipnodes(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">int</span> len = 3*subN;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">int</span> Istr, Iend;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = createlistRandom(len);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeStr = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 1);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeEnd = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 3*subN);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr, nodeEnd);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeStr2 = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, subN);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeEnd2 = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 3*subN);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr2, nodeEnd2);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;=len; i++ ){</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        Istr = (rand() % len) + 1;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        Iend = (rand() % (len-Istr) + Istr+ 1);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        nodeStr = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, Istr);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        nodeEnd = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, Iend);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr, nodeEnd);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    kill_list(list);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    kill_list(list);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordtype">void</span> randomReverse(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">int</span> Len = 10*subN;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = createlistRandom(Len);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">int</span> L,R;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;1000;i++){</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        L = rand() % Len + 1 ;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        R = rand() % (Len-L+1) + L;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        TEST_CHECK(L &lt;= R);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        TEST_CHECK(L&gt;0);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        TEST_CHECK(R&gt;0);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        TEST_CHECK(R&lt;=Len);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">//printf(&quot;L:%d ; R:%d\n&quot;, L, R);</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <a class="code" href="linkedarray_8h.html#a68b2cb74eff0a4f1f38366f3ca7609ef">reverse</a>(&amp;list, L, R);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">void</span> test_flipnodes(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">int</span> len = 3*subN;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">int</span> Istr, Iend;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = createlistRandom(len);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeStr = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 1);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeEnd = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 3*subN);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr, nodeEnd);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeStr2 = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, subN);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="structLoc.html">Loc</a> nodeEnd2 = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, 3*subN);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr2, nodeEnd2);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;=len; i++ ){</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        Istr = (rand() % len) + 1;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        Iend = (rand() % (len-Istr) + Istr+ 1);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        nodeStr = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, Istr);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        nodeEnd = <a class="code" href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a>(list, Iend);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a>(&amp;list, nodeStr, nodeEnd);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    kill_list(list);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
-<div class="ttc" id="alinkedarray_8h_html_a1a97e22047e9315fd79bc2661138e2ab"><div class="ttname"><a href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a></div><div class="ttdeci">int flipFullNodes(LnkArr **list, Loc nodeStr, Loc nodeEnd)</div><div class="ttdoc">Flip nodes between start to end nodes, including themselves. The effect region is (start....</div><div class="ttdef"><b>Definition:</b> linkedarray.c:230</div></div>
-<div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:347</div></div>
+<div class="ttc" id="alinkedarray_8h_html_a1a97e22047e9315fd79bc2661138e2ab"><div class="ttname"><a href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a></div><div class="ttdeci">int flipFullNodes(LnkArr **list, Loc nodeStr, Loc nodeEnd)</div><div class="ttdoc">Flip nodes between start to end nodes, including themselves. The effect region is (start....</div><div class="ttdef"><b>Definition:</b> linkedarray.c:287</div></div>
+<div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:418</div></div>
 <div class="ttc" id="alinkedarray_8h_html_a68b2cb74eff0a4f1f38366f3ca7609ef"><div class="ttname"><a href="linkedarray_8h.html#a68b2cb74eff0a4f1f38366f3ca7609ef">reverse</a></div><div class="ttdeci">int reverse(LnkArr **list, int str, int end)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:181</div></div>
 <div class="ttc" id="alinkedarray_8h_html_aa109308c19d3c05dae128de66c21affc"><div class="ttname"><a href="linkedarray_8h.html#aa109308c19d3c05dae128de66c21affc">init_list_empty</a></div><div class="ttdeci">LnkArr * init_list_empty(void)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:5</div></div>
-<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:281</div></div>
+<div class="ttc" id="alinkedarray_8h_html_ac4ba5a8899ce0b7f30ec4a7369961955"><div class="ttname"><a href="linkedarray_8h.html#ac4ba5a8899ce0b7f30ec4a7369961955">find_LnkArr_ith</a></div><div class="ttdeci">Loc find_LnkArr_ith(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:352</div></div>
 <div class="ttc" id="alinkedarray_8h_html_ad28f54d3afb32efa9887077f3f10bec1"><div class="ttname"><a href="linkedarray_8h.html#ad28f54d3afb32efa9887077f3f10bec1">insert</a></div><div class="ttdeci">int insert(LnkArr *, int i, int x)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:27</div></div>
-<div class="ttc" id="astructLoc_html"><div class="ttname"><a href="structLoc.html">Loc</a></div><div class="ttdoc">Position in linked array.</div><div class="ttdef"><b>Definition:</b> linkedarray.h:54</div></div>
+<div class="ttc" id="astructLoc_html"><div class="ttname"><a href="structLoc.html">Loc</a></div><div class="ttdoc">Position in linked array.</div><div class="ttdef"><b>Definition:</b> linkedarray.h:50</div></div>
 <div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> linkedarray.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

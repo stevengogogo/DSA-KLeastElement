@@ -111,6 +111,8 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html">node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structStrEndLoc.html">StrEndLoc</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLoc.html">Loc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position in linked array.  <a href="structLoc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,11 +149,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insertLArray</b> (<a 
 <tr class="separator:a5488b8a5eb4fb9babba4e7c0b1af74ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17beb65448ab3f4655cac3f3e3213d5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a17beb65448ab3f4655cac3f3e3213d5a">kill_LArray</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
 <tr class="separator:a17beb65448ab3f4655cac3f3e3213d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ff62c244d80de109a51d22523eb4f31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a6ff62c244d80de109a51d22523eb4f31">reverse</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int str, int end)</td></tr>
-<tr class="separator:a6ff62c244d80de109a51d22523eb4f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fdbc3999346ab0410f1841fef154795"><td class="memItemLeft" align="right" valign="top"><a id="a0fdbc3999346ab0410f1841fef154795"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>reverseSplit</b> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, <a class="el" href="structLoc.html">Loc</a> nodeStr, <a class="el" href="structLoc.html">Loc</a> nodeEnd, int Istr, int Iend)</td></tr>
-<tr class="separator:a0fdbc3999346ab0410f1841fef154795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b2cb74eff0a4f1f38366f3ca7609ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a68b2cb74eff0a4f1f38366f3ca7609ef">reverse</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> **list, int str, int end)</td></tr>
+<tr class="separator:a68b2cb74eff0a4f1f38366f3ca7609ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cd06b1cd1893ad1bbae8a091d582c5c"><td class="memItemLeft" align="right" valign="top"><a id="a4cd06b1cd1893ad1bbae8a091d582c5c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>reverseSplit</b> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> **list, <a class="el" href="structLoc.html">Loc</a> *nodeStr, <a class="el" href="structLoc.html">Loc</a> *nodeEnd, int Istr, int Iend)</td></tr>
+<tr class="separator:a4cd06b1cd1893ad1bbae8a091d582c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a97e22047e9315fd79bc2661138e2ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> **list, <a class="el" href="structLoc.html">Loc</a> nodeStr, <a class="el" href="structLoc.html">Loc</a> nodeEnd)</td></tr>
 <tr class="memdesc:a1a97e22047e9315fd79bc2661138e2ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flip nodes between start to end nodes, including themselves. The effect region is (start.Prevnode, End.Nextnode)  <a href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">More...</a><br /></td></tr>
 <tr class="separator:a1a97e22047e9315fd79bc2661138e2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,8 +163,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>reverseSplit</b> (<a c
 <tr class="separator:ac4ba5a8899ce0b7f30ec4a7369961955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e4ac41ff830aab17f48f48a760cebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a22e4ac41ff830aab17f48f48a760cebc">find_LnkArr_ith_bounded</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *startNode, <a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *prevNode, int sumLenPrev, int i)</td></tr>
 <tr class="separator:a22e4ac41ff830aab17f48f48a760cebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4748436d24a47c4dc9e5e17f5b9955ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoc.html">Loc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a4748436d24a47c4dc9e5e17f5b9955ae">find_start_end_LA</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headlist, int str, int end)</td></tr>
-<tr class="separator:a4748436d24a47c4dc9e5e17f5b9955ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09ebb3d01abd07009f724db79fc1a26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStrEndLoc.html">StrEndLoc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#ae09ebb3d01abd07009f724db79fc1a26">find_start_end_LA</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headlist, int str, int end)</td></tr>
+<tr class="separator:ae09ebb3d01abd07009f724db79fc1a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24675a0a3b56694ff51f65c618420cac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *headList, int i)</td></tr>
 <tr class="separator:a24675a0a3b56694ff51f65c618420cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab343439c60c24a2772f36156f9e249df"><td class="memItemLeft" align="right" valign="top"><a id="ab343439c60c24a2772f36156f9e249df"></a>
@@ -315,14 +317,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (
 
 </div>
 </div>
-<a id="a4748436d24a47c4dc9e5e17f5b9955ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4748436d24a47c4dc9e5e17f5b9955ae">&#9670;&nbsp;</a></span>find_start_end_LA()</h2>
+<a id="ae09ebb3d01abd07009f724db79fc1a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09ebb3d01abd07009f724db79fc1a26">&#9670;&nbsp;</a></span>find_start_end_LA()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structLoc.html">Loc</a>* find_start_end_LA </td>
+          <td class="memname"><a class="el" href="structStrEndLoc.html">StrEndLoc</a> find_start_end_LA </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
           <td class="paramname"><em>headlist</em>, </td>
@@ -545,8 +547,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (
 
 </div>
 </div>
-<a id="a6ff62c244d80de109a51d22523eb4f31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ff62c244d80de109a51d22523eb4f31">&#9670;&nbsp;</a></span>reverse()</h2>
+<a id="a68b2cb74eff0a4f1f38366f3ca7609ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b2cb74eff0a4f1f38366f3ca7609ef">&#9670;&nbsp;</a></span>reverse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -554,7 +556,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_orderArr</b> (
         <tr>
           <td class="memname">int reverse </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> **&#160;</td>
           <td class="paramname"><em>list</em>, </td>
         </tr>
         <tr>

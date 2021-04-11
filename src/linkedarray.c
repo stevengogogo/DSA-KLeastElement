@@ -192,7 +192,7 @@ int reverse(LnkArr* list, int str, int end){
         reverse_arr(nodeStr.node->arrInx, i_str, i_end);
     }
     else if (nodeStr.i == 0 && nodeEnd.i == (nodeEnd.node->len-1)){ // perfec contain full length
-        flipFullNodes(nodeStr, nodeEnd);
+        flipFullNodes(&list, nodeStr, nodeEnd);
     }
     else{ // Cross arrays
         int strLast = get_i2read(nodeStr.node->len, 
@@ -230,7 +230,7 @@ int reverse(LnkArr* list, int str, int end){
     return isCrossArr;
 }
 
-int flipFullNodes(Loc nodeStr, Loc nodeEnd ){
+int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
     LnkArr* nodeBefore = nodeStr.nodePrev;
     LnkArr* nodeAfter = nodeEnd.nodeNext;
     int NumNodes = 0;
@@ -253,7 +253,12 @@ int flipFullNodes(Loc nodeStr, Loc nodeEnd ){
         ++NumNodes;
     }
 
-    nodeStr.node->nextNode = nodeEnd.node; //START
+    if (nodeStr.nodePrev != NULL)
+        nodeStr.nodePrev->nextNode = nodeEnd.node; //START
+    else { // nodeStr is the head
+        //TODO
+        *list = nodeEnd.node;//change head 
+    }
     return NumNodes;
 }
 

@@ -14,8 +14,13 @@ int main()
 
     Loc nodeStr = find_LnkArr_ith(list, 1);
     Loc nodeEnd = find_LnkArr_ith(list, 3*subN);
+    flipFullNodes(&list, nodeStr, nodeEnd);
 
-    flipFullNodes(nodeStr, nodeEnd);
+
+    Loc nodeStr2 = find_LnkArr_ith(list, subN);
+    Loc nodeEnd2 = find_LnkArr_ith(list, 3*subN);
+    flipFullNodes(&list, nodeStr2, nodeEnd2);
+
 
     kill_list(list);
 

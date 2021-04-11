@@ -90,7 +90,7 @@ int reverse(LnkArr* list, int str, int end);
  * @warning The flip action reverse all the members from nodeStr.node[1,end] to nodeEnd.node[1,end].  
  * @return number of nodes between str-end including two ends.
  */
-int flipFullNodes(Loc nodeStr, Loc nodeEnd );
+int flipFullNodes(LnkArr** list,Loc nodeStr, Loc nodeEnd );
 
 
 

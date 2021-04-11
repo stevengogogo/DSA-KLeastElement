@@ -154,12 +154,27 @@ void test_reverseLA(void){
 }
 
 void test_flipnodes(void){
-    LnkArr* list = createlistRandom(3*subN);
+    int len = 3*subN;
+    int Istr, Iend;
+    LnkArr* list = createlistRandom(len);
 
     Loc nodeStr = find_LnkArr_ith(list, 1);
     Loc nodeEnd = find_LnkArr_ith(list, 3*subN);
+    flipFullNodes(&list, nodeStr, nodeEnd);
 
-    flipFullNodes(nodeStr, nodeEnd);
+
+    Loc nodeStr2 = find_LnkArr_ith(list, subN);
+    Loc nodeEnd2 = find_LnkArr_ith(list, 3*subN);
+    flipFullNodes(&list, nodeStr2, nodeEnd2);
+
+    for (int i=1; i<=len; i++ ){
+        Istr = (rand() % len) + 1;
+        Iend = (rand() % (len-Istr) + Istr+ 1);
+        nodeStr = find_LnkArr_ith(list, Istr);
+        nodeEnd = find_LnkArr_ith(list, Iend);
+        flipFullNodes(&list, nodeStr, nodeEnd);
+    }
+
 
     kill_list(list);
 }

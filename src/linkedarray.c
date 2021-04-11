@@ -137,6 +137,7 @@ int query(LnkArr* list, int l, int r, int k){
             high = mid - 1;
         }
         else if (NumlessK==Kleast){
+            printf("%d", mid);
             return mid;
         }
         else{
@@ -144,6 +145,7 @@ int query(LnkArr* list, int l, int r, int k){
         }
     }
     
+    printf("%d", low);
     return low;
 }
 
@@ -565,4 +567,51 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
     }
 
     return numSmaller;
+}
+
+/*Interface*/
+void interface(void){
+    LnkArr* list = init_list_empty();
+
+    int n, q; //n: #n initial seq; q: #n of commands
+    char cmd[30];
+    int val;
+    int v0,v1,v2;
+    scanf("%d", &n);
+    scanf("%d", &q);
+
+    //Initial seq
+    for(int i=1; i<=n;i++){
+        scanf("%d", &val);
+        insert(list, i, val);
+    }
+    
+
+    // Commands
+    for(int i=0;i<q;i++){
+        scanf("%s", cmd);
+        if (strcmp(cmd, "Delete") == 0){
+            scanf("%d", &v0);
+            delete(list, v0);
+        }
+        else if(strcmp(cmd, "Insert") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            insert(list, v0, v1);
+        }
+        else if(strcmp(cmd, "Query") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            scanf("%d", &v2);
+            query(list, v0, v1, v2);  
+            printf("\n");  
+        }
+        else if(strcmp(cmd, "Reverse") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            reverse(&list, v0, v1);
+        }
+    }
+
+    kill_list(list);
 }

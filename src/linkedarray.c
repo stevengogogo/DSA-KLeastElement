@@ -119,7 +119,12 @@ void splitNode(Loc nodeLoc){
 
 
 int query(LnkArr* list, int l, int r, int k){
-    //TODO
+    //Find max min between l , r
+    StrEndLoc StrEnd = find_start_end_LA(list, l, r);
+    MinMax mx = sortBetween (StrEnd.str, StrEnd.end);
+    
+    
+    
 }
 
 int delete(LnkArr* list, int i){
@@ -445,4 +450,35 @@ int convert_flag(LnkArr* node){
     reverse_arr(node->arrInx, 0,node->len-1);
     node->flag ^= 1;
     return node->flag;
+}
+
+int sortNode(LnkArr* node){
+    int doSort = 0;
+    if (node->isSorted == 0){
+        quicksort(node->arrSort, 0, node->len-1);
+        ++(node->flag);
+        ++doSort;
+    }
+    return doSort;   
+}
+
+MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
+    LnkArr* node = nodeStr.node;
+    int min = node->arrSort[0];
+    int max = node->arrSort[node->len - 1];
+    MinMax mx;
+
+    while( node != nodeEnd.nodeNext ){
+        sortNode(node);
+        //get extremes
+        if (node->arrSort[0] < min)
+            min = node->arrSort[0];
+        if (node->arrSort[node->len - 1] > max )
+            max = node->arrSort[node->len - 1];
+    }
+
+    mx.max = max;
+    mx.min = min;
+
+    return mx;
 }

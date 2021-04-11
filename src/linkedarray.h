@@ -61,6 +61,10 @@ typedef struct {
     Loc end;
 } StrEndLoc;
 
+typedef struct {
+    int min;
+    int max;
+} MinMax;
 
 /** * Initiate empty linked array */
 LnkArr* init_list_empty(void);
@@ -138,5 +142,14 @@ int getINode(Loc);
 void update_orderArr(LnkArr* node);
 
 int convert_flag(LnkArr* node);
+
+
+/** * Make the node sorted. Do nothing if the array is already sorted
+ * @return 1 if sorting happened; 0 otherwise
+ */
+int sortNode(LnkArr*);
+
+/** @brief sort array between start and end node (including terminals)*/
+MinMax sortBetween(Loc nodeStr, Loc nodeEnd);
 
 #endif

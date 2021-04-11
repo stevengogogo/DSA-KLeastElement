@@ -86,6 +86,15 @@ void kill_LArray(Loc nodeLoc);
 /** * Reverse */
 int reverse(LnkArr* list, int str, int end);
 
+/** @brief Flip nodes between start to end nodes, including themselves. The effect region is (start.Prevnode, End.Nextnode)
+ * @warning The flip action reverse all the members from nodeStr.node[1,end] to nodeEnd.node[1,end].  
+ * @return number of nodes between str-end including two ends.
+ */
+int flipFullNodes(Loc nodeStr, Loc nodeEnd );
+
+
+
+
 /** * Find the position in linked array */
 Loc find_LnkArr_ith(LnkArr* headList, int i);
 

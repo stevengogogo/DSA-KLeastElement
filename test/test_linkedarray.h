@@ -3,9 +3,24 @@
 
 #include "linkedarray.h"
 #include <time.h>
+#include <stdlib.h> // rand()
 
-#define MaxInitLen 100000
+#define MaxInitLen 10000
 
+//HELPER FUNCTION
+LnkArr* createlistRandom(int Len){
+    LnkArr* list = init_list_empty();
+    int I,x;
+    for(int i=1; i<= Len; i++){
+        I = (rand() % i + 1);
+        x = (rand() % (100000*2) - 100000);
+        insert(list, I, x);
+    }
+
+    return list;
+}
+
+//TEST
 void test_init(void){
     LnkArr* list = init_list_empty();
     kill_list(list);
@@ -57,9 +72,9 @@ void test_insert_LArray(void){
 
     elp = clock();
     for (int i=1; i<= MaxInitLen; i++){
-        numArr += insert(list, i, i);
+        numArr += insert(list, 1, i);
 
-        varI = get_ith_var(list, i);
+        varI = get_ith_var(list, 1);
         TEST_CHECK(varI == i);
         TEST_MSG("Expected: %d, but got %d", i, varI);
     }
@@ -71,6 +86,32 @@ void test_insert_LArray(void){
 
     kill_list(list);
 }
+
+void test_insertRandom(void){
+    LnkArr* list = init_list_empty();
+    int Len = MaxInitLen;
+    int I,x, varI;
+    int numArr=0;
+    double time_taken;
+    clock_t elp;
+    elp = clock();
+    for(int i=1; i<= Len; i++){
+        I = (rand() % i + 1);
+        x = (rand() % (100000*2) - 100000);
+        numArr += insert(list, I, x);
+        varI = get_ith_var(list, I);
+        TEST_CHECK(varI == x);
+        TEST_MSG("Expected: %d, but got %d", i, varI);
+    }
+    elp = clock() - elp;
+
+    time_taken = ((double)elp)/CLOCKS_PER_SEC;
+
+    printf("\n %d insertions: %f sec [NumArr=%d/MaxLen = %d]", MaxInitLen,time_taken, numArr,subN);
+
+    kill_list(list);
+}
+
 
 void test_delete(void){
     LnkArr* list = init_list_empty();
@@ -109,6 +150,17 @@ void test_reverseLA(void){
     //reverse(list,1, MaxInitLen);
     TEST_CHECK(get_ith_var(list, 1) == MaxInitLen);
     TEST_MSG("got %d", get_ith_var(list, 1));
+    kill_list(list);
+}
+
+void test_flipnodes(void){
+    LnkArr* list = createlistRandom(3*subN);
+
+    Loc nodeStr = find_LnkArr_ith(list, 1);
+    Loc nodeEnd = find_LnkArr_ith(list, 3*subN);
+
+    flipFullNodes(nodeStr, nodeEnd);
+
     kill_list(list);
 }
 

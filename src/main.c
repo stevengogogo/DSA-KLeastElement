@@ -4,22 +4,32 @@
 #include "linkedarray.h"
 #include "utils.h"
 
+
+LnkArr* createlistRandom(int Len);
+
 int main()
 {
-    LnkArr* list = init_list_empty();
-    int varI;
-    int numArr = 1; //number of linked arrays
-    int MaxInitLen = subN + 1;
+   
+    LnkArr* list = createlistRandom(3*subN);
 
-    for (int i=1; i<= MaxInitLen; i++){
-        numArr += insert(list, i, i);
-        varI = get_ith_var(list, i);
-    }
+    Loc nodeStr = find_LnkArr_ith(list, 1);
+    Loc nodeEnd = find_LnkArr_ith(list, 3*subN);
 
+    flipFullNodes(nodeStr, nodeEnd);
 
-    reverse(list,1, MaxInitLen);
-
-    
+    kill_list(list);
 
     return 0;
+}
+
+LnkArr* createlistRandom(int Len){
+    LnkArr* list = init_list_empty();
+    int I,x;
+    for(int i=1; i<= Len; i++){
+        I = (rand() % i + 1);
+        x = (rand() % (100000*2) - 100000);
+        insert(list, I, x);
+    }
+
+    return list;
 }

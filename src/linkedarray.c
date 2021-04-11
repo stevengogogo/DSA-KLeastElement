@@ -191,28 +191,72 @@ int reverse(LnkArr* list, int str, int end){
     if (nodeStr.node == nodeEnd.node){ // Same array
         reverse_arr(nodeStr.node->arrInx, i_str, i_end);
     }
+    else if (nodeStr.i == 0 && nodeEnd.i == (nodeEnd.node->len-1)){ // perfec contain full length
+        flipFullNodes(nodeStr, nodeEnd);
+    }
     else{ // Cross arrays
-        int strLast = get_i2read(subN, nodeStr.node->flag, 
-                               nodeStr.node->len);
+        int strLast = get_i2read(nodeStr.node->len, 
+                                 nodeStr.node->flag, 
+                                 nodeStr.node->len);
         int endFirst = get_i2read(0, nodeStr.node->flag, 
-                               nodeStr.node->len);
+                                 nodeStr.node->len);
         LnkArr* node;
+        LnkArr* ntmp;
         LnkArr* prevN;
         //Reverse start node
         reverse_arr(nodeStr.node->arrInx, i_str, strLast);
 
         //Move to next node
+        prevN = nodeStr.node;
         node = nodeStr.nodeNext;
-        while( node != nodeEnd.node ){
+        while( node != nodeEnd.nodeNext ){
             node->flag ^=1; //reverse
-            nTmp = node;
-            node = node->nextNode;
+            
+            //swap
+            ntmp = node->nextNode;
+            node->nextNode = prevN;
+            prevN = node;
+            node = ntmp;
         }
-        reverse_arr(node->arrInx, endFirst, i_end);
+
+        //move head to end
+        if (nodeStr.nodePrev != NULL)
+            nodeStr.node->nextNode = nodeEnd.node;
+        else
+            list = nodeEnd.node; //change start
+        reverse_arr(nodeEnd.node->arrInx, endFirst, i_end);
         isCrossArr=1;
     }
     return isCrossArr;
 }
+
+int flipFullNodes(Loc nodeStr, Loc nodeEnd ){
+    LnkArr* nodeBefore = nodeStr.nodePrev;
+    LnkArr* nodeAfter = nodeEnd.nodeNext;
+    int NumNodes = 0;
+    //Reverse intervals: Flip flag and reverse pointers
+    LnkArr* nTmp;
+    LnkArr* nPrev = nodeEnd.nodeNext; //END
+    LnkArr* node = nodeStr.node;
+
+    while(node != nodeEnd.nodeNext){
+        //Flip
+        node->flag ^= 1; //XOR
+
+        //Rewiring
+        nTmp = node->nextNode;
+        node->nextNode = nPrev;
+
+        //Move to next node
+        nPrev = node;
+        node = nTmp;
+        ++NumNodes;
+    }
+
+    nodeStr.node->nextNode = nodeEnd.node; //START
+    return NumNodes;
+}
+
 
 
 void update_orderArr(LnkArr* node){

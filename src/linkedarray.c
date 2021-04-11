@@ -133,20 +133,17 @@ int query(LnkArr* list, int l, int r, int k){
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
-        if (k < Kleast){
+        if (k <= Kleast){
             high = mid - 1;
-        }
-        else if (NumlessK==Kleast){
-            printf("%d", mid);
-            return mid;
         }
         else{
             low = mid + 1;
         }
     }
     
-    printf("%d", low);
-    return low;
+    ans = low-1;
+    printf("%d", ans);
+    return ans;
 }
 
 int delete(LnkArr* list, int i){
@@ -604,7 +601,8 @@ void interface(void){
             scanf("%d", &v1);// val
             scanf("%d", &v2);
             query(list, v0, v1, v2);  
-            printf("\n");  
+            if (i!=q-1)
+                printf("\n");  
         }
         else if(strcmp(cmd, "Reverse") == 0){
             scanf("%d", &v0);// loc

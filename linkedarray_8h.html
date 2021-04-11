@@ -194,6 +194,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>convert_flag</b> (<a c
 <a class="el" href="structMinMax.html">MinMax</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a9ee398f81281aa5def534f7fecb30ef9">sortBetween</a> (<a class="el" href="structLoc.html">Loc</a> nodeStr, <a class="el" href="structLoc.html">Loc</a> nodeEnd)</td></tr>
 <tr class="memdesc:a9ee398f81281aa5def534f7fecb30ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort array between start and end node (including terminals) <br /></td></tr>
 <tr class="separator:a9ee398f81281aa5def534f7fecb30ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13bc392c48b15486122b49d5b2371d6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a13bc392c48b15486122b49d5b2371d6f">NumItemSmaller</a> (<a class="el" href="structStrEndLoc.html">StrEndLoc</a> StrEnd, int key)</td></tr>
+<tr class="memdesc:a13bc392c48b15486122b49d5b2371d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure how many items is smaller than <code>key</code>.  <a href="linkedarray_8h.html#a13bc392c48b15486122b49d5b2371d6f">More...</a><br /></td></tr>
+<tr class="separator:a13bc392c48b15486122b49d5b2371d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unrolled linked list for finding K-least element. </p>
@@ -542,6 +545,44 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>convert_flag</b> (<a c
 <ul>
 <li>Free the node </li>
 </ul>
+
+</div>
+</div>
+<a id="a13bc392c48b15486122b49d5b2371d6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13bc392c48b15486122b49d5b2371d6f">&#9670;&nbsp;</a></span>NumItemSmaller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NumItemSmaller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStrEndLoc.html">StrEndLoc</a>&#160;</td>
+          <td class="paramname"><em>StrEnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measure how many items is smaller than <code>key</code>. </p>
+<p>Linear search for terminal arrays is made by <a class="el" href="utils_8h.html#acfa4abe34baf1ebf7a10cb4614ea3b19">NumItemSmaller_Screen</a> ; binary search for full array is done by <a class="el" href="utils_8h.html#ab584f14895022a0a7734b6ad61456bcf">NumItemSmaller_Sorted</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StrEnd</td><td></td></tr>
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int number of items smaller than key. </dd></dl>
 
 </div>
 </div>

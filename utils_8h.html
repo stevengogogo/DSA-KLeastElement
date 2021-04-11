@@ -120,9 +120,15 @@ Functions</h2></td></tr>
 <tr class="memitem:af2eeb464f878d97ae244a20a2ecdd415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">BinarySearch_MinBigger</a> (int *arr, int length, int key)</td></tr>
 <tr class="memdesc:af2eeb464f878d97ae244a20a2ecdd415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum i which fullfills arr[i] &gt; key.  <a href="utils_8h.html#af2eeb464f878d97ae244a20a2ecdd415">More...</a><br /></td></tr>
 <tr class="separator:af2eeb464f878d97ae244a20a2ecdd415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a069a4d2e4d8c40c9bcf5c577d195f8b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a069a4d2e4d8c40c9bcf5c577d195f8b9">BinarySearch_MaxSmaller</a> (int *arr, int length, int key)</td></tr>
-<tr class="memdesc:a069a4d2e4d8c40c9bcf5c577d195f8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the maximum location i which fullfills arr[i] &lt; key.  <a href="utils_8h.html#a069a4d2e4d8c40c9bcf5c577d195f8b9">More...</a><br /></td></tr>
-<tr class="separator:a069a4d2e4d8c40c9bcf5c577d195f8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53905e2decba41a7198d38133359544c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a53905e2decba41a7198d38133359544c">BinarySearch_MaxSmaller</a> (int *arrSorted, int length, int key)</td></tr>
+<tr class="memdesc:a53905e2decba41a7198d38133359544c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the maximum location i which fullfills arr[i] &lt; key.  <a href="utils_8h.html#a53905e2decba41a7198d38133359544c">More...</a><br /></td></tr>
+<tr class="separator:a53905e2decba41a7198d38133359544c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab584f14895022a0a7734b6ad61456bcf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ab584f14895022a0a7734b6ad61456bcf">NumItemSmaller_Sorted</a> (int *arrSorted, int length, int key)</td></tr>
+<tr class="memdesc:ab584f14895022a0a7734b6ad61456bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure how many item is smaller than key in a sorted array.  <a href="utils_8h.html#ab584f14895022a0a7734b6ad61456bcf">More...</a><br /></td></tr>
+<tr class="separator:ab584f14895022a0a7734b6ad61456bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa4abe34baf1ebf7a10cb4614ea3b19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#acfa4abe34baf1ebf7a10cb4614ea3b19">NumItemSmaller_Screen</a> (int *arr, int str, int end, int key)</td></tr>
+<tr class="memdesc:acfa4abe34baf1ebf7a10cb4614ea3b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure how many item is smaller than key in an array.  <a href="utils_8h.html#acfa4abe34baf1ebf7a10cb4614ea3b19">More...</a><br /></td></tr>
+<tr class="separator:acfa4abe34baf1ebf7a10cb4614ea3b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General Utilities for C language. </p>
@@ -168,8 +174,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a069a4d2e4d8c40c9bcf5c577d195f8b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a069a4d2e4d8c40c9bcf5c577d195f8b9">&#9670;&nbsp;</a></span>BinarySearch_MaxSmaller()</h2>
+<a id="a53905e2decba41a7198d38133359544c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53905e2decba41a7198d38133359544c">&#9670;&nbsp;</a></span>BinarySearch_MaxSmaller()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +184,7 @@ Functions</h2></td></tr>
           <td class="memname">int BinarySearch_MaxSmaller </td>
           <td>(</td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>arr</em>, </td>
+          <td class="paramname"><em>arrSorted</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -201,7 +207,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Find the maximum location i which fullfills arr[i] &lt; key. </p>
-<dl class="section return"><dt>Returns</dt><dd>int i location starts from 0 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>How many members <b>smaller</b> than <code>key</code> ? It is <code>(i+1)</code> where i is the return. Support arr[i] (exception: i=-1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int i location starts from 0, -1 for all the member is bigger or equal to the key </dd></dl>
 
 </div>
 </div>
@@ -341,6 +348,104 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of relocations </dd></dl>
+
+</div>
+</div>
+<a id="acfa4abe34baf1ebf7a10cb4614ea3b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa4abe34baf1ebf7a10cb4614ea3b19">&#9670;&nbsp;</a></span>NumItemSmaller_Screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NumItemSmaller_Screen </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measure how many item is smaller than key in an array. </p>
+<p>This method uses screening method to count how many item is smaller than the key. O(n) </p><dl class="section warning"><dt>Warning</dt><dd><code>end</code> is not the length. Use index </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>1D array </td></tr>
+    <tr><td class="paramname">str</td><td>start point. <code>arr[str]</code> </td></tr>
+    <tr><td class="paramname">end</td><td>end point. <code>arr[end]</code> </td></tr>
+    <tr><td class="paramname">key</td><td>value to be compared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int number of item smaller than the <code>key</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ab584f14895022a0a7734b6ad61456bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab584f14895022a0a7734b6ad61456bcf">&#9670;&nbsp;</a></span>NumItemSmaller_Sorted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NumItemSmaller_Sorted </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>arrSorted</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measure how many item is smaller than key in a sorted array. </p>
+<p>This method uses the binary search (O(logn)) that is faaster than NUmItemSmaller_screen. However, it requires sorted array. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrSorted</td><td>Sorted array </td></tr>
+    <tr><td class="paramname">length</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>value to be compared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int number of item smaller than key </dd></dl>
 
 </div>
 </div>

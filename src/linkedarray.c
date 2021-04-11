@@ -79,10 +79,10 @@ void splitNode(Loc nodeLoc){
     nodeNew->isSorted = nodeLoc.node->isSorted;
     nodeNew->len = 0;
 
-    assert(len == subN);
+    //assert(len == subN);
 
     // move data
-    for(int i= (subN/2); i < subN ;i++){
+    for(int i= (len/2); i < len ;i++){
         i_read = get_i2read(i, nodeFirst->flag, nodeFirst->len);
 
         ++(nodeNew->len); //Expand array
@@ -93,15 +93,15 @@ void splitNode(Loc nodeLoc){
 
     //Shift data to left
     if (flag==1){
-        int d = subN/2 + 1;
+        int d = len/2 + 1;
 
-        for(int i=d; i < (subN); i++)
+        for(int i=d; i < (len); i++)
             nodeFirst->arrInx[i - d] = nodeFirst->arrInx[i];
 
         nodeFirst->len = nodeFirst->len - d;
     }
     else{
-        nodeFirst->len = subN/2 ;
+        nodeFirst->len = len/2 ;
     }
 
     // Reorder
@@ -202,7 +202,7 @@ int reverse(LnkArr* list, int str, int end){
         LnkArr* ntmp;
         LnkArr* prevN;
         //Reverse start node
-        reverse_arr(nodeStr.node->arrInx, i_str, strLast);
+        //reverse_arr(nodeStr.node->arrInx, i_str, strLast);
 
         //Move to next node
         prevN = nodeStr.node;
@@ -222,7 +222,7 @@ int reverse(LnkArr* list, int str, int end){
             nodeStr.node->nextNode = nodeEnd.node;
         else
             list = nodeEnd.node; //change start
-        reverse_arr(nodeEnd.node->arrInx, endFirst, i_end);
+        //reverse_arr(nodeEnd.node->arrInx, endFirst, i_end);
         isCrossArr=1;
     }
     return isCrossArr;

@@ -13,6 +13,7 @@ TEST_LIST = {
     {"Utils: Array Insrtion", test_array_insert},
     {"Utils: Binary Search", test_binary_search},
     {"Utils: Binary Search Screen", test_binary_search2},
+    {"Utils: Binary search Maxsmaller", test_binarySearch_maxSmaller},
     {"Utils: remove element", test_remove_arr},
     {"Utils: reverse array", test_reverse},
     {"LnkArr Initiation", test_init},    

@@ -123,8 +123,6 @@ int query(LnkArr* list, int l, int r, int k){
     StrEndLoc StrEnd = find_start_end_LA(list, l, r);
     MinMax mx = sortBetween (StrEnd.str, StrEnd.end);
     
-    
-    
 }
 
 int delete(LnkArr* list, int i){

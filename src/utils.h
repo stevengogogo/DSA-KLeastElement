@@ -58,10 +58,32 @@ int BinarySearch_MinBigger(int* arr, int length, int key);
 
 /**
  * @brief Find the maximum location i which fullfills arr[i] < key
- * 
- * @return int i location starts from 0
+ * @note How many members **smaller** than `key` ? It is `(i+1)` where i is the return. Support arr[i] (exception: i=-1) 
+ * @return int i location starts from 0, -1 for all the member is bigger or equal to the key
  */
-int BinarySearch_MaxSmaller(int* arr, int length, int key);
+int BinarySearch_MaxSmaller(int* arrSorted, int length, int key);
+
+/**
+ * @brief Measure how many item is smaller than key in a sorted array. 
+ * @details This method uses the binary search (O(logn)) that is faaster than \ref NUmItemSmaller_screen. However, it requires sorted array. 
+ * @param arrSorted Sorted array
+ * @param length 
+ * @param key value to be compared
+ * @return int number of item smaller than key
+ */
+int NumItemSmaller_Sorted(int* arrSorted, int length, int key);
+
+/**
+ * @brief Measure how many item is smaller than key in an array. 
+ * @details This method uses screening method to count how many item is smaller than the key. O(n)
+ * @warning `end` is not the length. Use index
+ * @param arr 1D array
+ * @param str start point. `arr[str]`
+ * @param end end point. `arr[end]` 
+ * @param key value to be compared
+ * @return int number of item smaller than the `key`.
+ */
+int NumItemSmaller_Screen(int* arr, int str, int end, int key);
 
 
 #endif

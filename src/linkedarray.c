@@ -179,7 +179,7 @@ void kill_LArray(Loc nodeLoc){
 
 
 int reverse(LnkArr** list, int str, int end){
-    StrEndLoc StrEnd = find_start_end_LA(list, str, end);
+    StrEndLoc StrEnd = find_start_end_LA(*list, str, end);
     Loc nodeStr = StrEnd.str;
     Loc nodeEnd = StrEnd.end;
 
@@ -204,6 +204,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     int TmpArr[subN];
     int LenTmp=0;
     int Split = 0;
+    int isHeadMoved;
 
     //Split if data is more than subN/2
     if (nodeStr->node->len > (subN/2)){
@@ -223,14 +224,70 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     }
 
     //Flip intermediate nodes
-    flipFullNodes(&list, *nodeStr, *nodeEnd);
+    isHeadMoved = flipFullNodes_nodes(
+                    list, 
+                    (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
+
+    assert(isHeadMoved == 0);
+
+    //split reverse at Start array and End array
+    reversePartLA(*nodeStr, *nodeEnd);
+}
+
+int reversePartLA(Loc nodeStr, Loc nodeEnd){
+    int TmpArr[subN];
+    int LenA=0;
+
+    // Change to same direction with flag = 0
+    if(nodeStr.node->flag == 1)
+        convert_flag(nodeStr.node);
+
+    if(nodeEnd.node->flag ==1 )
+        convert_flag(nodeEnd.node);
+
+    //move data from nodeStr to temp (reverse part)
+    int* strArr = nodeStr.node->arrInx;
+    int* endArr = nodeEnd.node->arrInx;
+
+    int i_str = getINode(nodeStr);
+    int i_end = getINode(nodeEnd);
+
+    //move str data to tmp 
+    for(int i=i_str; i<nodeStr.node->len; i++){
+        TmpArr[LenA] = strArr[i];
+        ++LenA;
+    }
+
+    //copy end data to str [reverse]
+    int i_str2 = i_str;
+    for(int i=i_end; i>=0;i--){
+        strArr[i_str2] = endArr[i];
+        ++i_str2;
+    }
+    //update length
+    nodeStr.node->len = i_str2;
+    assert(i_str2 < subN);
+
+    //copy str data to end [reverse]
+    convert_flag(nodeEnd.node);
+    assert(nodeEnd.node->flag == 1);
+    i_end = getINode(nodeEnd); //update i_end
+
+    for (int i=0; i<LenA;i++){
+        endArr[i_end] = TmpArr[i];
+        ++i_end;
+     }
+
+     //reorder
+     update_orderArr(nodeStr.node);
+     update_orderArr(nodeEnd.node);
 
 }
 
 int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
     LnkArr* nodeBefore = nodeStr.nodePrev;
     LnkArr* nodeAfter = nodeEnd.nodeNext;
-    int NumNodes = 0;
+    int moveHead = 0;
     //Reverse intervals: Flip flag and reverse pointers
     LnkArr* nTmp;
     LnkArr* nPrev = nodeEnd.nodeNext; //END
@@ -247,7 +304,6 @@ int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
         //Move to next node
         nPrev = node;
         node = nTmp;
-        ++NumNodes;
     }
 
     if (nodeStr.nodePrev != NULL)
@@ -255,8 +311,23 @@ int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
     else { // nodeStr is the head
         //TODO
         *list = nodeEnd.node;//change head 
+        moveHead = 1;
     }
-    return NumNodes;
+    return moveHead;
+}
+
+int flipFullNodes_nodes(LnkArr** list, LnkArr* StrNode, LnkArr* StrPrevNode,LnkArr* EndNode, LnkArr* EndNodePrev){
+    Loc nodeStr, nodeEnd;
+
+    nodeStr.node = StrNode;
+    nodeStr.nodePrev = StrPrevNode;
+    nodeStr.nodeNext = StrNode->nextNode;
+
+    nodeEnd.node = EndNode;
+    nodeEnd.nodePrev = EndNodePrev;
+    nodeEnd.nodeNext = EndNode->nextNode;
+
+    return flipFullNodes(list, nodeStr, nodeEnd);
 }
 
 int reverseInNodes(Loc nodeStr, Loc nodeEnd){
@@ -338,9 +409,9 @@ StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end){
     assert(headlist!=NULL);
     Loc nodeStr = find_LnkArr_ith(headlist, str);
     Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
-    StrEndLoc StrEnd = {
-        .str = nodeStr, 
-        .end = nodeEnd};
+    StrEndLoc StrEnd;
+    StrEnd.str = nodeStr;
+    StrEnd.end = nodeEnd;
     return StrEnd;
 }
 
@@ -361,4 +432,10 @@ int getINode(Loc iloc){
         iloc.node->flag,
         iloc.node->len
     );
+}
+
+int convert_flag(LnkArr* node){
+    reverse_arr(node->arrInx, 0,node->len-1);
+    node->flag ^= 1;
+    return node->flag;
 }

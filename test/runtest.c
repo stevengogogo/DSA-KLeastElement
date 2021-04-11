@@ -21,6 +21,7 @@ TEST_LIST = {
     {"Insert Random", test_insertRandom},
     {"Delete", test_delete},
     {"Reverse", test_reverseLA},
+    {"Random reverse", randomReverse},
     {"Flipnodes", test_flipnodes},
     {NULL, NULL} // Terminate the test
 };

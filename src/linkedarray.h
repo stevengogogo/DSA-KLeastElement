@@ -38,10 +38,6 @@ typedef struct node{
     struct node* nextNode;
 } LnkArr;
 
-typedef struct {
-    Loc str;
-    Loc end;
-} StrEndLoc;
 
 /**
  * @brief Position in linked array
@@ -59,6 +55,11 @@ typedef struct {
     int isEnd;
     int numCum;
 } Loc;
+
+typedef struct {
+    Loc str;
+    Loc end;
+} StrEndLoc;
 
 
 /** * Initiate empty linked array */
@@ -94,11 +95,16 @@ int reverse(LnkArr** list, int str, int end);
 
 /***/
 int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend);
+
+int reversePartLA(Loc nodeStr, Loc nodeEnd);
+
 /** @brief Flip nodes between start to end nodes, including themselves. The effect region is (start.Prevnode, End.Nextnode)
  * @warning The flip action reverse all the members from nodeStr.node[1,end] to nodeEnd.node[1,end].  
- * @return number of nodes between str-end including two ends.
+ * @return 1 if head list is changed.
  */
-int flipFullNodes(LnkArr** list,Loc nodeStr, Loc nodeEnd );
+int flipFullNodes(LnkArr** list,Loc nodeStr, Loc nodeEnd);
+
+int flipFullNodes_nodes(LnkArr** list, LnkArr* StrNode, LnkArr* StrPrevNode,LnkArr* EndNode, LnkArr* EndNodePrev);
 
 /** * Reverse inside the node*/
 int reverseInNodes(Loc nodeStr, Loc nodeEnd);
@@ -122,5 +128,7 @@ int get_i2read(int i, int flag, int length);
 int getINode(Loc);
 
 void update_orderArr(LnkArr* node);
+
+int convert_flag(LnkArr* node);
 
 #endif

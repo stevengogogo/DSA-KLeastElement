@@ -10,19 +10,22 @@ LnkArr* createlistRandom(int Len);
 int main()
 {
    
-    LnkArr* list = createlistRandom(3*subN);
+    int Len = 2*subN;
+    LnkArr* list = createlistRandom(Len);
 
-    Loc nodeStr = find_LnkArr_ith(list, 1);
-    Loc nodeEnd = find_LnkArr_ith(list, 3*subN);
-    flipFullNodes(&list, nodeStr, nodeEnd);
+    int L,R;
+    for (int i=0;i<1000;i++){
+        L = rand() % Len + 1 ;
 
-
-    Loc nodeStr2 = find_LnkArr_ith(list, subN);
-    Loc nodeEnd2 = find_LnkArr_ith(list, 3*subN);
-    flipFullNodes(&list, nodeStr2, nodeEnd2);
-
-
-    kill_list(list);
+        if (L!= Len)
+            R = L + rand() % (Len-L);
+        else
+          R=L;
+        
+        printf("L:%d ; R:%d\n", L, R);
+        reverse(&list, L, R);
+        get_ith_var(list, Len);
+    }
 
     return 0;
 }

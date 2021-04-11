@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['query_20',['query',['../linkedarray_8h.html#a6665fac402b572f86667a26d7fab7368',1,'linkedarray.c']]],
-  ['quicksort_21',['quicksort',['../utils_8h.html#a7f9501e3da8bed7be1eed5abe1b2c035',1,'utils.c']]]
+  ['partition_20',['partition',['../utils_8h.html#a63802919fc588a396c2037346d2ea072',1,'utils.c']]]
 ];

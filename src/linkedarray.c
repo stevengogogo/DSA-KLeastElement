@@ -126,11 +126,28 @@ int query(LnkArr* list, int l, int r, int k){
     //Binary search k-least member
     int high = mx.max;
     int low = mx.min;
+    int mid;
+    int Kleast;
+    int NumlessK = k-1;
+    int ans = low;
+    int found = 0;
 
-    //TODO
-    //NumItemSmaller(StrEnd, key);
-
-    
+    while( high >= low){
+        mid = (high+low)/2;
+        Kleast = NumItemSmaller(StrEnd, mid);
+        if (k < Kleast){
+            high = mid - 1;
+        }
+        else if (k==Kleast){
+            ans = k;
+            ++found;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+    assert(found!=0);
+    return ans;
 }
 
 int delete(LnkArr* list, int i){

@@ -143,6 +143,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>insertLArray</b> (<a 
 <tr class="memitem:a204b852d3fa9bb734ff32b9070218a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">splitNode</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
 <tr class="memdesc:a204b852d3fa9bb734ff32b9070218a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the node to extend. The splited node is wired to the next node.  <a href="linkedarray_8h.html#a204b852d3fa9bb734ff32b9070218a4f">More...</a><br /></td></tr>
 <tr class="separator:a204b852d3fa9bb734ff32b9070218a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6665fac402b572f86667a26d7fab7368"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a6665fac402b572f86667a26d7fab7368">query</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int l, int r, int k)</td></tr>
+<tr class="separator:a6665fac402b572f86667a26d7fab7368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ec5eb909363db90c6b20cc58c384adb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a8ec5eb909363db90c6b20cc58c384adb">delete</a> (<a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *list, int i)</td></tr>
 <tr class="separator:a8ec5eb909363db90c6b20cc58c384adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5488b8a5eb4fb9babba4e7c0b1af74ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedarray_8h.html#a5488b8a5eb4fb9babba4e7c0b1af74ec">remove_LArray</a> (<a class="el" href="structLoc.html">Loc</a> nodeLoc)</td></tr>
@@ -531,6 +533,58 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>convert_flag</b> (<a c
 </div><div class="memdoc">
 <ul>
 <li>Free the node </li>
+</ul>
+
+</div>
+</div>
+<a id="a6665fac402b572f86667a26d7fab7368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6665fac402b572f86667a26d7fab7368">&#9670;&nbsp;</a></span>query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int query </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="linkedarray_8h.html#a76c89d93b728f8bb31e4ea1405558bde">LnkArr</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<ul>
+<li>Query <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>lower bound lth element </td></tr>
+    <tr><td class="paramname">r</td><td>upper bound r-th element </td></tr>
+    <tr><td class="paramname">k</td><td>k least </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>k-least element </dd></dl>
+</li>
 </ul>
 
 </div>

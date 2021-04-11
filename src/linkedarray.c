@@ -179,17 +179,15 @@ void kill_LArray(Loc nodeLoc){
 
 
 int reverse(LnkArr* list, int str, int end){
-    Loc nodeStr = find_LnkArr_ith(list, str);
-    Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
+    Loc* StrEnd = find_start_end_LA(list, str, end);
+    Loc nodeStr = StrEnd[0];
+    Loc nodeEnd = StrEnd[1];
+
     int isCrossArr=0;
 
-    int i_str = get_i2read(nodeStr.i, nodeStr.node->flag, 
-                               nodeStr.node->len);
-    int i_end = get_i2read(nodeEnd.i, nodeEnd.node->flag, 
-                               nodeEnd.node->len);
     
     if (nodeStr.node == nodeEnd.node){ // Same array
-        reverse_arr(nodeStr.node->arrInx, i_str, i_end);
+        reverseInNodes(nodeStr, nodeEnd);
     }
     else if (nodeStr.i == 0 && nodeEnd.i == (nodeEnd.node->len-1)){ // perfec contain full length
         flipFullNodes(&list, nodeStr, nodeEnd);
@@ -230,6 +228,28 @@ int reverse(LnkArr* list, int str, int end){
     return isCrossArr;
 }
 
+int reverseSplit(LnkArr* list, Loc nodeStr, Loc nodeEnd, int Istr, int Iend){
+    int TmpArr[subN];
+    int LenTmp=0;
+    int Split = 0;
+    //Split if data is more than subN/2
+    if (nodeStr.node->len > (subN/2)){
+        splitNode(nodeStr);
+        Split=1;
+    }
+    if(nodeEnd.node->len > (subN/2)){
+        splitNode(nodeEnd);
+        Split=1;
+    }
+    //Update 
+    if (Split!=0){
+        Loc* StrEnd = find_start_end_LA(list, Istr, Iend);
+        nodeStr = StrEnd[0];
+        nodeEnd = StrEnd[1];
+    }
+
+}
+
 int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
     LnkArr* nodeBefore = nodeStr.nodePrev;
     LnkArr* nodeAfter = nodeEnd.nodeNext;
@@ -262,7 +282,17 @@ int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
     return NumNodes;
 }
 
+int reverseInNodes(Loc nodeStr, Loc nodeEnd){
+    //Same array
+    assert(nodeStr.node == nodeEnd.node);
+    int iStr = getINode(nodeStr);
+    int iEnd = getINode(nodeEnd);
+    int flip;
 
+    flip = reverse_arr(nodeStr.node, iStr, iEnd);
+    assert(iEnd < nodeStr.node->len);
+    assert(flip == 0); // iStr should be less than iEnd
+}
 
 void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
@@ -326,15 +356,30 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     return posI;
 }
 
+Loc* find_start_end_LA(LnkArr* headlist, int str, int end){
+    assert(str<=end);
+    assert(headlist!=NULL);
+    Loc nodeStr = find_LnkArr_ith(headlist, str);
+    Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
+    Loc StrEnd[2] = {nodeStr, nodeEnd};
+    return StrEnd;
+}
+
 int get_ith_var(LnkArr* headList, int i){
     Loc nodeLoc = find_LnkArr_ith(headList, i);
-    int i_ = get_i2read(nodeLoc.i, 
-                        nodeLoc.node->flag, nodeLoc.node->len);
-
+    int i_ = getINode(nodeLoc);
     return nodeLoc.node->arrInx[i_];
 }
 
 int get_i2read(int i, int flag, int length){
     int i_ = (flag==0) ? i : length - 1 - i ;
     return i_;
+}
+
+int getINode(Loc iloc){
+    return get_i2read(
+        iloc.i,
+        iloc.node->flag,
+        iloc.node->len
+    );
 }

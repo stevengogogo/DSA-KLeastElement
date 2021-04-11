@@ -86,13 +86,17 @@ void kill_LArray(Loc nodeLoc);
 /** * Reverse */
 int reverse(LnkArr* list, int str, int end);
 
+
+/***/
+int reverseSplit(LnkArr* list, Loc nodeStr, Loc nodeEnd, int Istr, int Iend);
 /** @brief Flip nodes between start to end nodes, including themselves. The effect region is (start.Prevnode, End.Nextnode)
  * @warning The flip action reverse all the members from nodeStr.node[1,end] to nodeEnd.node[1,end].  
  * @return number of nodes between str-end including two ends.
  */
 int flipFullNodes(LnkArr** list,Loc nodeStr, Loc nodeEnd );
 
-
+/** * Reverse inside the node*/
+int reverseInNodes(Loc nodeStr, Loc nodeEnd);
 
 
 /** * Find the position in linked array */
@@ -101,10 +105,16 @@ Loc find_LnkArr_ith(LnkArr* headList, int i);
 /** * Find ith begin with a start node and sum of previous length */
 Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
 
+/** * @return [nodeStr, nodeEnd] */
+Loc* find_start_end_LA(LnkArr* headlist, int str, int end);
+
 /** * Get ith variable */
 int get_ith_var(LnkArr* headList, int i);
 
 int get_i2read(int i, int flag, int length);
+
+/** * get node.arr[i] from loc */
+int getINode(Loc);
 
 void update_orderArr(LnkArr* node);
 

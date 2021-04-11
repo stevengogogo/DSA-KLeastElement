@@ -169,4 +169,7 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd);
  */
 int NumItemSmaller(StrEndLoc StrEnd, int key);
 
+
+void interface(void);
+
 #endif

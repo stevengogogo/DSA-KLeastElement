@@ -4,27 +4,40 @@
 #include "linkedarray.h"
 #include "utils.h"
 
+
+LnkArr* createlistRandom(int Len);
+
 int main()
 {
-    int MaxInitLen = 10000;
-    LnkArr* list = init_list_empty();
-    int varI;
-    int numArr = 0; //number of linked arrays
+   
+    int Len = 2*subN;
+    LnkArr* list = createlistRandom(Len);
 
-    for (int i=1; i<= MaxInitLen; i++){
-        numArr += insert(list, i, i);
+    int L,R;
+    for (int i=0;i<1000;i++){
+        L = rand() % Len + 1 ;
 
-        varI = get_ith_var(list, i);
-     
+        if (L!= Len)
+            R = L + rand() % (Len-L);
+        else
+          R=L;
+        
+        printf("L:%d ; R:%d\n", L, R);
+        reverse(&list, L, R);
+        get_ith_var(list, Len);
     }
-
-    for (int i= MaxInitLen; i>=1; i--){
-        numArr -= delete(list, i);
-    }
-
-    
-
-    kill_list(list);
 
     return 0;
+}
+
+LnkArr* createlistRandom(int Len){
+    LnkArr* list = init_list_empty();
+    int I,x;
+    for(int i=1; i<= Len; i++){
+        I = (rand() % i + 1);
+        x = (rand() % (100000*2) - 100000);
+        insert(list, I, x);
+    }
+
+    return list;
 }

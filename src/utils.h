@@ -37,7 +37,8 @@ int insert_arr(int arr[], int i_, int x, int length);
 void append_arr(int arr[], int x, int length);
 /** * Remove arr[i] and shift one step to the left [i,end]*/
 void remove_arr(int arr[], int i, int length);
-
+/** * Reverse array in given region [str, end]*/
+int reverse_arr(int arr[], int str, int end);
 /** * Compare two arrays
  * @return 0: Different; 1:same in the given length
  */
@@ -54,5 +55,6 @@ int compare_array(int A[], int B[], int length);
  * @note This function is inspired by [GreekforGeek](https://www.geeksforgeeks.org/first-strictly-greater-element-in-a-sorted-array-in-java/)
  */
 int BinarySearch_MinBigger(int* arr, int length, int key);
+
 
 #endif

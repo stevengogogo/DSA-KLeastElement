@@ -14,9 +14,14 @@ TEST_LIST = {
     {"Utils: Binary Search", test_binary_search},
     {"Utils: Binary Search Screen", test_binary_search2},
     {"Utils: remove element", test_remove_arr},
+    {"Utils: reverse array", test_reverse},
     {"LnkArr Initiation", test_init},    
     {"find", test_find},
     {"Insert", test_insert_LArray},
+    {"Insert Random", test_insertRandom},
     {"Delete", test_delete},
+    {"Reverse", test_reverseLA},
+    {"Random reverse", randomReverse},
+    {"Flipnodes", test_flipnodes},
     {NULL, NULL} // Terminate the test
 };

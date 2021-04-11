@@ -129,4 +129,12 @@ void test_remove_arr(void){
     TEST_MSG("Got: %d", arr[len-1]);
 }
 
+void test_reverse(void){
+    int arr[] = {1,2,2,3,4,5};
+    int arrR[] = {1,2,4,3,2,5};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    reverse_arr(arr,2, 4);
+    TEST_CHECK(compare_array(arr, arrR, len));
+}
+
 #endif

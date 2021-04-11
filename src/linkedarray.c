@@ -117,6 +117,11 @@ void splitNode(Loc nodeLoc){
 
 }
 
+
+int query(LnkArr* list, int l, int r, int k){
+    //TODO
+}
+
 int delete(LnkArr* list, int i){
     Loc iloc = find_LnkArr_ith(list, i);
     int isRemoved = 0;

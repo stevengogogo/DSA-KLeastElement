@@ -82,6 +82,14 @@ void insertLArray(Loc nodeLoc, int x);
  */
 void splitNode(Loc nodeLoc);
 
+/** * Query
+ * @param l lower bound lth element
+ * @param r upper bound r-th element
+ * @param k k least 
+ * @return k-least element
+ */
+int query(LnkArr* list, int l, int r, int k);
+
 /** * Delete */
 int delete(LnkArr* list, int i);
 /** * Remove an element*/

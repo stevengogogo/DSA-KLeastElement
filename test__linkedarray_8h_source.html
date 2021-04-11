@@ -314,7 +314,7 @@ $(function() {
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keywordtype">void</span> test_query_val(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">int</span> Len = 1001;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">int</span> Len = 2*subN;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <a class="code" href="structnode.html">LnkArr</a>* list = <a class="code" href="test__linkedarray_8h.html#a162daad45ac722c4248c821860ed7256">createlistSerial</a>(Len);</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">int</span> realVal, queryVal;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">//query each element</span></div>
@@ -324,10 +324,12 @@ $(function() {
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        TEST_CHECK(realVal==queryVal);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        TEST_MSG(<span class="stringliteral">&quot;realVal: %d ; queryVal: %d at i= %d&quot;</span>, realVal, queryVal, i);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alinkedarray_8h_html"><div class="ttname"><a href="linkedarray_8h.html">linkedarray.h</a></div><div class="ttdoc">Unrolled linked list for finding K-least element.</div></div>
 <div class="ttc" id="alinkedarray_8h_html_a1a97e22047e9315fd79bc2661138e2ab"><div class="ttname"><a href="linkedarray_8h.html#a1a97e22047e9315fd79bc2661138e2ab">flipFullNodes</a></div><div class="ttdeci">int flipFullNodes(LnkArr **list, Loc nodeStr, Loc nodeEnd)</div><div class="ttdoc">Flip nodes between start to end nodes, including themselves. The effect region is (start....</div><div class="ttdef"><b>Definition:</b> linkedarray.c:321</div></div>
 <div class="ttc" id="alinkedarray_8h_html_a24675a0a3b56694ff51f65c618420cac"><div class="ttname"><a href="linkedarray_8h.html#a24675a0a3b56694ff51f65c618420cac">get_ith_var</a></div><div class="ttdeci">int get_ith_var(LnkArr *headList, int i)</div><div class="ttdef"><b>Definition:</b> linkedarray.c:455</div></div>

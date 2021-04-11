@@ -60,3 +60,5 @@ MERGE_MAIN:
 	$(CC) -o build/main_test_build.out build/main.c
 
 
+TESTD: BUILD
+	sudo bash ./test/test.sh

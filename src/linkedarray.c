@@ -601,8 +601,7 @@ void interface(void){
             scanf("%d", &v1);// val
             scanf("%d", &v2);
             query(list, v0, v1, v2);  
-            if (i!=q-1)
-                printf("\n");  
+            printf("\n");  
         }
         else if(strcmp(cmd, "Reverse") == 0){
             scanf("%d", &v0);// loc

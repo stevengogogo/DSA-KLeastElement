@@ -139,6 +139,14 @@ int get_i2read(int i, int flag, int length);
 /** * get node.arr[i] from loc */
 int getINode(Loc);
 
+/** * get end i*/
+int getINodeEnd(Loc);
+
+/** * Get start */
+int getINodeStr(Loc);
+
+
+
 void update_orderArr(LnkArr* node);
 
 int convert_flag(LnkArr* node);

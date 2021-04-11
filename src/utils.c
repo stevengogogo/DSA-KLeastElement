@@ -104,3 +104,7 @@ int BinarySearch_MinBigger(int* arr, int length, int key){
 
     return ans;
 }
+
+int BinarySearch_MaxSmaller(int* arr, int length, int key){
+    //TODO
+}

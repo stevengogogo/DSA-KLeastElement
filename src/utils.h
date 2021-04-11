@@ -56,5 +56,12 @@ int compare_array(int A[], int B[], int length);
  */
 int BinarySearch_MinBigger(int* arr, int length, int key);
 
+/**
+ * @brief Find the maximum location i which fullfills arr[i] < key
+ * 
+ * @return int i location starts from 0
+ */
+int BinarySearch_MaxSmaller(int* arr, int length, int key);
+
 
 #endif

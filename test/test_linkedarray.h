@@ -31,6 +31,22 @@ LnkArr* createlistRandom(int Len){
     return list;
 }
 
+/**
+ * @brief Create [1,2,3,...,Len]
+ */
+LnkArr* createlistSerial(int Len){
+    LnkArr* list = init_list_empty();
+    int I,x;
+    for(int i=1; i<= Len; i++){
+        I = i;
+        x = i;
+        insert(list, I, x);
+    }
+
+    return list;
+}
+
+
 //TEST
 void test_init(void){
     LnkArr* list = init_list_empty();
@@ -235,8 +251,22 @@ void test_query(void){
     int lower;
     for (int i=1; i<=Len;i++){
        lower = rand()%i + 1 ;
-       query(list, 1, i, i);
+       query(list, lower, i, i);
     }
+}
+
+void test_query_val(void){
+    int Len = 1001;
+    LnkArr* list = createlistSerial(Len);
+    int realVal, queryVal;
+    //query each element
+    for (int i=1;i<=Len;i++){
+        realVal = get_ith_var(list, i);
+        queryVal = query(list,i,i,1);
+        TEST_CHECK(realVal==queryVal);
+        TEST_MSG("realVal: %d ; queryVal: %d at i= %d", realVal, queryVal, i);
+    }
+
 }
 
 #endif

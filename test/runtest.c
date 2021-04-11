@@ -26,5 +26,6 @@ TEST_LIST = {
     {"Random reverse", randomReverse},
     {"Flipnodes", test_flipnodes},
     {"Query", test_query},
+    {"Query Val", test_query},
     {NULL, NULL} // Terminate the test
 };

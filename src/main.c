@@ -16,16 +16,20 @@
 #include "linkedarray.h"
 #include "utils.h"
 
-
+#include <assert.h>
 LnkArr* createlistRandom(int Len);
 
 int main()
 {
    
-    int Len = 2*subN;
+    int Len = 50000;
     LnkArr* list = createlistRandom(Len);
+    LnkArr* node = list;
 
-    query(list, 1, Len, 1);
+    while(node!=NULL){
+        assert(compare_array(node->arrInx, node->arrSort, node->len)==1);
+        node = node->nextNode;
+    }
 
     return 0;
 }

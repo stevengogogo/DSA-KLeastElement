@@ -256,7 +256,7 @@ void test_query(void){
 }
 
 void test_query_val(void){
-    int Len = 1001;
+    int Len = 2*subN;
     LnkArr* list = createlistSerial(Len);
     int realVal, queryVal;
     //query each element
@@ -266,7 +266,9 @@ void test_query_val(void){
         TEST_CHECK(realVal==queryVal);
         TEST_MSG("realVal: %d ; queryVal: %d at i= %d", realVal, queryVal, i);
     }
-
 }
+
+
+
 
 #endif

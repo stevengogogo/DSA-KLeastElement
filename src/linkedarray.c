@@ -178,10 +178,10 @@ void kill_LArray(Loc nodeLoc){
 }
 
 
-int reverse(LnkArr* list, int str, int end){
-    Loc* StrEnd = find_start_end_LA(list, str, end);
-    Loc nodeStr = StrEnd[0];
-    Loc nodeEnd = StrEnd[1];
+int reverse(LnkArr** list, int str, int end){
+    StrEndLoc StrEnd = find_start_end_LA(list, str, end);
+    Loc nodeStr = StrEnd.str;
+    Loc nodeEnd = StrEnd.end;
 
     int isCrossArr=0;
 
@@ -190,63 +190,40 @@ int reverse(LnkArr* list, int str, int end){
         reverseInNodes(nodeStr, nodeEnd);
     }
     else if (nodeStr.i == 0 && nodeEnd.i == (nodeEnd.node->len-1)){ // perfec contain full length
-        flipFullNodes(&list, nodeStr, nodeEnd);
+        flipFullNodes(list, nodeStr, nodeEnd);
     }
     else{ // Cross arrays
-        int strLast = get_i2read(nodeStr.node->len, 
-                                 nodeStr.node->flag, 
-                                 nodeStr.node->len);
-        int endFirst = get_i2read(0, nodeStr.node->flag, 
-                                 nodeStr.node->len);
-        LnkArr* node;
-        LnkArr* ntmp;
-        LnkArr* prevN;
-        //Reverse start node
-        //reverse_arr(nodeStr.node->arrInx, i_str, strLast);
-
-        //Move to next node
-        prevN = nodeStr.node;
-        node = nodeStr.nodeNext;
-        while( node != nodeEnd.nodeNext ){
-            node->flag ^=1; //reverse
-            
-            //swap
-            ntmp = node->nextNode;
-            node->nextNode = prevN;
-            prevN = node;
-            node = ntmp;
-        }
-
-        //move head to end
-        if (nodeStr.nodePrev != NULL)
-            nodeStr.node->nextNode = nodeEnd.node;
-        else
-            list = nodeEnd.node; //change start
-        //reverse_arr(nodeEnd.node->arrInx, endFirst, i_end);
+        reverseSplit(list, &nodeStr, &nodeEnd, str, end);
         isCrossArr=1;
     }
     return isCrossArr;
 }
 
-int reverseSplit(LnkArr* list, Loc nodeStr, Loc nodeEnd, int Istr, int Iend){
+int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
+
     int TmpArr[subN];
     int LenTmp=0;
     int Split = 0;
+
     //Split if data is more than subN/2
-    if (nodeStr.node->len > (subN/2)){
-        splitNode(nodeStr);
+    if (nodeStr->node->len > (subN/2)){
+        splitNode(*nodeStr);
         Split=1;
     }
-    if(nodeEnd.node->len > (subN/2)){
-        splitNode(nodeEnd);
+    if(nodeEnd->node->len > (subN/2)){
+        splitNode(*nodeEnd);
         Split=1;
     }
+
     //Update 
     if (Split!=0){
-        Loc* StrEnd = find_start_end_LA(list, Istr, Iend);
-        nodeStr = StrEnd[0];
-        nodeEnd = StrEnd[1];
+        StrEndLoc StrEnd = find_start_end_LA(*list, Istr, Iend);
+        *nodeStr = StrEnd.str;
+        *nodeEnd = StrEnd.end;
     }
+
+    //Flip intermediate nodes
+    flipFullNodes(&list, *nodeStr, *nodeEnd);
 
 }
 
@@ -289,7 +266,7 @@ int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     int iEnd = getINode(nodeEnd);
     int flip;
 
-    flip = reverse_arr(nodeStr.node, iStr, iEnd);
+    flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
     assert(iEnd < nodeStr.node->len);
     assert(flip == 0); // iStr should be less than iEnd
 }
@@ -356,12 +333,14 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     return posI;
 }
 
-Loc* find_start_end_LA(LnkArr* headlist, int str, int end){
+StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end){
     assert(str<=end);
     assert(headlist!=NULL);
     Loc nodeStr = find_LnkArr_ith(headlist, str);
     Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
-    Loc StrEnd[2] = {nodeStr, nodeEnd};
+    StrEndLoc StrEnd = {
+        .str = nodeStr, 
+        .end = nodeEnd};
     return StrEnd;
 }
 

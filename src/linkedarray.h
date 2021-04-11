@@ -38,6 +38,11 @@ typedef struct node{
     struct node* nextNode;
 } LnkArr;
 
+typedef struct {
+    Loc str;
+    Loc end;
+} StrEndLoc;
+
 /**
  * @brief Position in linked array
  * @param node the array contains the ith member
@@ -84,11 +89,11 @@ void remove_LArray(Loc nodeLoc);
 void kill_LArray(Loc nodeLoc);
 
 /** * Reverse */
-int reverse(LnkArr* list, int str, int end);
+int reverse(LnkArr** list, int str, int end);
 
 
 /***/
-int reverseSplit(LnkArr* list, Loc nodeStr, Loc nodeEnd, int Istr, int Iend);
+int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend);
 /** @brief Flip nodes between start to end nodes, including themselves. The effect region is (start.Prevnode, End.Nextnode)
  * @warning The flip action reverse all the members from nodeStr.node[1,end] to nodeEnd.node[1,end].  
  * @return number of nodes between str-end including two ends.
@@ -106,7 +111,7 @@ Loc find_LnkArr_ith(LnkArr* headList, int i);
 Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev, int i);
 
 /** * @return [nodeStr, nodeEnd] */
-Loc* find_start_end_LA(LnkArr* headlist, int str, int end);
+StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end);
 
 /** * Get ith variable */
 int get_ith_var(LnkArr* headList, int i);

@@ -146,7 +146,7 @@ void test_reverseLA(void){
     }
 
     //reverse(list, 1,1);
-    reverse(list,1, MaxInitLen);
+    reverse(&list,1, MaxInitLen);
     //reverse(list,1, MaxInitLen);
     TEST_CHECK(get_ith_var(list, 1) == MaxInitLen);
     TEST_MSG("got %d", get_ith_var(list, 1));

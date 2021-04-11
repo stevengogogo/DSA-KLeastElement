@@ -1,3 +1,14 @@
+/**
+ * @file test_linkedarray.h
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-12
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #ifndef TEST_LINKEDARRAY_H
 #define TEST_LINKEDARRAY_H
 
@@ -110,6 +121,17 @@ void test_insertRandom(void){
     printf("\n %d insertions: %f sec [NumArr=%d/MaxLen = %d]", MaxInitLen,time_taken, numArr,subN);
 
     kill_list(list);
+}
+
+void test_insert_OrderedIndexed(void){
+    int Len = 50000;
+    LnkArr* list = createlistRandom(Len);
+    LnkArr* node = list;
+
+    while(node!=NULL){
+        TEST_CHECK(compare_array(node->arrInx, node->arrSort, node->len)==1);
+        node = node->nextNode;
+    }
 }
 
 

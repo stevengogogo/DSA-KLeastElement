@@ -121,7 +121,7 @@ void splitNode(Loc nodeLoc){
 int query(LnkArr* list, int l, int r, int k){
     //Find max min between l , r
     StrEndLoc StrEnd = find_start_end_LA(list, l, r);
-    MinMax mx = sortBetween (StrEnd.str, StrEnd.end);
+    MinMax mx = sortBetween(StrEnd.str, StrEnd.end);
 
     //Binary search k-least member
     int high = mx.max;
@@ -141,6 +141,7 @@ int query(LnkArr* list, int l, int r, int k){
         else if (k==Kleast){
             ans = k;
             ++found;
+            break;
         }
         else{
             low = mid + 1;
@@ -382,6 +383,7 @@ void update_orderArr(LnkArr* node){
            node->arrInx, 
            sizeof(int)*node->len);
     quicksort(node->arrSort, 0, node->len-1);
+    node->isSorted = 1;
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){
@@ -495,7 +497,7 @@ int sortNode(LnkArr* node){
     int doSort = 0;
     if (node->isSorted == 0){
         quicksort(node->arrSort, 0, node->len-1);
-        ++(node->flag);
+        node->isSorted = 1;
         ++doSort;
     }
     return doSort;   
@@ -514,6 +516,7 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
             min = node->arrSort[0];
         if (node->arrSort[node->len - 1] > max )
             max = node->arrSort[node->len - 1];
+        node =node->nextNode;
     }
 
     mx.max = max;
@@ -532,6 +535,9 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
     if (nodeStr.node == nodeEnd.node){ // Same array; same node
         Istr = getINode(nodeStr);
         Iend = getINode(nodeEnd);
+        if( Istr>Iend){
+            swap(&Istr, &Iend);
+        }
         numSmaller = NumItemSmaller_Screen(nodeStr.node->arrInx,
                               Istr, Iend, key);
         return numSmaller;

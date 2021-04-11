@@ -25,19 +25,7 @@ int main()
     int Len = 2*subN;
     LnkArr* list = createlistRandom(Len);
 
-    int L,R;
-    for (int i=0;i<1000;i++){
-        L = rand() % Len + 1 ;
-
-        if (L!= Len)
-            R = L + rand() % (Len-L);
-        else
-          R=L;
-        
-        printf("L:%d ; R:%d\n", L, R);
-        reverse(&list, L, R);
-        get_ith_var(list, Len);
-    }
+    query(list, 1, Len, 1);
 
     return 0;
 }

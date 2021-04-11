@@ -1,6 +1,5 @@
 # K-least element
 
-
 ## Iinked Array
 
 ![](img/linkedarray.png)
@@ -161,6 +160,16 @@ int next(int arr[], int target, int end)
 
 
 Ref: Quick sort in C. [[link](https://openhome.cc/Gossip/AlgorithmGossip/QuickSort3.htm)]
+
+
+## Usage
+
+### Make File
+
+- `make TEST`
+  - [`test/test.sh`](test/test.sh)
+- `make GenData`: generate random data
+  - [`test/genData.sh`](test/genData.sh)
 
 
 ---

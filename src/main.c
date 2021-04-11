@@ -14,34 +14,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "linkedarray.h"
-#include "utils.h"
 
-#include <assert.h>
-LnkArr* createlistRandom(int Len);
 
 int main()
 {
-   
-    int Len = 1*subN;
-    LnkArr* list = createlistRandom(Len);
-    int lower;
-    for (int i=1; i<=Len;i++){
-       //lower = rand()%i + 1 ;
-       printf("i = %d\n", i);
-       query(list, 1, i, i);
-    }
-
+    interface();
     return 0;
 }
 
-LnkArr* createlistRandom(int Len){
-    LnkArr* list = init_list_empty();
-    int I,x;
-    for(int i=1; i<= Len; i++){
-        I = (rand() % i + 1);
-        x = (rand() % (100000*2) - 100000);
-        insert(list, I, x);
-    }
-
-    return list;
-}

@@ -32,10 +32,7 @@ int insert(LnkArr* list, int i, int x){
     if(iloc.node->len == subN){ // insufficient space 
         splitNode(iloc);
         ++isSplit;
-        iloc = find_LnkArr_ith_bounded(iloc.node, 
-                                iloc.nodePrev, 
-                                iloc.numCum ,
-                                i);
+        iloc = find_LnkArr_ith(list, i);
     }
 
     insertLArray(iloc, x);
@@ -54,7 +51,8 @@ void insertLArray(Loc nodeLoc, int x){
     insert_arr(arr, i_, x, nodeLoc.node->len);
 
     if (nodeLoc.node->isSorted){
-        int i_sorted = BinarySearch_MinBigger(arrS, len, x);
+        int i_sorted = BinarySearch_MaxSmaller(arrS, len, x);
+        ++i_sorted;
         insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
     }
     else{
@@ -117,36 +115,31 @@ void splitNode(Loc nodeLoc){
 
 
 int query(LnkArr* list, int l, int r, int k){
-    //Find max min between l , r
+   //Find max min between l , r
     StrEndLoc StrEnd = find_start_end_LA(list, l, r);
     MinMax mx = sortBetween(StrEnd.str, StrEnd.end);
 
     //Binary search k-least member
-    int high = mx.max;
+    int high = mx.max ;
     int low = mx.min;
     int mid;
     int Kleast;
-    int NumlessK = k-1;
-    int ans = low;
     int found = 0;
 
+    int ans = low;
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
 
-        if ((k-1) < Kleast){
+        if (Kleast >= (k)){
             high = mid - 1;
         }
-        else if ((k-1) ==Kleast ){
-            ans = mid;
-            low = mid+1;
-        }
         else{
-            ans=mid;
+            ans = mid;
             low = mid + 1;
         }
     }
-    
+
     printf("%d", ans);
     return ans;
 }
@@ -174,7 +167,7 @@ int delete(LnkArr* list, int i){
 void remove_LArray(Loc nodeLoc){
     LnkArr* node =  nodeLoc.node;
     int flag = node->flag;
-    int i_ = get_i2read(nodeLoc.i, flag, node->len);
+    int i_ = getINode(nodeLoc);
     int i_sorted;
     int varMov = node->arrInx[i_]; 
     int* arrSort = node->arrSort;
@@ -184,10 +177,10 @@ void remove_LArray(Loc nodeLoc){
 
     //Remove sorted array
     if (node->isSorted){
-        i_sorted = BinarySearch_MinBigger(arrSort, node->len, varMov);
+        i_sorted = BinarySearch_MaxSmaller(arrSort, node->len, varMov) + 1;
 
-        if (arrSort[i_sorted] != varMov)
-            --i_sorted;
+        //if (arrSort[i_sorted] != varMov)
+            //--i_sorted;
 
         assert(arrSort[i_sorted] == varMov);
 
@@ -383,9 +376,10 @@ void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 
            sizeof(int)*node->len);
-    if (node->isSorted == 1){
-        quicksort(node->arrSort, 0, node->len-1);
-    }
+    //if (node->isSorted == 1){
+    quicksort(node->arrSort, 0, node->len-1);
+    node->isSorted = 1;
+    //}
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){
@@ -648,3 +642,128 @@ void interface(void){
     kill_list(list);
 }
 
+void interfaceDebuggingFile(char* filename){
+    FILE *fp;
+    fp = fopen(filename, "r");  
+
+    LnkArr* list = init_list_empty();
+    array listArr = init_array();
+
+    int n, q; //n: #n initial seq; q: #n of commands
+    char cmd[30];
+    int val;
+    int v0,v1,v2;
+    int qu=0;
+    int quList;
+    int quArr;
+    fscanf(fp, "%d", &n);
+    fscanf(fp, "%d", &q);
+
+    //Initial seq
+    for(int i=1; i<=n;i++){
+        fscanf(fp,"%d", &val);
+        insert_array(&listArr, i, val);
+        insert(list, i, val);
+    }
+    compare_LA_array(&listArr, list);
+    
+
+    // Commands
+    for(int i=1;i<=q;i++){
+        fscanf(fp,"%s", cmd);
+        if (strcmp(cmd, "Delete") == 0){
+            fscanf(fp,"%d", &v0);
+            delete_array(&listArr, v0);
+            delete(list, v0);
+        }
+        else if(strcmp(cmd, "Insert") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            insert_array(&listArr, v0, v1);
+            insert(list, v0, v1);
+        }
+        else if(strcmp(cmd, "Query") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            fscanf(fp, "%d", &v2);
+            ++qu;
+            
+
+            compare_LA_array(&listArr, list);
+            //compare_InxOrder(list);
+
+            StrEndLoc StrEnd = find_start_end_LA(list, v0, v1);
+
+            assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
+            assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
+
+            quList =  query(list, v0, v1, v2);  
+
+
+            compare_LA_array(&listArr, list);
+
+            quArr = query_array(&listArr, v0,v1,v2);
+            //compare_LA_array(&listArr, list);
+            assert(quList == quArr);
+            printf("\n");  
+        }
+        else if(strcmp(cmd, "Reverse") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            reverse_array(&listArr, v0, v1);
+            reverse(&list, v0, v1);
+        }
+        else {
+            assert(1==0);
+        }
+
+        compare_LA_array(&listArr, list);
+    }
+
+    kill_list(list);
+}
+
+int compare_LA_array(array* arr, LnkArr* list){
+    int diff = 0;
+    array diffIs = init_array();
+    for (int i=0;i<(arr->len);i++){
+        if (arr->arr[i] != get_ith_var(list, i+1)){
+            //printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
+            ++diff;
+            
+            diffIs.arr[diffIs.len] = i;
+            ++diffIs.len;
+            
+        }
+    }
+    if (diff>0){
+        printf("Difference: %d", diff);
+    }
+    assert(diff==0);
+}
+
+int compare_InxOrder(LnkArr*list){
+
+    LnkArr* node = init_list_empty();
+
+    while (list!=NULL){
+
+        if (list->isSorted == 1){
+            memcpy(node->arrInx, list->arrInx, sizeof(int)*list->len);
+            quicksort(node->arrInx, 0, list->len-1);
+
+            for(int i=0; i<list->len;i++){
+                assert(node->arrInx[i] == list->arrSort[i]);
+                }
+        }
+        else{
+            for(int i=0; i<list->len;i++){
+                assert(list->arrInx[i] == list->arrSort[i]);
+                }
+        }
+
+        list = list->nextNode;
+    }
+    
+    free(node);
+}

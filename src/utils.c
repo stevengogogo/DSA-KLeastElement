@@ -161,3 +161,18 @@ MinMax findMinMax(int* arr, int str, int end){
 
     return mx;
 }
+
+/** * Update minmax*/
+int update_MinMax(MinMax* dst, int min, int max){
+    int isChanged = 0; 
+
+    if (dst->max < max){
+        dst->max = max;
+        ++isChanged;
+    }
+    if(dst->min > min){
+        dst->min = min;
+        ++isChanged;
+    }
+    return isChanged;
+}

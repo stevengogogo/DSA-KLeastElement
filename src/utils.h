@@ -92,5 +92,6 @@ int NumItemSmaller_Screen(int* arr, int str, int end, int key);
 
 /** Find min and max in an array [can be unsorted]*/
 MinMax findMinMax(int* arr, int str, int end);
+int update_MinMax(MinMax* dst, int min, int max);
 
 #endif

@@ -93,7 +93,7 @@ void splitNode(Loc nodeLoc){
 
     //Shift data to left
     if (flag==1){
-        int d = len/2 + 1;
+        int d = get_i2read(len/2, nodeFirst->flag, nodeFirst->len) + 1;
 
         for(int i=d; i < (len); i++)
             nodeFirst->arrInx[i - d] = nodeFirst->arrInx[i];
@@ -257,7 +257,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     }
 
     //Flip intermediate nodes
-    if ( (*nodeStr).nodeNext != (*nodeEnd).node ){ //confirm there is node between the str end
+    if ( ((*nodeStr).nodeNext != (*nodeEnd).node) ){ //confirm there is node between the str end
         isHeadMoved = flipFullNodes_nodes(
                     list, 
                     (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
@@ -382,9 +382,8 @@ void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 
            sizeof(int)*node->len);
-    if (node->isSorted){
+    if (node->isSorted == 1){
         quicksort(node->arrSort, 0, node->len-1);
-        node->isSorted = 1;
     }
 }
 
@@ -663,8 +662,8 @@ void interfaceDebugging(void){
     //Initial seq
     for(int i=1; i<=n;i++){
         scanf("%d", &val);
-        insert(list, i, val);
         insert_array(&listArr, i, val);
+        insert(list, i, val);
     }
     
 
@@ -673,14 +672,14 @@ void interfaceDebugging(void){
         scanf("%s", cmd);
         if (strcmp(cmd, "Delete") == 0){
             scanf("%d", &v0);
-            delete(list, v0);
             delete_array(&listArr, v0);
+            delete(list, v0);
         }
         else if(strcmp(cmd, "Insert") == 0){
             scanf("%d", &v0);// loc
             scanf("%d", &v1);// val
-            insert(list, v0, v1);
             insert_array(&listArr, v0, v1);
+            insert(list, v0, v1);
         }
         else if(strcmp(cmd, "Query") == 0){
             scanf("%d", &v0);// loc
@@ -692,10 +691,34 @@ void interfaceDebugging(void){
         else if(strcmp(cmd, "Reverse") == 0){
             scanf("%d", &v0);// loc
             scanf("%d", &v1);// val
-            reverse(&list, v0, v1);
             reverse_array(&listArr, v0, v1);
+            reverse(&list, v0, v1);
         }
+        else {
+            assert(1==0);
+        }
+
+        compare_LA_array(&listArr, list);
     }
 
     kill_list(list);
+}
+
+int compare_LA_array(array* arr, LnkArr* list){
+    int diff = 0;
+    array diffIs = init_array();
+    for (int i=0;i<(arr->len);i++){
+        if (arr->arr[i] != get_ith_var(list, i+1)){
+            printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
+            ++diff;
+            
+            diffIs.arr[diffIs.len] = i;
+            ++diffIs.len;
+            
+        }
+    }
+    if (diff>0){
+        printf("Difference: %d", diff);
+    }
+    assert(diff==0);
 }

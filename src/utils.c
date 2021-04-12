@@ -134,6 +134,8 @@ int NumItemSmaller_Sorted(int* arrSorted, int length, int key){
 
 int NumItemSmaller_Screen(int* arr, int str, int end, int key){
     int numSmaller = 0;
+    if (str>end)
+        swap(&str, &end);
     for (int i=str; i<=end; i++){
         if (arr[i] < key)
             ++numSmaller;

@@ -506,7 +506,6 @@ int sortNode(LnkArr* node){
 }
 
 MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
-    LnkArr* node = nodeStr.node;
     MinMax mx, mxEnd;
 
     //Same node
@@ -516,9 +515,6 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
     }
 
     //Different nodes
-    int min = node->arrSort[0];
-    int max = node->arrSort[node->len - 1];
-
     mx = findMinMax(nodeStr.node->arrInx,
                     getINode(nodeStr), 
                     getINodeEnd(nodeStr));
@@ -530,6 +526,9 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
     update_MinMax(&mx, mxEnd.min, mxEnd.max);
     
     //Find Min Max within array
+    LnkArr* node = nodeStr.nodeNext;
+    int min = node->arrSort[0];
+    int max = node->arrSort[node->len - 1];
     while( node != nodeEnd.node){
         //Sort
         sortNode(node);

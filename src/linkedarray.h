@@ -18,7 +18,7 @@
 #include <string.h>
 #include "utils.h"
 
-#define subN 1000
+#define subN 100
 
 /** * Node with arrays.
  * @param len length of stored data

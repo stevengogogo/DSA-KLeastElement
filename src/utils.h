@@ -13,6 +13,8 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 typedef struct {
     int min;
@@ -104,5 +106,5 @@ array init_array();
 int insert_array(array*, int i, int x);
 int delete_array(array*, int i);
 int reverse_array(array*, int l, int r);
-
+int query_array(array*, int l, int r, int k);
 #endif

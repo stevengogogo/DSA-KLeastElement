@@ -134,11 +134,14 @@ int NumItemSmaller_Sorted(int* arrSorted, int length, int key){
 
 int NumItemSmaller_Screen(int* arr, int str, int end, int key){
     int numSmaller = 0;
-    if (str>end)
+    if (str>end){
         swap(&str, &end);
+    }
+    assert(str<=end);
     for (int i=str; i<=end; i++){
-        if (arr[i] < key)
+        if (arr[i] < key){
             ++numSmaller;
+        }
     }
     return numSmaller;
 }
@@ -204,3 +207,13 @@ int reverse_array(array* list, int l, int r){
     reverse_arr(list->arr, l-1, r-1);
 }
 
+int query_array(array* list, int l, int r, int k){
+    array cpy = init_array(); 
+    memcpy(cpy.arr, list->arr, list->len * sizeof(int) ); 
+
+    quicksort(cpy.arr, l-1, r-1);
+    int val = cpy.arr[l-1 + k-1];
+    free(cpy.arr);
+
+    return val;
+}

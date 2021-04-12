@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['minmax_48',['MinMax',['../structMinMax.html',1,'']]]
+  ['loc_49',['Loc',['../structLoc.html',1,'']]]
 ];

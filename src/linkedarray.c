@@ -237,7 +237,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     int TmpArr[subN];
     int LenTmp=0;
     int Split = 0;
-    int isHeadMoved;
+    int isHeadMoved=0;
 
     //Split if data is more than subN/2
     if (nodeStr->node->len > (subN/2)){

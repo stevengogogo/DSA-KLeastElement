@@ -32,10 +32,7 @@ int insert(LnkArr* list, int i, int x){
     if(iloc.node->len == subN){ // insufficient space 
         splitNode(iloc);
         ++isSplit;
-        iloc = find_LnkArr_ith_bounded(iloc.node, 
-                                iloc.nodePrev, 
-                                iloc.numCum ,
-                                i);
+        iloc = find_LnkArr_ith(list, i);
     }
 
     insertLArray(iloc, x);
@@ -54,7 +51,8 @@ void insertLArray(Loc nodeLoc, int x){
     insert_arr(arr, i_, x, nodeLoc.node->len);
 
     if (nodeLoc.node->isSorted){
-        int i_sorted = BinarySearch_MinBigger(arrS, len, x);
+        int i_sorted = BinarySearch_MaxSmaller(arrS, len, x);
+        ++i_sorted;
         insert_arr(arrS, i_sorted, x, nodeLoc.node->len);
     }
     else{
@@ -169,7 +167,7 @@ int delete(LnkArr* list, int i){
 void remove_LArray(Loc nodeLoc){
     LnkArr* node =  nodeLoc.node;
     int flag = node->flag;
-    int i_ = get_i2read(nodeLoc.i, flag, node->len);
+    int i_ = getINode(nodeLoc);
     int i_sorted;
     int varMov = node->arrInx[i_]; 
     int* arrSort = node->arrSort;
@@ -179,10 +177,10 @@ void remove_LArray(Loc nodeLoc){
 
     //Remove sorted array
     if (node->isSorted){
-        i_sorted = BinarySearch_MinBigger(arrSort, node->len, varMov);
+        i_sorted = BinarySearch_MaxSmaller(arrSort, node->len, varMov) + 1;
 
-        if (arrSort[i_sorted] != varMov)
-            --i_sorted;
+        //if (arrSort[i_sorted] != varMov)
+            //--i_sorted;
 
         assert(arrSort[i_sorted] == varMov);
 
@@ -378,9 +376,10 @@ void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 
            sizeof(int)*node->len);
-    if (node->isSorted == 1){
-        quicksort(node->arrSort, 0, node->len-1);
-    }
+    //if (node->isSorted == 1){
+    quicksort(node->arrSort, 0, node->len-1);
+    node->isSorted = 1;
+    //}
 }
 
 Loc find_LnkArr_ith(LnkArr* headList, int i){

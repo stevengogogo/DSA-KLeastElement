@@ -1,9 +1,9 @@
 <map id="src/main.c" name="src/main.c">
-<area shape="rect" id="node1" title="DSA2021 HW1 P6: K least member. This package is majorly done by myself. The algorithm part is inspire..." alt="" coords="78,5,161,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,155,65,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="89,155,152,181"/>
-<area shape="rect" id="node4" href="$linkedarray_8h.html" title="Unrolled linked list for finding K&#45;least element." alt="" coords="157,80,252,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="203,229,271,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="307,155,371,181"/>
-<area shape="rect" id="node7" href="$utils_8h.html" title="General Utilities for C language." alt="" coords="177,155,233,181"/>
+<area shape="rect" id="node1" title="DSA2021 HW1 P6: K least member. This package is majorly done by myself. The algorithm part is inspire..." alt="" coords="19,5,102,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="31,155,91,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="185,229,248,256"/>
+<area shape="rect" id="node4" href="$linkedarray_8h.html" title="Unrolled linked list for finding K&#45;least element." alt="" coords="135,80,229,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="292,229,360,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="115,155,179,181"/>
+<area shape="rect" id="node7" href="$utils_8h.html" title="General Utilities for C language." alt="" coords="254,155,310,181"/>
 </map>

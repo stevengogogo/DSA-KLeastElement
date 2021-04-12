@@ -20,7 +20,7 @@ TEST_LIST = {
     {"find", test_find},
     {"Insert", test_insert_LArray},
     {"Insert Random", test_insertRandom},
-    {"Insert Ordered/Indexed Equality",test_insert_OrderedIndexed},
+    //{"Insert Ordered/Indexed Equality",test_insert_OrderedIndexed},
     {"Delete", test_delete},
     {"Reverse", test_reverseLA},
     {"Random reverse", randomReverse},

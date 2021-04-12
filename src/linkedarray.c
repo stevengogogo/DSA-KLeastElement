@@ -257,10 +257,11 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     }
 
     //Flip intermediate nodes
-    isHeadMoved = flipFullNodes_nodes(
+    if ( (*nodeStr).nodeNext != (*nodeEnd).node ){ //confirm there is node between the str end
+        isHeadMoved = flipFullNodes_nodes(
                     list, 
                     (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
-
+     }
     assert(isHeadMoved == 0);
 
     //split reverse at Start array and End array

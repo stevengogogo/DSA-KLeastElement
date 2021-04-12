@@ -122,31 +122,26 @@ int query(LnkArr* list, int l, int r, int k){
     MinMax mx = sortBetween(StrEnd.str, StrEnd.end);
 
     //Binary search k-least member
-    int high = mx.max;
+    int high = mx.max ;
     int low = mx.min;
     int mid;
     int Kleast;
-    int NumlessK = k-1;
-    int ans = low;
     int found = 0;
 
+    int ans = low;
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
 
-        if ((k-1) < Kleast){
+        if (Kleast >= (k)){
             high = mid - 1;
         }
-        else if ((k-1) ==Kleast ){
-            ans = mid;
-            low = mid+1;
-        }
         else{
-            ans=mid;
+            ans = mid;
             low = mid + 1;
         }
     }
-    
+
     printf("%d", ans);
     return ans;
 }
@@ -400,6 +395,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     int i_arr; 
     int isEnd;
     LnkArr* node = startNode;
+    LnkArr* node2 = node;
 
     posI.nodePrev = prevNode; // No previous array at start
 
@@ -420,7 +416,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
             break;
         }
         else{
-            if (node->nextNode == NULL){ // end of list
+            if (node2->nextNode == NULL){ // end of list
                 i_arr = node->len - 1; // last element. 
                 assert( (node->len + num_st) == (i - 1)); // i is at end
                 isEnd = 1; // (i-1) th element
@@ -430,7 +426,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
 
             // Move to next node
             posI.nodePrev = node;
-            node = node->nextNode;
+            node2 = node->nextNode;
         }
     }
 
@@ -447,6 +443,7 @@ StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end){
     assert(str<=end);
     assert(headlist!=NULL);
     Loc nodeStr = find_LnkArr_ith(headlist, str);
+    //Loc nodeEnd = find_LnkArr_ith(headlist, end);
     Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
     StrEndLoc StrEnd;
     StrEnd.str = nodeStr;
@@ -567,11 +564,7 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
     if (nodeStr.node == nodeEnd.node){ // Same array; same node
         Istr = getINode(nodeStr);
         Iend = getINode(nodeEnd);
-        if( Istr>Iend){
-            swap(&Istr, &Iend);
-        }
-        numSmaller = NumItemSmaller_Screen(nodeStr.node->arrInx,
-                              Istr, Iend, key);
+        numSmaller = NumItemSmaller_Screen(nodeStr.node->arrInx,Istr, Iend, key);
         return numSmaller;
     }
     
@@ -592,9 +585,7 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
 
     while(node != nodeEnd.node){
         assert(node->isSorted == 1);
-        numSmaller+= NumItemSmaller_Sorted(node->arrSort, 
-                                           node->len, 
-                                           key) ;
+        numSmaller+= NumItemSmaller_Sorted(node->arrSort, node->len, key) ;
         node = node->nextNode;
     }
 

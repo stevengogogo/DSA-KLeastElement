@@ -19,11 +19,11 @@
 
 int main()
 {
-    //interface();
+    interface();
 
-    interfaceDebugging();
+    //interfaceDebugging();
     
-    //interfaceDebuggingFile
+    //interfaceDebuggingFile("test/data/17.in");
 
 
     return 0;

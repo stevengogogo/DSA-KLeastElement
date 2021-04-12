@@ -69,6 +69,8 @@ void interfaceDebuggingFile(char* filename){
     int val;
     int v0,v1,v2;
     int qu=0;
+    int quList;
+    int quArr;
     fscanf(fp, "%d", &n);
     fscanf(fp, "%d", &q);
 
@@ -78,6 +80,7 @@ void interfaceDebuggingFile(char* filename){
         insert_array(&listArr, i, val);
         insert(list, i, val);
     }
+    compare_LA_array(&listArr, list);
     
 
     // Commands
@@ -99,7 +102,12 @@ void interfaceDebuggingFile(char* filename){
             fscanf(fp, "%d", &v1);// val
             fscanf(fp, "%d", &v2);
             ++qu;
-            query(list, v0, v1, v2);  
+            
+        
+            quList =  query(list, v0, v1, v2);  
+            quArr = query_array(&listArr, v0,v1,v2);
+            //compare_LA_array(&listArr, list);
+            assert(quList == quArr);
             printf("\n");  
         }
         else if(strcmp(cmd, "Reverse") == 0){
@@ -123,7 +131,7 @@ int compare_LA_array(array* arr, LnkArr* list){
     array diffIs = init_array();
     for (int i=0;i<(arr->len);i++){
         if (arr->arr[i] != get_ith_var(list, i+1)){
-            printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
+            //printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
             ++diff;
             
             diffIs.arr[diffIs.len] = i;

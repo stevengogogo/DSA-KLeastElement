@@ -23,9 +23,10 @@ TEST_LIST = {
     //{"Insert Ordered/Indexed Equality",test_insert_OrderedIndexed},
     {"Delete", test_delete},
     {"Reverse", test_reverseLA},
-    {"Random reverse", randomReverse},
+    //{"Random reverse", randomReverse},
     {"Flipnodes", test_flipnodes},
     {"Query", test_query},
     {"Query Val", test_query},
+    {"IDR", test_IDR},
     {NULL, NULL} // Terminate the test
 };

@@ -52,7 +52,7 @@ end
 
 
 function genCommand(n, q)
-    cmd = [doDelete!, doReverse!, doInsert!, doReverse!]
+    cmd = [doDelete!, doQuery, doInsert!, doReverse!]
     #n = 50000*rand() ÷ 1; # initial sequence
     #q = 50000*rand() ÷ 1; # number of commands
 

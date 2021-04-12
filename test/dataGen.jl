@@ -20,6 +20,7 @@ end
 function doDelete!(list)
     i = rand(1:length(list))
     deleteat!(list, i)
+    println(inF, "Delete $i")
 end
 
 function doQuery(list)

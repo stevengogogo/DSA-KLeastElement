@@ -186,7 +186,9 @@ int update_MinMax(MinMax* dst, int min, int max){
 /*TESTING*/
 array init_array(){
     array list;
+    int* arr = (int*)malloc(sizeof(int)*100006);
     list.len = 0;
+    list.arr = arr;
     return list;
 }
 int insert_array(array* list, int i, int x){

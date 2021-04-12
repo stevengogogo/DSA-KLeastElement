@@ -12,6 +12,7 @@
 #define UTILS_H
 
 #include <assert.h>
+#include <stdlib.h>
 
 typedef struct {
     int min;
@@ -96,7 +97,7 @@ int update_MinMax(MinMax* dst, int min, int max);
 
 /*TESTING*/
 typedef struct {
-    int arr[50000];
+    int* arr;
     int len;
 } array;
 array init_array();

@@ -133,15 +133,19 @@ int query(LnkArr* list, int l, int r, int k){
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
-        if (k <= Kleast){
+
+        if ((k-1) < Kleast){
             high = mid - 1;
+        }
+        else if ((k-1) ==Kleast ){
+            ans = mid;
+            high = mid-1;
         }
         else{
             low = mid + 1;
         }
     }
     
-    ans = low-1;
     printf("%d", ans);
     return ans;
 }
@@ -505,7 +509,7 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
     int min = node->arrSort[0];
     int max = node->arrSort[node->len - 1];
     MinMax mx;
-
+    //Find Min Max within array
     while( node != nodeEnd.nodeNext ){
         sortNode(node);
         //get extremes

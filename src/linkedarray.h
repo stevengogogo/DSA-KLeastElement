@@ -174,6 +174,6 @@ int NumItemSmaller(StrEndLoc StrEnd, int key);
 
 void interface(void);
 void interfaceDebugging(void);
-
+int compare_LA_array(array* arr, LnkArr* list);
 
 #endif

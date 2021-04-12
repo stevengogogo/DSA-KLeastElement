@@ -142,6 +142,7 @@ int query(LnkArr* list, int l, int r, int k){
             low = mid+1;
         }
         else{
+            ans=mid;
             low = mid + 1;
         }
     }

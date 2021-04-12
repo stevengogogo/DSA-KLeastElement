@@ -134,9 +134,71 @@ int NumItemSmaller_Sorted(int* arrSorted, int length, int key){
 
 int NumItemSmaller_Screen(int* arr, int str, int end, int key){
     int numSmaller = 0;
+    if (str>end)
+        swap(&str, &end);
     for (int i=str; i<=end; i++){
         if (arr[i] < key)
             ++numSmaller;
     }
     return numSmaller;
 }
+
+MinMax findMinMax(int* arr, int str, int end){
+    if(str>end){
+        swap(&str, &end);
+    }
+    MinMax mx = {
+        .max = arr[str],
+        .min = arr[end]
+    };
+    int val;
+    //Search
+    for(int i=str;i<=end;i++){
+
+        val = arr[i];
+
+        if (mx.max < val)
+            mx.max = val;
+        
+        if (mx.min > val)
+            mx.min = val;    
+    }
+
+    return mx;
+}
+
+/** * Update minmax*/
+int update_MinMax(MinMax* dst, int min, int max){
+    int isChanged = 0; 
+
+    if (dst->max < max){
+        dst->max = max;
+        ++isChanged;
+    }
+    if(dst->min > min){
+        dst->min = min;
+        ++isChanged;
+    }
+    return isChanged;
+}
+
+
+/*TESTING*/
+array init_array(){
+    array list;
+    list.len = 0;
+    return list;
+}
+int insert_array(array* list, int i, int x){
+    ++(list->len);
+    insert_arr(list->arr, i-1, x, list->len);
+};
+
+int delete_array(array* list, int i){
+    remove_arr(list->arr, i-1,list->len);
+    --(list->len);
+}
+int reverse_array(array* list, int l, int r){
+    reverse_arr(list->arr, l-1, r-1);
+}
+

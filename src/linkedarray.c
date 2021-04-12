@@ -93,7 +93,7 @@ void splitNode(Loc nodeLoc){
 
     //Shift data to left
     if (flag==1){
-        int d = len/2 + 1;
+        int d = get_i2read(len/2, nodeFirst->flag, nodeFirst->len) + 1;
 
         for(int i=d; i < (len); i++)
             nodeFirst->arrInx[i - d] = nodeFirst->arrInx[i];
@@ -133,15 +133,19 @@ int query(LnkArr* list, int l, int r, int k){
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
-        if (k <= Kleast){
+
+        if ((k-1) < Kleast){
             high = mid - 1;
+        }
+        else if ((k-1) ==Kleast ){
+            ans = mid;
+            low = mid+1;
         }
         else{
             low = mid + 1;
         }
     }
     
-    ans = low-1;
     printf("%d", ans);
     return ans;
 }
@@ -233,7 +237,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     int TmpArr[subN];
     int LenTmp=0;
     int Split = 0;
-    int isHeadMoved;
+    int isHeadMoved=0;
 
     //Split if data is more than subN/2
     if (nodeStr->node->len > (subN/2)){
@@ -253,10 +257,11 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
     }
 
     //Flip intermediate nodes
-    isHeadMoved = flipFullNodes_nodes(
+    if ( ((*nodeStr).nodeNext != (*nodeEnd).node) ){ //confirm there is node between the str end
+        isHeadMoved = flipFullNodes_nodes(
                     list, 
                     (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
-
+     }
     assert(isHeadMoved == 0);
 
     //split reverse at Start array and End array
@@ -377,9 +382,8 @@ void update_orderArr(LnkArr* node){
     memcpy(node->arrSort, 
            node->arrInx, 
            sizeof(int)*node->len);
-    if (node->isSorted){
+    if (node->isSorted == 1){
         quicksort(node->arrSort, 0, node->len-1);
-        node->isSorted = 1;
     }
 }
 
@@ -470,7 +474,7 @@ int getINode(Loc iloc){
 
 int getINodeEnd(Loc iloc){
     return get_i2read(
-        iloc.node->len,
+        iloc.node->len-1,
         iloc.node->flag,
         iloc.node->len
     );
@@ -501,24 +505,54 @@ int sortNode(LnkArr* node){
 }
 
 MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
-    LnkArr* node = nodeStr.node;
-    int min = node->arrSort[0];
-    int max = node->arrSort[node->len - 1];
-    MinMax mx;
+    MinMax mx, mxEnd;
 
-    while( node != nodeEnd.nodeNext ){
-        sortNode(node);
-        //get extremes
-        if (node->arrSort[0] < min)
-            min = node->arrSort[0];
-        if (node->arrSort[node->len - 1] > max )
-            max = node->arrSort[node->len - 1];
-        node =node->nextNode;
+    //Same node
+    if(nodeStr.node == nodeEnd.node){
+        mx = findMinMaxLA(nodeStr, nodeEnd);
+        return mx;
     }
 
-    mx.max = max;
-    mx.min = min;
+    //Different nodes
+    mx = findMinMax(nodeStr.node->arrInx,
+                    getINode(nodeStr), 
+                    getINodeEnd(nodeStr));
+    
+    mxEnd = findMinMax(nodeEnd.node->arrInx,
+                       getINodeStr(nodeEnd),
+                       getINode(nodeEnd));
+    
+    update_MinMax(&mx, mxEnd.min, mxEnd.max);
+    
+    //Find Min Max within array
+    LnkArr* node = nodeStr.nodeNext;
+    int min = node->arrSort[0];
+    int max = node->arrSort[node->len - 1];
+    while( node != nodeEnd.node){
+        //Sort
+        sortNode(node);
 
+        //get extremes
+        min = node->arrSort[0];
+        max = node->arrSort[node->len - 1];
+
+        //Updates
+        update_MinMax(&mx, min, max);
+
+        //Move to next node
+        node = node->nextNode;
+    }
+    
+
+    return mx;
+}
+
+MinMax findMinMaxLA(Loc nodeStr, Loc nodeEnd){
+    assert(nodeStr.node == nodeEnd.node);
+    LnkArr* node = nodeStr.node;
+    int Istr = getINode(nodeStr);
+    int Iend = getINode(nodeEnd);
+    MinMax mx = findMinMax(node->arrInx, Istr, Iend);
     return mx;
 }
 
@@ -611,4 +645,80 @@ void interface(void){
     }
 
     kill_list(list);
+}
+
+
+void interfaceDebugging(void){
+    LnkArr* list = init_list_empty();
+    array listArr = init_array();
+
+    int n, q; //n: #n initial seq; q: #n of commands
+    char cmd[30];
+    int val;
+    int v0,v1,v2;
+    scanf("%d", &n);
+    scanf("%d", &q);
+
+    //Initial seq
+    for(int i=1; i<=n;i++){
+        scanf("%d", &val);
+        insert_array(&listArr, i, val);
+        insert(list, i, val);
+    }
+    
+
+    // Commands
+    for(int i=0;i<q;i++){
+        scanf("%s", cmd);
+        if (strcmp(cmd, "Delete") == 0){
+            scanf("%d", &v0);
+            delete_array(&listArr, v0);
+            delete(list, v0);
+        }
+        else if(strcmp(cmd, "Insert") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            insert_array(&listArr, v0, v1);
+            insert(list, v0, v1);
+        }
+        else if(strcmp(cmd, "Query") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            scanf("%d", &v2);
+            query(list, v0, v1, v2);  
+            printf("\n");  
+        }
+        else if(strcmp(cmd, "Reverse") == 0){
+            scanf("%d", &v0);// loc
+            scanf("%d", &v1);// val
+            reverse_array(&listArr, v0, v1);
+            reverse(&list, v0, v1);
+        }
+        else {
+            assert(1==0);
+        }
+
+        compare_LA_array(&listArr, list);
+    }
+
+    kill_list(list);
+}
+
+int compare_LA_array(array* arr, LnkArr* list){
+    int diff = 0;
+    array diffIs = init_array();
+    for (int i=0;i<(arr->len);i++){
+        if (arr->arr[i] != get_ith_var(list, i+1)){
+            printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
+            ++diff;
+            
+            diffIs.arr[diffIs.len] = i;
+            ++diffIs.len;
+            
+        }
+    }
+    if (diff>0){
+        printf("Difference: %d", diff);
+    }
+    assert(diff==0);
 }

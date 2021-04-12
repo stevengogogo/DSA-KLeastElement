@@ -7,19 +7,20 @@ function genVal()
     return rand(-10000:10000)
 end
 
-function printList(list)
+function printList(io,list)
     for i in eachindex(list)
-        print(inF, list[i])
+        print(io, list[i])
         if (i< length(list))
-            print(inF," ")
+            print(io," ")
         end
     end
-    print(inF, "\n")
+    print(io, "\n")
 end
 
 function doDelete!(list)
     i = rand(1:length(list))
     deleteat!(list, i)
+    println(inF, "Delete $i")
 end
 
 function doQuery(list)
@@ -59,14 +60,15 @@ function genCommand(n, q)
 
     list = [ genVal() for i in 1:n]
     
-    printList(list)
+    printList(inF,list)
 
     for i in 1:q
         C = convert(Integer, rand()*4 ÷1) + 1
         cmd[C](list)
     end
 
-
+    printList(arr, list)
+    
 end
 
 
@@ -76,12 +78,14 @@ function main(ARGS)
 
     inFileName = ARGS[3]
     outFileName = ARGS[4]
+    resDataF = ARGS[5]
 
     global inF = open(inFileName, "w")
     global ouF = open(outFileName, "w")
+    global arr = open(resDataF, "w")
     genCommand(arg[1], arg[2])
 
-    close.([inF, ouF])
+    close.([inF, ouF, arr])
 end
 
 main(ARGS)

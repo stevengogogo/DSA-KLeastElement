@@ -234,7 +234,7 @@ void test_flipnodes(void){
 
     for (int i=1; i<=len; i++ ){
         Istr = (rand() % len) + 1;
-        Iend = (rand() % (len-Istr) + Istr+ 1);
+        Iend = (rand() % (len-Istr+1) + Istr+ 1);
         nodeStr = find_LnkArr_ith(list, Istr);
         nodeEnd = find_LnkArr_ith(list, Iend);
         flipFullNodes(&list, nodeStr, nodeEnd);

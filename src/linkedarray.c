@@ -29,7 +29,7 @@ int insert(LnkArr* list, int i, int x){
     Loc iloc = find_LnkArr_ith(list, i);
 
     //assert(iloc.node->len <= subN);
-    if(iloc.node->len == subN){ // insufficient space 
+    if(iloc.node->len == subN/2){ // insufficient space 
         splitNode(iloc);
         ++isSplit;
         iloc = find_LnkArr_ith(list, i);

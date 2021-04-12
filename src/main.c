@@ -19,7 +19,9 @@ LnkArr* createlistRandom(int Len);
 
 int main()
 {
-    interface();
+    //interface();
+
+    interfaceDebugging();
 
     return 0;
 }

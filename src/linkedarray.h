@@ -173,6 +173,7 @@ int NumItemSmaller(StrEndLoc StrEnd, int key);
 
 
 void interface(void);
+void interfaceDebugging(void);
 
 
 #endif

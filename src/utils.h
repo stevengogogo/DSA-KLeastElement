@@ -94,4 +94,14 @@ int NumItemSmaller_Screen(int* arr, int str, int end, int key);
 MinMax findMinMax(int* arr, int str, int end);
 int update_MinMax(MinMax* dst, int min, int max);
 
+/*TESTING*/
+typedef struct {
+    int arr[50000];
+    int len;
+} array;
+array init_array();
+int insert_array(array*, int i, int x);
+int delete_array(array*, int i);
+int reverse_array(array*, int l, int r);
+
 #endif

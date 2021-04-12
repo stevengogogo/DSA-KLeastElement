@@ -117,36 +117,31 @@ void splitNode(Loc nodeLoc){
 
 
 int query(LnkArr* list, int l, int r, int k){
-    //Find max min between l , r
+   //Find max min between l , r
     StrEndLoc StrEnd = find_start_end_LA(list, l, r);
     MinMax mx = sortBetween(StrEnd.str, StrEnd.end);
 
     //Binary search k-least member
-    int high = mx.max;
+    int high = mx.max ;
     int low = mx.min;
     int mid;
     int Kleast;
-    int NumlessK = k-1;
-    int ans = low;
     int found = 0;
 
+    int ans = low;
     while( high >= low){
         mid = (high+low)/2;
         Kleast = NumItemSmaller(StrEnd, mid);
 
-        if ((k-1) < Kleast){
+        if (Kleast >= (k)){
             high = mid - 1;
         }
-        else if ((k-1) ==Kleast ){
-            ans = mid;
-            low = mid+1;
-        }
         else{
-            ans=mid;
+            ans = mid;
             low = mid + 1;
         }
     }
-    
+
     printf("%d", ans);
     return ans;
 }
@@ -648,3 +643,93 @@ void interface(void){
     kill_list(list);
 }
 
+void interfaceDebuggingFile(char* filename){
+    FILE *fp;
+    fp = fopen(filename, "r");  
+
+    LnkArr* list = init_list_empty();
+    array listArr = init_array();
+
+    int n, q; //n: #n initial seq; q: #n of commands
+    char cmd[30];
+    int val;
+    int v0,v1,v2;
+    int qu=0;
+    int quList;
+    int quArr;
+    fscanf(fp, "%d", &n);
+    fscanf(fp, "%d", &q);
+
+    //Initial seq
+    for(int i=1; i<=n;i++){
+        fscanf(fp,"%d", &val);
+        insert_array(&listArr, i, val);
+        insert(list, i, val);
+    }
+    compare_LA_array(&listArr, list);
+    
+
+    // Commands
+    for(int i=1;i<=q;i++){
+        fscanf(fp,"%s", cmd);
+        if (strcmp(cmd, "Delete") == 0){
+            fscanf(fp,"%d", &v0);
+            delete_array(&listArr, v0);
+            delete(list, v0);
+        }
+        else if(strcmp(cmd, "Insert") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            insert_array(&listArr, v0, v1);
+            insert(list, v0, v1);
+        }
+        else if(strcmp(cmd, "Query") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            fscanf(fp, "%d", &v2);
+            ++qu;
+            
+            compare_LA_array(&listArr, list);
+        
+            quList =  query(list, v0, v1, v2);  
+            compare_LA_array(&listArr, list);
+
+            quArr = query_array(&listArr, v0,v1,v2);
+            //compare_LA_array(&listArr, list);
+            assert(quList == quArr);
+            printf("\n");  
+        }
+        else if(strcmp(cmd, "Reverse") == 0){
+            fscanf(fp, "%d", &v0);// loc
+            fscanf(fp, "%d", &v1);// val
+            reverse_array(&listArr, v0, v1);
+            reverse(&list, v0, v1);
+        }
+        else {
+            assert(1==0);
+        }
+
+        compare_LA_array(&listArr, list);
+    }
+
+    kill_list(list);
+}
+
+int compare_LA_array(array* arr, LnkArr* list){
+    int diff = 0;
+    array diffIs = init_array();
+    for (int i=0;i<(arr->len);i++){
+        if (arr->arr[i] != get_ith_var(list, i+1)){
+            //printf("Real: %d, List: %d at %d", arr->arr[i], get_ith_var(list, i+1), i+1);
+            ++diff;
+            
+            diffIs.arr[diffIs.len] = i;
+            ++diffIs.len;
+            
+        }
+    }
+    if (diff>0){
+        printf("Difference: %d", diff);
+    }
+    assert(diff==0);
+}

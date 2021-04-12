@@ -67,7 +67,7 @@ function genCommand(n, q)
         cmd[C](list)
     end
 
-    printList(arr, list)
+    #printList(arr, list)
     
 end
 
@@ -78,14 +78,14 @@ function main(ARGS)
 
     inFileName = ARGS[3]
     outFileName = ARGS[4]
-    resDataF = ARGS[5]
+    #resDataF = ARGS[5]
 
     global inF = open(inFileName, "w")
     global ouF = open(outFileName, "w")
-    global arr = open(resDataF, "w")
+    #global arr = open(resDataF, "w")
     genCommand(arg[1], arg[2])
 
-    close.([inF, ouF, arr])
+    close.([inF, ouF])
 end
 
 main(ARGS)

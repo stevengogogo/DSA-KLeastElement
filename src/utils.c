@@ -142,6 +142,9 @@ int NumItemSmaller_Screen(int* arr, int str, int end, int key){
 }
 
 MinMax findMinMax(int* arr, int str, int end){
+    if(str>end){
+        swap(&str, &end);
+    }
     MinMax mx = {
         .max = arr[str],
         .min = arr[end]

@@ -140,3 +140,24 @@ int NumItemSmaller_Screen(int* arr, int str, int end, int key){
     }
     return numSmaller;
 }
+
+MinMax findMinMax(int* arr, int str, int end){
+    MinMax mx = {
+        .max = arr[str],
+        .min = arr[end]
+    };
+    int val;
+    //Search
+    for(int i=str;i<=end;i++){
+
+        val = arr[i];
+
+        if (mx.max < val)
+            mx.max = val;
+        
+        if (mx.min > val)
+            mx.min = val;    
+    }
+
+    return mx;
+}

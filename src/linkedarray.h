@@ -61,10 +61,7 @@ typedef struct {
     Loc end;
 } StrEndLoc;
 
-typedef struct {
-    int min;
-    int max;
-} MinMax;
+
 
 /** * Initiate empty linked array */
 LnkArr* init_list_empty(void);

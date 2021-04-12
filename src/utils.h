@@ -13,6 +13,11 @@
 
 #include <assert.h>
 
+typedef struct {
+    int min;
+    int max;
+} MinMax;
+
 /** * QuickSort. Reference: This function is modified from https://openhome.cc/Gossip/AlgorithmGossip/QuickSort3.htm#C */
 void quicksort(int arr[], int left, int right);
 
@@ -85,5 +90,7 @@ int NumItemSmaller_Sorted(int* arrSorted, int length, int key);
  */
 int NumItemSmaller_Screen(int* arr, int str, int end, int key);
 
+/** Find min and max in an array [can be unsorted]*/
+MinMax findMinMax(int* arr, int str, int end);
 
 #endif

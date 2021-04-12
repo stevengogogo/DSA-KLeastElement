@@ -14,27 +14,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "linkedarray.h"
+#include "interfaceDebug.h"
 
-LnkArr* createlistRandom(int Len);
 
 int main()
 {
-    interface();
+    //interface();
 
-    //interfaceDebugging();
+    interfaceDebugging();
+    
+    //interfaceDebuggingFile
+
 
     return 0;
-}
-
-
-LnkArr* createlistRandom(int Len){
-    LnkArr* list = init_list_empty();
-    int I,x;
-    for(int i=1; i<= Len; i++){
-        I = (rand() % i + 1);
-        x = (rand() % (100000*2) - 100000);
-        insert(list, I, x);
-    }
-
-    return list;
 }

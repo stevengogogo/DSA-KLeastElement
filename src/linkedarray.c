@@ -139,7 +139,7 @@ int query(LnkArr* list, int l, int r, int k){
         }
         else if ((k-1) ==Kleast ){
             ans = mid;
-            high = mid-1;
+            low = mid+1;
         }
         else{
             low = mid + 1;
@@ -474,7 +474,7 @@ int getINode(Loc iloc){
 
 int getINodeEnd(Loc iloc){
     return get_i2read(
-        iloc.node->len,
+        iloc.node->len-1,
         iloc.node->flag,
         iloc.node->len
     );

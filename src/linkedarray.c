@@ -689,9 +689,18 @@ void interfaceDebuggingFile(char* filename){
             fscanf(fp, "%d", &v2);
             ++qu;
             
+
             compare_LA_array(&listArr, list);
-        
+            //compare_InxOrder(list);
+
+            StrEndLoc StrEnd = find_start_end_LA(list, v0, v1);
+
+            assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
+            assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
+
             quList =  query(list, v0, v1, v2);  
+
+
             compare_LA_array(&listArr, list);
 
             quArr = query_array(&listArr, v0,v1,v2);
@@ -732,4 +741,30 @@ int compare_LA_array(array* arr, LnkArr* list){
         printf("Difference: %d", diff);
     }
     assert(diff==0);
+}
+
+int compare_InxOrder(LnkArr*list){
+
+    LnkArr* node = init_list_empty();
+
+    while (list!=NULL){
+
+        if (list->isSorted == 1){
+            memcpy(node->arrInx, list->arrInx, sizeof(int)*list->len);
+            quicksort(node->arrInx, 0, list->len-1);
+
+            for(int i=0; i<list->len;i++){
+                assert(node->arrInx[i] == list->arrSort[i]);
+                }
+        }
+        else{
+            for(int i=0; i<list->len;i++){
+                assert(list->arrInx[i] == list->arrSort[i]);
+                }
+        }
+
+        list = list->nextNode;
+    }
+    
+    free(node);
 }

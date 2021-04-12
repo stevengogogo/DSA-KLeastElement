@@ -33,8 +33,8 @@ typedef struct node{
     int len;
     int isSorted;
     int flag;
-    int arrInx[subN];
-    int arrSort[subN];
+    int arrInx[subN+100];
+    int arrSort[subN+100];
     struct node* nextNode;
 } LnkArr;
 
@@ -175,5 +175,5 @@ int NumItemSmaller(StrEndLoc StrEnd, int key);
 void interface(void);
 void interfaceDebuggingFile(char* filename);
 int compare_LA_array(array* arr, LnkArr* list);
-
+int compare_InxOrder(LnkArr*list);
 #endif

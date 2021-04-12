@@ -283,7 +283,17 @@ void test_IDR(void){
     delete(list, 1);
     delete(list, 1);
     delete(list, 1);
-
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    reverse(&list, 1,4);
+    reverse(&list, 1,3);
+    reverse(&list, 1,4);
+    delete(list, 1);
+    delete(list, 1);
+    delete(list, 1);
 }
 
 

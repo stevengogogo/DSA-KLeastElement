@@ -31,7 +31,7 @@ void swap(int* x, int* y){
 }
 
 int insert_arr(int arr[], int i_, int x, int length){
-    assert(length > 0); // Don't allow empty array
+    //assert(length >= 0); // Don't allow empty array
 
     int moveNum = length - 1 - i_;
 
@@ -55,8 +55,8 @@ void remove_arr(int arr[], int i, int length){
 }
 
 int reverse_arr(int arr[], int str, int end){
-    assert(str>=0);
-    assert(end>=0);
+    //assert(str>=0);
+    //assert(end>=0);
     int STR = str;
     int END = end;
     int flip = 0;
@@ -87,7 +87,7 @@ int BinarySearch_MinBigger(int* arr, int length, int key){
     int low = 0;
     int high = length - 1;
     int mid;
-    assert(high>=low);
+    //assert(high>=low);
 
     int ans = length -1 ;
 
@@ -109,7 +109,7 @@ int BinarySearch_MaxSmaller(int* arr, int length, int key){
     int low = 0;
     int high = length - 1;
     int mid;
-    assert(high>=low);
+    //assert(high>=low);
 
     int ans = -1;
 

@@ -157,6 +157,11 @@ int sortNode(LnkArr*);
 /** @brief sort array between start and end node (including terminals)*/
 MinMax sortBetween(Loc nodeStr, Loc nodeEnd);
 
+/** Find min max in same array
+ * @warning `nodeStr` and `nodeEnd` is asserted on the same array 
+*/
+MinMax findMinMaxLA(Loc nodeStr, Loc nodeEnd);
+
 /**
  * @brief Measure how many items is smaller than `key`.
  * @details Linear search for terminal arrays is made by \ref NumItemSmaller_Screen ; binary search for full array is done by \ref NumItemSmaller_Sorted
@@ -168,5 +173,6 @@ int NumItemSmaller(StrEndLoc StrEnd, int key);
 
 
 void interface(void);
+
 
 #endif

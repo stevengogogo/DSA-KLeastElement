@@ -269,6 +269,32 @@ void test_query_val(void){
 }
 
 
+void test_IDR(void){
+    LnkArr* list = init_list_empty();
+
+    insert(list, 1,1);
+    delete(list, 1);
+    insert(list, 1,1);
+    reverse(&list, 1,1);
+    delete(list, 1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    reverse(&list, 1,2);
+    delete(list, 1);
+    delete(list, 1);
+    delete(list, 1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    insert(list, 1,1);
+    reverse(&list, 1,4);
+    reverse(&list, 1,3);
+    reverse(&list, 1,4);
+    delete(list, 1);
+    delete(list, 1);
+    delete(list, 1);
+}
 
 
 #endif

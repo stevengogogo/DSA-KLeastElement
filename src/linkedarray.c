@@ -28,8 +28,8 @@ int insert(LnkArr* list, int i, int x){
     int isSplit = 0;
     Loc iloc = find_LnkArr_ith(list, i);
 
-    assert(iloc.node->len <= subN);
-    if(iloc.node->len == subN){ // insufficient space 
+    //assert(iloc.node->len <= subN);
+    if(iloc.node->len == subN/2){ // insufficient space 
         splitNode(iloc);
         ++isSplit;
         iloc = find_LnkArr_ith(list, i);
@@ -108,7 +108,7 @@ void splitNode(Loc nodeLoc){
 
 
     // Sum of separated lengths should equal to the original.
-    assert(len == (nodeFirst->len + nodeNew->len) );
+   // assert(len == (nodeFirst->len + nodeNew->len) );
 
 
 }
@@ -147,7 +147,7 @@ int query(LnkArr* list, int l, int r, int k){
 int delete(LnkArr* list, int i){
     Loc iloc = find_LnkArr_ith(list, i);
     int isRemoved = 0;
-    assert(iloc.isEnd == 0);
+//    assert(iloc.isEnd == 0);
     
     if(iloc.node->len > 1){ // more than 1 element
         remove_LArray(iloc);
@@ -182,7 +182,7 @@ void remove_LArray(Loc nodeLoc){
         //if (arrSort[i_sorted] != varMov)
             //--i_sorted;
 
-        assert(arrSort[i_sorted] == varMov);
+ //       assert(arrSort[i_sorted] == varMov);
 
         remove_arr(arrSort, i_sorted, node->len);
     }
@@ -256,7 +256,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
                     list, 
                     (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
      }
-    assert(isHeadMoved == 0);
+    //assert(isHeadMoved == 0);
 
     //split reverse at Start array and End array
     reversePartLA(*nodeStr, *nodeEnd);
@@ -294,11 +294,11 @@ int reversePartLA(Loc nodeStr, Loc nodeEnd){
     }
     //update Str length
     nodeStr.node->len = i_str2;
-    assert(i_str2 < subN);
+    //assert(i_str2 < subN);
 
     //copy str data to end [reverse]
     convert_flag(nodeEnd.node);
-    assert(nodeEnd.node->flag == 1);
+    //assert(nodeEnd.node->flag == 1);
     i_end = getINode(nodeEnd); //update i_end
 
     for (int i=0; i<LenA;i++){
@@ -362,13 +362,13 @@ int flipFullNodes_nodes(LnkArr** list, LnkArr* StrNode, LnkArr* StrPrevNode,LnkA
 
 int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     //Same array
-    assert(nodeStr.node == nodeEnd.node);
+    //assert(nodeStr.node == nodeEnd.node);
     int iStr = getINode(nodeStr);
     int iEnd = getINode(nodeEnd);
     int flip;
 
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
-    assert(iEnd < nodeStr.node->len);
+    //assert(iEnd < nodeStr.node->len);
     //assert(flip == 0); // iStr should be less than iEnd
 }
 
@@ -398,7 +398,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     posI.nodePrev = prevNode; // No previous array at start
 
     if (i==1){ // First array  
-        assert(prevNode == NULL);
+        //assert(prevNode == NULL);
         posI.node = node;
         posI.nodeNext = node->nextNode;
         posI.numCum = num_st;
@@ -416,7 +416,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
         else{
             if (node->nextNode == NULL){ // end of list
                 i_arr = node->len - 1; // last element. 
-                assert( (node->len + num_st) == (i - 1)); // i is at end
+                //assert( (node->len + num_st) == (i - 1)); // i is at end
                 isEnd = 1; // (i-1) th element
                 break;
             }
@@ -438,8 +438,8 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
 }
 
 StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end){
-    assert(str<=end);
-    assert(headlist!=NULL);
+    //assert(str<=end);
+    //assert(headlist!=NULL);
     Loc nodeStr = find_LnkArr_ith(headlist, str);
     Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
     StrEndLoc StrEnd;
@@ -543,7 +543,7 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
 }
 
 MinMax findMinMaxLA(Loc nodeStr, Loc nodeEnd){
-    assert(nodeStr.node == nodeEnd.node);
+    //assert(nodeStr.node == nodeEnd.node);
     LnkArr* node = nodeStr.node;
     int Istr = getINode(nodeStr);
     int Iend = getINode(nodeEnd);
@@ -585,7 +585,7 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
     LnkArr* node = nodeStr.nodeNext;
 
     while(node != nodeEnd.node){
-        assert(node->isSorted == 1);
+        //assert(node->isSorted == 1);
         numSmaller+= NumItemSmaller_Sorted(node->arrSort, 
                                            node->len, 
                                            key) ;
@@ -694,8 +694,8 @@ void interfaceDebuggingFile(char* filename){
 
             StrEndLoc StrEnd = find_start_end_LA(list, v0, v1);
 
-            assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
-            assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
+            //assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
+            //assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
 
             quList =  query(list, v0, v1, v2);  
 
@@ -704,7 +704,7 @@ void interfaceDebuggingFile(char* filename){
 
             quArr = query_array(&listArr, v0,v1,v2);
             //compare_LA_array(&listArr, list);
-            assert(quList == quArr);
+            //assert(quList == quArr);
             printf("\n");  
         }
         else if(strcmp(cmd, "Reverse") == 0){
@@ -714,7 +714,7 @@ void interfaceDebuggingFile(char* filename){
             reverse(&list, v0, v1);
         }
         else {
-            assert(1==0);
+            //assert(1==0);
         }
 
         compare_LA_array(&listArr, list);
@@ -739,7 +739,7 @@ int compare_LA_array(array* arr, LnkArr* list){
     if (diff>0){
         printf("Difference: %d", diff);
     }
-    assert(diff==0);
+   // assert(diff==0);
 }
 
 int compare_InxOrder(LnkArr*list){
@@ -753,12 +753,12 @@ int compare_InxOrder(LnkArr*list){
             quicksort(node->arrInx, 0, list->len-1);
 
             for(int i=0; i<list->len;i++){
-                assert(node->arrInx[i] == list->arrSort[i]);
+                //assert(node->arrInx[i] == list->arrSort[i]);
                 }
         }
         else{
             for(int i=0; i<list->len;i++){
-                assert(list->arrInx[i] == list->arrSort[i]);
+                //assert(list->arrInx[i] == list->arrSort[i]);
                 }
         }
 

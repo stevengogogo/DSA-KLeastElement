@@ -14,11 +14,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
+//#include <assert.h>
 #include <string.h>
 #include "utils.h"
 
-#define subN 2000
+#define subN 4000
 
 /** * Node with arrays.
  * @param len length of stored data

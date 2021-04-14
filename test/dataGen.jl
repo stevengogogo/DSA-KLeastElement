@@ -66,11 +66,11 @@ end
 
 
 function genCommand(n, q)
-    cmd = [doDelete!, doQuery, doInsert!, doReverse!]
+    cmd = [doDelete!, doReverse!, doInsert!, doReverse!]
     #n = 50000*rand() ÷ 1; # initial sequence
     #q = 50000*rand() ÷ 1; # number of commands
-    n = Int(floor(randexp()*n)) +1 
-    q = Int(floor(randexp()*q)) + 1
+    #n = Int(floor(randexp()*n)) +1 
+    #q = Int(floor(randexp()*q)) + 1
     println(inF, "$n $q")
 
     list = [ genVal() for i in 1:n]

@@ -146,7 +146,7 @@ int query(LnkArr* list, int l, int r, int k){
 int delete(LnkArr* list, int i){
     Loc iloc = find_LnkArr_ith(list, i);
     int isRemoved = 0;
-//    assert(iloc.isEnd == 0);
+    assert(iloc.isEnd == 0);
     
     if(iloc.node->len > 1){ // more than 1 element
         remove_LArray(iloc);
@@ -181,7 +181,7 @@ void remove_LArray(Loc nodeLoc){
         //if (arrSort[i_sorted] != varMov)
             //--i_sorted;
 
- //       assert(arrSort[i_sorted] == varMov);
+       assert(arrSort[i_sorted] == varMov);
 
         remove_arr(arrSort, i_sorted, node->len);
     }
@@ -255,7 +255,7 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
                     list, 
                     (*nodeStr).nodeNext,(*nodeStr).node, (*nodeEnd).nodePrev,NULL);
      }
-    //assert(isHeadMoved == 0);
+    assert(isHeadMoved == 0);
 
     //split reverse at Start array and End array
     reversePartLA(*nodeStr, *nodeEnd);
@@ -293,11 +293,11 @@ int reversePartLA(Loc nodeStr, Loc nodeEnd){
     }
     //update Str length
     nodeStr.node->len = i_str2;
-    //assert(i_str2 < subN);
+    assert(i_str2 < subN);
 
     //copy str data to end [reverse]
     convert_flag(nodeEnd.node);
-    //assert(nodeEnd.node->flag == 1);
+    assert(nodeEnd.node->flag == 1);
     i_end = getINode(nodeEnd); //update i_end
 
     for (int i=0; i<LenA;i++){
@@ -361,14 +361,14 @@ int flipFullNodes_nodes(LnkArr** list, LnkArr* StrNode, LnkArr* StrPrevNode,LnkA
 
 int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     //Same array
-    //assert(nodeStr.node == nodeEnd.node);
+    assert(nodeStr.node == nodeEnd.node);
     int iStr = getINode(nodeStr);
     int iEnd = getINode(nodeEnd);
     int flip;
 
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
-    //assert(iEnd < nodeStr.node->len);
-    //assert(flip == 0); // iStr should be less than iEnd
+    assert(iEnd < nodeStr.node->len);
+    assert(iStr <= iEnd); // iStr should be less than iEnd
 }
 
 void update_orderArr(LnkArr* node){

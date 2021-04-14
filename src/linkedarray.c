@@ -28,7 +28,7 @@ int insert(LnkArr* list, int i, int x){
     int isSplit = 0;
     Loc iloc = find_LnkArr_ith(list, i);
 
-    //assert(iloc.node->len <= subN);
+    assert(iloc.node->len <= subN);
     if(iloc.node->len == subN/2){ // insufficient space 
         splitNode(iloc);
         ++isSplit;
@@ -77,7 +77,6 @@ void splitNode(Loc nodeLoc){
     nodeNew->isSorted = nodeLoc.node->isSorted;
     nodeNew->len = 0;
 
-    //assert(len == subN);
 
     // move data
     for(int i= (len/2); i < len ;i++){

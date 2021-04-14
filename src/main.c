@@ -21,7 +21,7 @@ int main()
     interface();
 
 
-    //interfaceDebuggingFile("test/data/21.in");
+    //interfaceDebuggingFile("test/data/10.in");
 
 
     return 0;

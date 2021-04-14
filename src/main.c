@@ -14,15 +14,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "linkedarray.h"
-
+#include <assert.h>
 
 int main()
 {
-    //interface();
+    interface();
 
 
-    
-    interfaceDebuggingFile("test/data/21.in");
+    //interfaceDebuggingFile("test/data/10.in");
 
 
     return 0;

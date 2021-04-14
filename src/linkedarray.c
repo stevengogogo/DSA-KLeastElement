@@ -371,7 +371,6 @@ int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
 
     assert(iEnd < nodeStr.node->len);
-    assert(iStr <= iEnd); // iStr should be less than iEnd
     return flip;
 }
 
@@ -401,7 +400,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
     posI.nodePrev = prevNode; // No previous array at start
 
     if (i==1){ // First array  
-        //assert(prevNode == NULL);
+        assert(prevNode == NULL);
         posI.node = node;
         posI.nodeNext = node->nextNode;
         posI.numCum = num_st;
@@ -419,7 +418,7 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
         else{
             if (node->nextNode == NULL){ // end of list
                 i_arr = node->len - 1; // last element. 
-                //assert( (node->len + num_st) == (i - 1)); // i is at end
+                assert( (node->len + num_st) == (i - 1)); // i is at end
                 isEnd = 1; // (i-1) th element
                 break;
             }
@@ -441,8 +440,8 @@ Loc find_LnkArr_ith_bounded(LnkArr* startNode, LnkArr* prevNode, int sumLenPrev,
 }
 
 StrEndLoc find_start_end_LA(LnkArr* headlist, int str, int end){
-    //assert(str<=end);
-    //assert(headlist!=NULL);
+    assert(str<=end);
+    assert(headlist!=NULL);
     Loc nodeStr = find_LnkArr_ith(headlist, str);
     Loc nodeEnd = find_LnkArr_ith_bounded(nodeStr.node, nodeStr.nodePrev, nodeStr.numCum, end);
     StrEndLoc StrEnd;
@@ -546,7 +545,7 @@ MinMax sortBetween(Loc nodeStr, Loc nodeEnd){
 }
 
 MinMax findMinMaxLA(Loc nodeStr, Loc nodeEnd){
-    //assert(nodeStr.node == nodeEnd.node);
+    assert(nodeStr.node == nodeEnd.node);
     LnkArr* node = nodeStr.node;
     int Istr = getINode(nodeStr);
     int Iend = getINode(nodeEnd);
@@ -588,7 +587,7 @@ int NumItemSmaller(StrEndLoc StrEnd, int key){
     LnkArr* node = nodeStr.nodeNext;
 
     while(node != nodeEnd.node){
-        //assert(node->isSorted == 1);
+        assert(node->isSorted == 1);
         numSmaller+= NumItemSmaller_Sorted(node->arrSort, 
                                            node->len, 
                                            key) ;
@@ -697,8 +696,8 @@ void interfaceDebuggingFile(char* filename){
 
             StrEndLoc StrEnd = find_start_end_LA(list, v0, v1);
 
-            //assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
-            //assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
+            assert(StrEnd.str.node->arrInx[getINode(StrEnd.str)] == listArr.arr[v0 - 1]);
+            assert(StrEnd.end.node->arrInx[getINode(StrEnd.end)] == listArr.arr[v1 - 1]);
 
             quList =  query(list, v0, v1, v2);  
 

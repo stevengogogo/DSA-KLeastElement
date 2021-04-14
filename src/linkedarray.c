@@ -371,7 +371,6 @@ int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
 
     assert(iEnd < nodeStr.node->len);
-    assert(iStr <= iEnd); // iStr should be less than iEnd
     return flip;
 }
 

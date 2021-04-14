@@ -194,14 +194,17 @@ array init_array(){
 int insert_array(array* list, int i, int x){
     ++(list->len);
     insert_arr(list->arr, i-1, x, list->len);
+    return list->len;
 };
 
 int delete_array(array* list, int i){
     remove_arr(list->arr, i-1,list->len);
     --(list->len);
+    return list->len;
 }
 int reverse_array(array* list, int l, int r){
     reverse_arr(list->arr, l-1, r-1);
+    return list->len;
 }
 
 int query_array(array* list, int l, int r, int k){

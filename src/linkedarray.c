@@ -259,6 +259,8 @@ int reverseSplit(LnkArr** list, Loc* nodeStr, Loc* nodeEnd, int Istr, int Iend){
 
     //split reverse at Start array and End array
     reversePartLA(*nodeStr, *nodeEnd);
+
+    return isHeadMoved;
 }
 
 int reversePartLA(Loc nodeStr, Loc nodeEnd){
@@ -310,7 +312,7 @@ int reversePartLA(Loc nodeStr, Loc nodeEnd){
      //reorder
      update_orderArr(nodeStr.node);
      update_orderArr(nodeEnd.node);
-
+    return i_end;
 }
 
 int flipFullNodes(LnkArr** list, Loc nodeStr, Loc nodeEnd ){
@@ -367,8 +369,10 @@ int reverseInNodes(Loc nodeStr, Loc nodeEnd){
     int flip;
 
     flip = reverse_arr(nodeStr.node->arrInx, iStr, iEnd);
+
     assert(iEnd < nodeStr.node->len);
     assert(iStr <= iEnd); // iStr should be less than iEnd
+    return flip;
 }
 
 void update_orderArr(LnkArr* node){
@@ -739,6 +743,7 @@ int compare_LA_array(array* arr, LnkArr* list){
         printf("Difference: %d", diff);
     }
    // assert(diff==0);
+   return 0;
 }
 
 int compare_InxOrder(LnkArr*list){
@@ -765,4 +770,6 @@ int compare_InxOrder(LnkArr*list){
     }
     
     free(node);
+
+    return 0;
 }
